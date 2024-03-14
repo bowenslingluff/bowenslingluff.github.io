@@ -1,14 +1,23 @@
 #headshot {
     width: 220px;
     height: 220px;
-    margin-top: 175px;
+    margin-top: 150px;
     margin-bottom: 20px
 }
 
-.hometext {
-    color: #004766;
+.hometext{
+    color: darkslategray;
 }
 
+
 body {
-    background-color: azure;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* This ensures the body expands to at least the height of the viewport */
+
+}
+
+.footer {
+    margin-top: auto; /* This pushes the footer to the bottom */
 }
