@@ -1,16 +1,16 @@
 :root {
     --primary-color: black;
-    --secondary-color: #536390;
-    --font-color: #black;
+    --secondary-color: #2cbfc4;
+    --font-color: black;
     --bg-color: white;
     --hover-color: #5bc0de;
 }
 
 [data-theme="dark"] {
-    --primary-color: white;
-    --secondary-color: #818cab;
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: #af33d9;
     --font-color: white;
-    --bg-color: black;
+    --bg-color: rgb(35, 35, 35);
     --hover-color: #b124db;
 }
 
@@ -31,7 +31,7 @@ body {
     margin-top: 5px;
     margin-right: 15px;
     font-size: 30px;
-    color: var(--font-color);
+    color: var(--primary-color);
 }
 .mode:hover {
     color: var(--hover-color);
