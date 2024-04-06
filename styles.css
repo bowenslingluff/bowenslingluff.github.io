@@ -1,23 +1,78 @@
-#headshot {
-    width: 220px;
-    height: 220px;
-    margin-top: 150px;
-    margin-bottom: 20px
-}
-
-.hometext{
-    color: darkslategray;
-}
-
-
 body {
     background-color: white;
+    font-family: monospace;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* This ensures the body expands to at least the height of the viewport */
-
+    margin: 0;
+    padding: 0;
 }
 
-.footer {
+header {
+    margin-top: auto;
+}
+
+
+
+#headshot {
+    width: 220px;
+    height: 220px;
+}
+
+.hometext{
+    color: black;
+}
+
+.link {
+    color: black;
+    position: relative;
+    display: inline-block;
+}
+
+.link:hover {
+    color: #5bc0de;
+}
+
+/* Tooltip text */
+.link .linktext {
+    visibility: hidden;
+    width: auto; /* Adjust as needed */
+    white-space: nowrap;
+    background-color: black;
+    color: #fff;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: visibility 0.2s, opacity 0.2s ease-in;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.link:hover .linktext {
+    visibility: visible;
+}
+
+.link .linktext::after {
+    content: " ";
+    position: absolute;
+    top: -10px; /* Position the arrow at the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent; /* Adjust the arrow color to match the tooltip */
+}
+
+a {
+    font-size: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+footer {
     margin-top: auto; /* This pushes the footer to the bottom */
 }
