@@ -1,6 +1,6 @@
 :root {
     --primary-color: black;
-    --secondary-color: #2cbfc4;
+    --secondary-color: #b5f3f6;
     --font-color: black;
     --bg-color: white;
     --hover-color: #5bc0de;
@@ -8,7 +8,7 @@
 
 [data-theme="dark"] {
     --primary-color: rgb(255, 255, 255);
-    --secondary-color: #af33d9;
+    --secondary-color: #edb6ff;
     --font-color: white;
     --bg-color: rgb(35, 35, 35);
     --hover-color: #b124db;
@@ -19,15 +19,15 @@ body {
     font-family: monospace;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* This ensures the body expands to at least the height of the viewport */
+    min-height: 100vh; 
     margin: 0;
     padding: 0;
 }
 
 .mode {
     position: fixed; /* Fixed position regardless of scrolling */
-    top: 0;         /* Align to the top of the viewport */
-    right: 0;       /* Align to the right of the viewport */
+    top: 0;        
+    right: 0;   
     margin-top: 5px;
     margin-right: 15px;
     font-size: 30px;
@@ -78,7 +78,7 @@ header {
 /* Tooltip text */
 .link .linktext {
     visibility: hidden;
-    width: auto; /* Adjust as needed */
+    width: auto; 
     white-space: nowrap;
     background-color: black;
     color: #fff;
@@ -93,7 +93,6 @@ header {
     transition: visibility 0.2s, opacity 0.2s ease-in;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
 .link:hover .linktext {
     visibility: visible;
 }
@@ -101,17 +100,68 @@ header {
 .link .linktext::after {
     content: " ";
     position: absolute;
-    top: -10px; /* Position the arrow at the top of the tooltip */
+    top: -10px; 
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent transparent black transparent; /* Adjust the arrow color to match the tooltip */
+    border-color: transparent transparent black transparent; 
+}
+
+/* h1 { */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+.contact-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    height: 100vh;
+    justify-content: center;
+    /* background-color: var(--secondary-color); */
+}
+
+.contact-top {
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+.contact-content {
+    display: flex;
+    width: 75%; 
+    align-items: flex-start;
+}
+.contact-left, .contact-right {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+.contact-left { 
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-left.contact-left-items {
+    align-items: start;
+}
+
+.contact-right { 
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-right form {
+    align-items: start;
+}
+.contact-inputs {
+    width: 400px;
+    height: 50px;
 }
 
 
 footer {
-    margin-top: auto; /* This pushes the footer to the bottom */
+    margin-top: auto; 
     background-color: var(--bg-color);
     color: var(--primary-color);
 }
