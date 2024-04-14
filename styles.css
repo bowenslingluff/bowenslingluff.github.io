@@ -1,27 +1,34 @@
 :root {
-    --primary-color: black;
+    --primary-color: rgb(49, 49, 49);
     --secondary-color: #b5f3f6;
     --font-color: black;
     --bg-color: white;
     --hover-color: #5bc0de;
+    --shadow-color: rgb(80, 80, 80);
 }
 
 [data-theme="dark"] {
     --primary-color: rgb(255, 255, 255);
     --secondary-color: #edb6ff;
     --font-color: white;
-    --bg-color: rgb(35, 35, 35);
+    --bg-color: rgb(48, 48, 48);
     --hover-color: #b124db;
+    --shadow-color: rgb(116, 116, 116);
 }
 
 body {
     background-color: var(--bg-color);
     font-family: monospace;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh; 
     margin: 0;
     padding: 0;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    padding-top: 8%;
 }
 
 .mode {
@@ -30,16 +37,43 @@ body {
     right: 0;   
     margin-top: 5px;
     margin-right: 15px;
-    font-size: 30px;
-    color: var(--primary-color);
+    font-size: 20px;
 }
-.mode:hover {
+
+.theme {
+    color: var(--primary-color);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-color);
+    border-radius: 100%;
+    border: 2px solid var(--primary-color);
+    box-shadow: 4px 4px var(--shadow-color);
+}
+
+.theme:hover {
     color: var(--hover-color);
+}
+
+.theme:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+  }
+
+.input {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
 }
 
 
 header {
-    margin-top: auto;
     color: var(--primary-color);
 }
 
@@ -108,12 +142,14 @@ header {
     border-color: transparent transparent black transparent; 
 }
 
-/* h1 { */
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-} */
+.scroll {
+    text-align: center;
+    margin-top: auto; 
+    font-size: 30px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
 .contact-container {
     display: flex;
     flex-direction: column; 
@@ -158,7 +194,6 @@ header {
     width: 400px;
     height: 50px;
 }
-
 
 footer {
     margin-top: auto; 
