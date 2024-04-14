@@ -10,59 +10,93 @@
         <title>Bowen Slingluff</title>
     </head>
     <body>
-        <div class="mode" role="button" aria-pressed="false" aria-label="Toggle dark mode">
-            <i class="bi bi-sun"></i>
+        <div class="home">
+          <div class="mode">
+            <label class="theme">
+              <input class="input" checked="checked" type="checkbox">
+                <i class="bi bi-sun"></i>
+            </label>
+          </div>
+  
+          <header>
+              <img id="headshot" src="images/headshot.jpeg" alt="Bowen Slingluff" class="rounded border border-4 mx-auto d-block my-4">
+              <h1 class="text-center">
+                  Bowen Slingluff
+              </h1>
+          </header>
+  
+          <div class="rounded border border-4 my-3 mx-auto py-3">
+              <ul class="nav justify-content-center">
+                  <li class="nav-item">
+                    <a href="about.html" class="nav-link site_pages fw-semibold">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="projects.html" class="nav-link site_pages fw-semibold">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#contact" class="nav-link site_pages fw-semibold">Contact</a>
+                  </li>
+              </ul>
+          </div>
+  
+          <div class="mx-auto">
+              <a href="https://www.linkedin.com/in/bowen-slingluff" target="_blank" class="link">
+                <i class="bi bi-linkedin"></i>
+                <span class="linktext">linkedin.com/in/bowen-slingluff</span>
+              </a>
+              <a href="https://www.github.com/bowenslingluff" target="_blank" class="link">
+                <i class="bi bi-github"></i>
+                <span class="linktext">github.com/bowenslingluff</span>
+              </a>
+              <a href="https://www.instagram.com/bslingluff14/" target="_blank" class="link">
+                <i class="bi bi-instagram"></i>
+                <span class="linktext">instagram.com/bslingluff14</span>
+              </a>
+              <a href="https://twitter.com/SlingluffBowen" target="_blank" class="link">
+                <i class="bi bi-twitter-x"></i>
+                <span class="linktext">twitter.com/SlingluffBowen</span>
+              </a>
+              <a href="https://music.apple.com/profile/bcslingluff" target="_blank" class="link">
+                <i class="bi bi-music-note-beamed"></i>
+                <span class="linktext">music.apple.com/profile/bcslingluff</span>
+              </a>
+          </div>
+          <p class="scroll"> &darr; &darr; &darr;</p>
         </div>
+        
+        
 
-        <header>
-            <img id="headshot" src="images/headshot.jpeg" alt="Bowen Slingluff" class="rounded border border-4 mx-auto d-block my-4">
-            <h1 class="text-center">
-                Bowen Slingluff
-            </h1>
-        </header>
+        <div id="contact" class="contact-container">
+          <h1 class="contact-top">Contact Me!</h1>
+          <div class="contact-content">
+              <div class="contact-left">
+                  <h3>My info:</h3>
+                  <div class="contact-left-items">
+                      <p>Phone number: 978-325-2295</p>
+                      <p>Personal email: bcslingluff@gmail.com</p>
+                      <p>School email: jdx7es@virginia.edu</p>
+                  </div>
+              </div>
 
-        <div class="rounded border border-4 my-3 mx-auto py-3">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                  <a href="about.html" class="nav-link site_pages fw-semibold">About</a>
-                </li>
-                <li class="nav-item">
-                  <a href="projects.html" class="nav-link site_pages fw-semibold">Projects</a>
-                </li>
-                <li class="nav-item">
-                  <a href="contact.html" class="nav-link site_pages fw-semibold">Contact</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="mx-auto">
-            <a href="https://www.linkedin.com/in/bowen-slingluff" target="_blank" class="link">
-              <i class="bi bi-linkedin"></i>
-              <span class="linktext">linkedin.com/in/bowen-slingluff</span>
-            </a>
-            <a href="https://www.github.com/bowenslingluff" target="_blank" class="link">
-              <i class="bi bi-github"></i>
-              <span class="linktext">github.com/bowenslingluff</span>
-            </a>
-            <a href="https://www.instagram.com/bslingluff14/" target="_blank" class="link">
-              <i class="bi bi-instagram"></i>
-              <span class="linktext">instagram.com/bslingluff14</span>
-            </a>
-            <a href="https://twitter.com/SlingluffBowen" target="_blank" class="link">
-              <i class="bi bi-twitter-x"></i>
-              <span class="linktext">twitter.com/SlingluffBowen</span>
-            </a>
-            <a href="https://music.apple.com/profile/bcslingluff" target="_blank" class="link">
-              <i class="bi bi-music-note-beamed"></i>
-              <span class="linktext">music.apple.com/profile/bcslingluff</span>
-            </a>
-        </div>
-
-
-        <footer class="footer text-center">
-            <div class="text-center p-3 opacity-75">
-              © 2024 Bowen Slingluff
-            </div>
+              <div class="contact-right">
+                  <h3>Message me:</h3>
+                  <form class="contact-right">  
+                      <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+                      <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+                      <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+                      <button type="submit">Submit</button>
+                  </form>
+              </div>
+          </div>
+          
         </footer>
+      </div>
+
+      <footer class="footer text-center">
+        <div class="text-center p-3 opacity-75">
+          © 2024 Bowen Slingluff
+        </div>
+
+        
     </body>
 </html>
