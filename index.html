@@ -74,25 +74,27 @@
           </div>
 
           <div id="contact" class="contact-container">
-            <h1 class="contact-top">Contact Me!</h1>
+            <!-- <h1 class="contact-top">Contact Me!</h1> -->
             <div class="contact-content">
-                <div class="contact-left">
+
+                  <form action="https://api.web3forms.com/submit" method="POST" class="contact-left"> 
+                      <div class="contact-left-title">
+                        <h3>Contact me!</h3>
+                        <hr>
+                      </div> 
+                      <input type="hidden" name="access_key" value="24bbdbe9-1f20-4efd-a8cb-ed97637afdbb">
+                      <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+                      <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+                      <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+                      <button type="submit">Submit</button>
+                  </form>
+                  <div class="contact-right">
                     <h3>My info:</h3>
-                    <div class="contact-left-items">
+                    <div class="contact-right-items">
                         <p>Phone number: 978-325-2295</p>
                         <p>Personal email: bcslingluff@gmail.com</p>
                         <p>School email: jdx7es@virginia.edu</p>
                     </div>
-                </div>
-
-                <div class="contact-right">
-                    <h3>Message me:</h3>
-                    <form class="contact-right">  
-                        <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
-                        <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
-                        <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
-                        <button type="submit">Submit</button>
-                    </form>
                 </div>
             </div>
             
