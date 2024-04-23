@@ -1,7 +1,7 @@
 :root {
     --primary-color: rgb(0, 0, 0);
     /* --secondary-color: #c8e9ff; */
-    --font-color: black;
+    --font-color: #bc5090;
     --bg-color: #C9D6FF;
     --secondary-bg-color: #E2E2E2;
     --hover-color: #d83dfa;
@@ -10,7 +10,7 @@
 [data-theme="dark"] {
     --primary-color: rgb(255, 255, 255);
     /* --secondary-color: #711c8e; */
-    --font-color: white;
+    --font-color: #ff6361;
     --bg-color: #2C3E50;
     --secondary-bg-color: #4CA1AF;
     --hover-color: #d83dfa;
@@ -24,7 +24,7 @@ body {
 }
 
 .gradient-background {
-    background: linear-gradient(var(--bg-color), var(--secondary-bg-color));
+    background: linear-gradient(var(--bg-color), var(--secondary-bg-color), var(--bg-color));
     color: var(--primary-color);
 }
 
@@ -82,7 +82,7 @@ header {
 }
 
 .site_pages {
-    color: var(--font-color);
+    color: var(--primary-color);
     font-size: 20px;
     margin-right: 10px;
     margin-left: 10px;
@@ -104,7 +104,7 @@ header {
     font-size: 30px;
     margin-right: 10px;
     margin-left: 10px;
-    color: var(--font-color);
+    color: var(--primary-color);
     position: relative;
     display: inline-block;
 }
@@ -178,28 +178,71 @@ header {
     flex: 1;
     display: flex;
     justify-content: center; 
-    align-items: center;
-}
-.contact-left { 
     flex-direction: column;
     gap: 20px;
 }
-.contact-left.contact-left-items {
+.contact-left {
     align-items: start;
 }
 
-.contact-right { 
-    flex-direction: column;
-    gap: 20px;
+.contact-right {
+    align-items: center;
 }
-.contact-right form {
+
+.contact-right.contact-right-items {
     align-items: start;
+}
+
+
+.contact-left-title h3 {
+    color: var(--primary-color);
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.contact-left hr {
+    border: none;
+    width: 260px;
+    height: 5px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 .contact-inputs {
     width: 400px;
     height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: var(--font-color);
+    border-radius: 50px;
+}
+.contact-left textarea {
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
 }
 
+.contact-inputs:focus {
+    border: 2px solid var(--font-color);
+}
+
+.contact-inputs::placeholder {
+    color: #a9a9a9;
+}
+
+.contact-left button {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #4CA1AF, #4c7faf);
+}
 
 .about-container {
     display: flex;
