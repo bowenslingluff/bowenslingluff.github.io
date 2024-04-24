@@ -1,3 +1,5 @@
+// Theme Color
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const modeToggle = document.querySelector('.theme');
     const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
@@ -23,6 +25,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+// Scroll down arrows
+
 document.addEventListener('scroll', function() {
     var scrollElement = document.querySelector('.scroll');
     if (window.scrollY > 50) { // Adjust the value based on your needs
@@ -30,6 +34,19 @@ document.addEventListener('scroll', function() {
     } else {
       scrollElement.style.opacity = '1'; // Fade in the arrows when at the top
     }
-  });
+});
+
+// Home link
+document.addEventListener('scroll', function() {
+    var homeLink = document.getElementById('homeLink');
+    if (window.scrollY > 100) { // Adjust this value based on when you want the link to appear
+        homeLink.style.opacity = '1'; // Show the link
+
+    } else {
+        homeLink.style.opacity = '0'; // Hide the link
+    }
+});
+
+
   
   
