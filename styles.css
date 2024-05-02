@@ -2,20 +2,20 @@
 
 :root {
     --primary-color: rgb(0, 0, 0);
-    /* --secondary-color: #c8e9ff; */
     --font-color: #bc5090;
     --bg-color: #83a4d4;
     --secondary-bg-color: #b6fbff;
     --hover-color: rgb(0, 55, 255);
+    --projects-bg: white;
 }
 
 [data-theme="dark"] {
     --primary-color: rgb(255, 255, 255);
-    /* --secondary-color: #711c8e; */
     --font-color: #ff6361;
     --bg-color: #2C3E50;
     --secondary-bg-color: #4CA1AF;
     --hover-color: #bdbdbd;
+    --projects-bg: rgb(218, 218, 218);
 }
 
 /* Body */
@@ -217,31 +217,50 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    overflow: hidden;
     height: 100vh; /* Adjust based on your layout */
+    width: 100%;
+}
+
+.projects-label {
+    margin-top: 30px
 }
 
 .project-gallery {
     display: flex;
     flex-wrap: wrap;
+    overflow-y: auto;
     justify-content: space-around;
-    overflow-y: auto; /* Enable vertical scrolling */
-    gap: 10px; /* Space between cards */
-    background-color: white;
-    width: 80%;
-    height: 70vh;
+    gap: 30px; /* Space between cards */
+    background-color: var(--projects-bg);
+    max-width: 80%;
+    min-width: 80%;
+    height: 80%;
+    padding: 20px 0;
+    margin: 30px 0;
+    border: 3px solid black;
 }
 
 .project-card {
     width: 30%; /* Adjust based on your layout */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Card shadow */
-    margin-top: 20px; /* Space below each card */
-    margin-bottom: 20px;
-    background-color: rgb(188, 188, 188);
+    min-width: 320px;
+    height: 60%;
+    background: linear-gradient(var(--bg-color), var(--secondary-bg-color));
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 .project-image {
-    width: 100%; /* Make image fill card width */
+    padding-top: 10px;
+    width: 40%; /* Make image fill card width */
     height: auto; /* Maintain aspect ratio */
 }
 
