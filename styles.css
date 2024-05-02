@@ -215,37 +215,40 @@ body {
 
 .projects-container {
     display: flex;
-    flex-direction: column;  
-    align-items: center; 
-    height: 100vh;
-    color: var(--primary-color);
+    flex-direction: column;
+    align-items: center;
+    
+    height: 100vh; /* Adjust based on your layout */
 }
 
-
-#projects {
-    position: relative;
+.project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-y: auto; /* Enable vertical scrolling */
+    gap: 10px; /* Space between cards */
+    background-color: white;
+    width: 80%;
+    height: 70vh;
 }
 
-.color-container {
-    border-color: rgb(163, 163, 163);
-    background: rgb(250, 250, 250);
+.project-card {
+    width: 30%; /* Adjust based on your layout */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Card shadow */
+    margin-top: 20px; /* Space below each card */
+    margin-bottom: 20px;
+    background-color: rgb(188, 188, 188);
 }
 
-.project-img {
-    border-radius: 2rem;
-    width: 90%;
-    height: 90%;
+.project-image {
+    width: 100%; /* Make image fill card width */
+    height: auto; /* Maintain aspect ratio */
 }
 
-.project-title {
-    margin: 1rem;
-    color: var(--primary-color);
+.project-title, .project-summary {
+    padding: 10px; /* Padding inside the card */
 }
 
-.project-btn {
-    color: var(--primary-color);
-    border-color: rgb(163, 163, 163);
-}
 
 
 /* Contact Page */
