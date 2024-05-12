@@ -211,9 +211,22 @@ body {
     color: var(--primary-color);
 }
 
+.about-label {
+    margin-bottom: 40px;
+    /* border-bottom: 3px solid var(--primary-color); */
+    
+}
+
 .about-content {
     width: 70%;
+}
 
+.about-text {
+    text-align: justify;
+}
+.about-image {
+    float: left;
+    margin: 5px;
 }
 /* Projects Page */
 
@@ -224,10 +237,6 @@ body {
     overflow: hidden;
     height: 100vh; /* Adjust based on your layout */
     width: 100%;
-}
-
-.projects-label {
-    margin-top: 30px
 }
 
 .project-gallery {
