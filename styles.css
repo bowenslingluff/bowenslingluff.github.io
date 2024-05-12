@@ -37,7 +37,7 @@ body {
     transition: opacity 0.5s ease-in-out;
     position: fixed; /* Keep it in the same place on the screen */
     top: 10px; /* Distance from the top of the viewport */
-    left: 25px; /* Distance from the left of the viewport */
+    left: 15px; /* Distance from the left of the viewport */
     padding: 8px;
     text-decoration: none; /* Remove underline from the link */
     color: var(--primary-color);
@@ -207,10 +207,14 @@ body {
     display: flex;
     flex-direction: column;  
     align-items: center; 
-    height: 100vh;
+    height: 80vh;
     color: var(--primary-color);
 }
 
+.about-content {
+    width: 70%;
+
+}
 /* Projects Page */
 
 .projects-container {
@@ -233,8 +237,8 @@ body {
     justify-content: space-around;
     gap: 30px; /* Space between cards */
     background-color: var(--projects-bg);
-    max-width: 80%;
-    min-width: 80%;
+    max-width: 88%;
+    min-width: 88%;
     height: 80%;
     padding: 20px 0;
     margin: 30px 0;
@@ -254,7 +258,7 @@ body {
 }
 
 .project-card:hover {
-    transform: scale(1.02);
+    transform: scale(0.98);
     cursor: pointer;
 }
 
@@ -372,7 +376,7 @@ body {
     background: linear-gradient(270deg, #4CA1AF, #4c7faf);
 }
 .contact-left button:hover {
-    transform: scale(1.1);
+    transform: scale(0.95);
 }
 
 footer {
