@@ -36,6 +36,8 @@ document.addEventListener('scroll', function() {
     }
 });
 
+//
+
 // Home link
 document.addEventListener('scroll', function() {
     var homeLink = document.getElementById('homeLink');
@@ -45,6 +47,64 @@ document.addEventListener('scroll', function() {
     } else {
         homeLink.style.opacity = '0'; // Hide the link
     }
+});
+
+// Project Scroll arrows
+
+document.addEventListener('DOMContentLoaded', function() {
+    const upArrow = document.getElementById('up-arrow');
+    const downArrow = document.getElementById('down-arrow');
+
+    // Change to filled icon on hover
+    upArrow.addEventListener('mouseover', function() {
+        this.classList.remove('bi-caret-up');
+        this.classList.add('bi-caret-up-fill');
+    });
+
+    // Revert to outline icon when not hovered
+    upArrow.addEventListener('mouseout', function() {
+        this.classList.remove('bi-caret-up-fill');
+        this.classList.add('bi-caret-up');
+    });
+
+    // Change to filled icon on hover
+    downArrow.addEventListener('mouseover', function() {
+        this.classList.remove('bi-caret-down');
+        this.classList.add('bi-caret-down-fill');
+    });
+
+    // Revert to outline icon when not hovered
+    downArrow.addEventListener('mouseout', function() {
+        this.classList.remove('bi-caret-down-fill');
+        this.classList.add('bi-caret-down');
+    });
+});
+
+
+// Home link
+document.addEventListener('scroll', function() {
+    var homeLink = document.getElementById('homeLink');
+    if (window.scrollY > 100) { // Adjust this value based on when you want the link to appear
+        homeLink.style.opacity = '1'; // Show the link
+
+    } else {
+        homeLink.style.opacity = '0'; // Hide the link
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const gallery = document.querySelector('.project-gallery');
+    const upArrow = document.getElementById('up-arrow');
+    const downArrow = document.getElementById('down-arrow');
+    const cardHeight = gallery.querySelector('.project-card').clientHeight + 20; // Height of a single card
+
+    upArrow.addEventListener('click', () => {
+        gallery.scrollBy({ top: -cardHeight, behavior: 'smooth' }); // Scroll up by the height of one card
+    });
+
+    downArrow.addEventListener('click', () => {
+        gallery.scrollBy({ top: cardHeight, behavior: 'smooth' }); // Scroll down by the height of one card
+    });
 });
 
 
