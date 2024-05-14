@@ -211,26 +211,25 @@ body {
     color: var(--primary-color);
 }
 
-.about-label {
-    margin-bottom: 40px;
-    /* border-bottom: 3px solid var(--primary-color); */
-    
-}
-
 .about-content {
-    width: 70%;
+    width: 45%;
+    margin: auto;
 }
 
 .about-text {
     text-align: justify;
+    font-size: 17px;
 }
 .about-image {
     float: left;
-    margin: 5px;
+    margin: 5px 10px 5px 0;
+    width: 220px;
+    height: auto;
 }
 /* Projects Page */
 
 .projects-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -239,31 +238,43 @@ body {
     width: 100%;
 }
 
+.projects-label {
+    margin-bottom: 30px;
+}
+
 .project-gallery {
     display: flex;
     flex-wrap: wrap;
-    overflow-y: auto;
+    overflow-y:hidden;
     justify-content: space-around;
-    gap: 30px; /* Space between cards */
     background-color: var(--projects-bg);
     max-width: 88%;
     min-width: 88%;
     height: 80%;
-    padding: 20px 0;
-    margin: 30px 0;
     border: 3px solid black;
 }
 
 .project-card {
     width: 30%; /* Adjust based on your layout */
+    margin: 10px 0;
     min-width: 320px;
-    height: 60%;
+    height: 96%;
     background: linear-gradient(var(--bg-color), var(--secondary-bg-color));
     border: 1px solid black;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.scroll-arrow {
+    font-size: 50px;
+}
+
+
+.scroll-arrow:hover {
+    cursor: pointer;
+    /* transform: scale(1.1); */
 }
 
 .project-card:hover {
@@ -289,7 +300,7 @@ body {
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    height: 100vh;
+    height: 90vh;
     justify-content: center;
     color: var(--primary-color);
 }
