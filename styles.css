@@ -230,7 +230,6 @@ body {
 /* Projects Page */
 
 .projects-container {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
