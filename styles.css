@@ -209,11 +209,12 @@ body {
     align-items: center; 
     height: 80vh;
     color: var(--primary-color);
+    margin-bottom: 120px;
 }
 
 .about-content {
     width: 45%;
-    margin: auto;
+    margin-top: 30px;
 }
 
 .about-text {
