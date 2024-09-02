@@ -86,7 +86,7 @@ body {
 
 #headshot {
     width: 220px;
-    height: 220px;
+    height: auto;
 }
 
 
@@ -265,7 +265,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
+    text-decoration: none;
 }
+
 
 .scroll-arrow {
     font-size: 50px;
@@ -280,16 +283,27 @@ body {
 .project-card:hover {
     transform: scale(0.98);
     cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
 
-.project-image {
+.betting-project-image {
     padding-top: 10px;
-    width: 40%; /* Make image fill card width */
+    width: 95%; /* Make image fill card width */
     height: auto; /* Maintain aspect ratio */
+}
+
+.betting-project-image {
+    transition: transform .5s;
+}
+  
+.betting-project-image:hover {
+    transform: translate(200px) scale(2.2);
 }
 
 .project-title, .project-summary {
     padding: 10px; /* Padding inside the card */
+    font-family: monospace;
 }
 
 
