@@ -301,6 +301,21 @@ body {
     transform: translate(200px) scale(2.2);
 }
 
+.fraud-project-image {
+    padding-top: 10px;
+    width: 95%; /* Make image fill card width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.fraud-project-image {
+    transition: transform .5s;
+}
+  
+.fraud-project-image:hover {
+    transform: translateY(-100px) scale(1.6);
+}
+
+
 .project-title, .project-summary {
     padding: 10px; /* Padding inside the card */
     font-family: monospace;
