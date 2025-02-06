@@ -23,35 +23,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
     });
-});
 
-// Scroll down arrows
-
-document.addEventListener('scroll', function() {
-    var scrollElement = document.querySelector('.scroll');
-    if (window.scrollY > 50) { // Adjust the value based on your needs
-      scrollElement.style.opacity = '0'; // Fade out the arrows when scrolling down
-    } else {
-      scrollElement.style.opacity = '1'; // Fade in the arrows when at the top
-    }
-});
-
-//
-
-// Home link
-document.addEventListener('scroll', function() {
-    var homeLink = document.getElementById('homeLink');
-    if (window.scrollY > 100) { // Adjust this value based on when you want the link to appear
-        homeLink.style.opacity = '1'; // Show the link
-
-    } else {
-        homeLink.style.opacity = '0'; // Hide the link
-    }
-});
-
-// Project Scroll arrows
-
-document.addEventListener('DOMContentLoaded', function() {
     const upArrow = document.getElementById('up-arrow');
     const downArrow = document.getElementById('down-arrow');
 
@@ -78,7 +50,18 @@ document.addEventListener('DOMContentLoaded', function() {
         this.classList.remove('bi-caret-down-fill');
         this.classList.add('bi-caret-down');
     });
+    const gallery = document.querySelector('.project-gallery');
+    const cardHeight = gallery.querySelector('.project-card').clientHeight + 20; // Height of a single card
+
+    upArrow.addEventListener('click', () => {
+        gallery.scrollBy({ top: -cardHeight, behavior: 'smooth' }); // Scroll up by the height of one card
+    });
+
+    downArrow.addEventListener('click', () => {
+        gallery.scrollBy({ top: cardHeight, behavior: 'smooth' }); // Scroll down by the height of one card
+    });
 });
+
 
 
 // Home link
@@ -90,22 +73,24 @@ document.addEventListener('scroll', function() {
     } else {
         homeLink.style.opacity = '0'; // Hide the link
     }
+
+    var scrollElement = document.querySelector('.scroll');
+    if (window.scrollY > 50) { // Adjust the value based on your needs
+      scrollElement.style.opacity = '0'; // Fade out the arrows when scrolling down
+    } else {
+      scrollElement.style.opacity = '1'; // Fade in the arrows when at the top
+    }
+
+    var homeLink = document.getElementById('homeLink');
+    if (window.scrollY > 100) { // Adjust this value based on when you want the link to appear
+        homeLink.style.opacity = '1'; // Show the link
+
+    } else {
+        homeLink.style.opacity = '0'; // Hide the link
+    }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const gallery = document.querySelector('.project-gallery');
-    const upArrow = document.getElementById('up-arrow');
-    const downArrow = document.getElementById('down-arrow');
-    const cardHeight = gallery.querySelector('.project-card').clientHeight + 20; // Height of a single card
 
-    upArrow.addEventListener('click', () => {
-        gallery.scrollBy({ top: -cardHeight, behavior: 'smooth' }); // Scroll up by the height of one card
-    });
-
-    downArrow.addEventListener('click', () => {
-        gallery.scrollBy({ top: cardHeight, behavior: 'smooth' }); // Scroll down by the height of one card
-    });
-});
 
 
   

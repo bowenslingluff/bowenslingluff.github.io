@@ -22,14 +22,29 @@
 
 body {
     font-family: monospace;
-    min-height: 100vh; 
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.container1 {
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100px;
 }
 
 .gradient-background {
     background: linear-gradient(var(--bg-color), var(--secondary-bg-color), var(--bg-color));
     color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
 }
 
 .home-link {
@@ -57,7 +72,6 @@ body {
 .home {
     display: flex;
     flex-direction: column;
-    height: 100vh; 
     padding-top: 8%;
 }
 
@@ -207,9 +221,7 @@ body {
     display: flex;
     flex-direction: column;  
     align-items: center; 
-    height: 80vh;
     color: var(--primary-color);
-    margin-bottom: 120px;
 }
 
 .about-content {
@@ -221,6 +233,7 @@ body {
     text-align: justify;
     font-size: 17px;
 }
+
 .about-image {
     float: left;
     margin: 5px 10px 5px 0;
@@ -234,7 +247,6 @@ body {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    height: 100vh; /* Adjust based on your layout */
     width: 100%;
 }
 
@@ -329,7 +341,6 @@ body {
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    height: 90vh;
     justify-content: center;
     color: var(--primary-color);
 }
