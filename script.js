@@ -50,15 +50,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         this.classList.remove('bi-caret-down-fill');
         this.classList.add('bi-caret-down');
     });
-    const gallery = document.querySelector('.project-gallery');
-    const cardHeight = gallery.querySelector('.project-card').clientHeight + 20; // Height of a single card
+    
+    const gallery = document.querySelector(".project-gallery");
+    const leftArrow = document.getElementById("left-arrow");
+    const rightArrow = document.getElementById("right-arrow");
+    const scrollAmount = gallery.clientWidth / 3;  // Scroll by one project card
 
-    upArrow.addEventListener('click', () => {
-        gallery.scrollBy({ top: -cardHeight, behavior: 'smooth' }); // Scroll up by the height of one card
+    rightArrow.addEventListener("click", () => {
+        gallery.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
 
-    downArrow.addEventListener('click', () => {
-        gallery.scrollBy({ top: cardHeight, behavior: 'smooth' }); // Scroll down by the height of one card
+    leftArrow.addEventListener("click", () => {
+        gallery.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     });
 });
 
