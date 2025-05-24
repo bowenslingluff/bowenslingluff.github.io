@@ -2,23 +2,15 @@
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const modeToggle = document.querySelector('.theme');
-    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-
-        if (currentTheme === 'dark') {
-            modeToggle.innerHTML = '<input class="input" checked="checked" type="checkbox"><i class="bi bi-sun"></i>';
-        }
-    }
+    const themeIcon = document.getElementById('theme-icon');
 
     modeToggle.addEventListener('click', function () {
         let theme = 'light';
         if (document.documentElement.getAttribute('data-theme') === 'light') {
             theme = 'dark';
-            modeToggle.innerHTML = '<input class="input" checked="checked" type="checkbox"><i class="bi bi-sun"></i>';
+            themeIcon.className = 'bi bi-sun';
         } else {
-            modeToggle.innerHTML = '<input class="input" checked="checked" type="checkbox"><i class="bi bi-moon-fill"></i>';
+            themeIcon.className = 'bi bi-moon-fill';
         }
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);

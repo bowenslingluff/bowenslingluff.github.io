@@ -17,7 +17,7 @@
               <div class="mode">
                 <label class="theme">
                   <input class="input" checked="checked" type="checkbox">
-                    <i class="bi bi-moon-fill"></i>
+                    <i id="theme-icon" class="bi bi-moon-fill"></i>
                 </label>
               </div>
       
@@ -33,9 +33,9 @@
                       <li class="nav-item">
                         <a href="#about" class="nav-link site_pages fw-semibold">About</a>
                       </li>
-                      <!-- <li class="nav-item">
+                      <li class="nav-item">
                         <a href="#experience" class="nav-link site_pages fw-semibold">Experience</a>
-                      </li> -->
+                      </li>
                       <li class="nav-item">
                         <a href="#projects" class="nav-link site_pages fw-semibold">Projects</a>
                       </li>
@@ -75,112 +75,60 @@
             <div id="about" class="about-container">
               <h1 class="about-label">About me</h1>
               <div class="about-content">
-                <p class="about-text">Hey, I’m Bowen. I'm a 3rd year at the University of Virginia studying CS and Data Science. I’m passionate about coding and software development, and hoping to learn more about ML and AI. </p>
+                <p class="about-text">Hey, I’m Bowen. I'm a 4th year at the University of Virginia studying CS and Data Science. I’m passionate about coding and software engineering, and excited about the future of machine learning and AI. </p>
                 <img src="images/sideshot.jpg" alt="Me" class="about-image rounded border border-2">
-                <p class="about-text">My hobbies include golfing, basketball, lifting weights, cooking, ocean kayaking, and video games. I’m a member of the club golf team at UVA. During the past few summers, I’ve enjoyed working as a guide for kayak tours around coastal Massachusetts. In the coming years, I plan to explore new places every chance I get and spend as much time as possible travelling internationally.</p>
-                <p class="about-text">I’m beginning my journey into the professional world, starting with building cool software projects and learning as much as I can. I plan to apply my knowledge of coding to working with AI models and data. Lately, I’ve been building this portfolio as a place to showcase my future projects and experiences in the world of computing. Look out for new projects being added soon!</p>
+                <p class="about-text">My hobbies include playing golf and basketball, lifting weights, cooking, ocean kayaking, and following professional golf. I’m a member of the club golf team at UVA. In the past, I’ve enjoyed working as a guide for kayak tours and as a boat ramp attendant around coastal Massachusetts. In the coming years, I plan to spend time traveling, exploring new cities and countries.</p>
+                <p class="about-text">I’m beginning my journey into the professional world, starting with building cool software projects and gaining experience through internships. I'll occasionally add to this portfolio as a place to showcase my future projects and experiences. Look out for new stuff being added soon!</p>
               </div>
             </div>
           </div>
           
-          <!-- <div class="container1">
+          <div class="container1">
             <div id="experience" class="experience-container">
-              <h1>Experience:</h1>
+              <h1>Experience</h1>
             </div>
-          </div> -->
+          </div>
           
           <div class="container1">
             <h1 class="project-title">Projects</h1>
             <div class="container">
-    
+
+              <!-- Radio buttons to control slides -->
               <input type="radio" name="slides" id="slide1" checked>
               <input type="radio" name="slides" id="slide2">
               <input type="radio" name="slides" id="slide3">
-              <input type="radio" name="slides" id="slide4">
-              <input type="radio" name="slides" id="slide5">
-              <input type="radio" name="slides" id="slide6">
-              
-              <div class="slider">
-                
-                <div class="captions">
-                  <div class="c2">ocean turtles</div>
-                  <div class="c3">sea stones</div>
-                  <div class="c4">night sky</div>
-                  <div class="c5">calm plains</div>
-                  <div class="c6">Birds in the sky</div>
-                </div>
-                
-                <div class="img img1">
-                  <div class="frag frag1"></div>
-                  <div class="frag frag2"></div>
-                  <div class="frag frag3"></div>
-                  <div class="frag frag4"></div>
-                  <div class="frag frag5"></div>
-                  <div class="frag frag6"></div>
-                </div>
-                <div class="img img2">
-                  <div class="frag frag1"></div>
-                  <div class="frag frag2"></div>
-                  <div class="frag frag3"></div>
-                  <div class="frag frag4"></div>
-                  <div class="frag frag5"></div>
-                  <div class="frag frag6"></div>
-                </div>
-                <div class="img img3">
-                  <div class="frag frag1"></div>
-                  <div class="frag frag2"></div>
-                  <div class="frag frag3"></div>
-                  <div class="frag frag4"></div>
-                  <div class="frag frag5"></div>
-                  <div class="frag frag6"></div>
-                </div>
-                <div class="img img4">
-                  <div class="frag frag1"></div>
-                  <div class="frag frag2"></div>
-                  <div class="frag frag3"></div>
-                  <div class="frag frag4"></div>
-                  <div class="frag frag5"></div>
-                  <div class="frag frag6"></div>
-                </div>
-                <div class="img img5">
-                  <div class="frag frag1"></div>
-                  <div class="frag frag2"></div>
-                  <div class="frag frag3"></div>
-                  <div class="frag frag4"></div>
-                  <div class="frag frag5"></div>
-                  <div class="frag frag6"></div>
-                </div>
-                <div class="img img6">
-                  <div class="frag frag1"></div>
-                  <div class="frag frag2"></div>
-                  <div class="frag frag3"></div>
-                  <div class="frag frag4"></div>
-                  <div class="frag frag5"></div>
-                  <div class="frag frag6"></div>
-                </div>
-              </div><!-- /.slider -->
 
-              <div class="side-controls">
+              <!-- Slider -->
+              <div class="slider">
+                <div class="slide slide1">
+                  <a href="https://github.com/bowenslingluff/Hoo-You-Got" target="_blank">
+                    <img src="/images/betting_project.png" alt="Project 1">
+                  </a>
+                  <div class="caption">Hoo You Got</div>
+                </div>
+                <div class="slide slide2">
+                  <a href="" target="_blank">
+                    <img src="" alt="Sea Stones">
+                  </a>
+                  <div class="caption">Sea Stones</div>
+                </div>
+                <div class="slide slide3">
+                  <a href="" target="_blank">
+                    <img src="" alt="Calm Plains">
+                  </a>
+                  <div class="caption">Calm Plains</div>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <div class="controls">
                 <label for="slide1"></label>
                 <label for="slide2"></label>
                 <label for="slide3"></label>
-                <label for="slide4"></label>
-                <label for="slide5"></label>
-                <label for="slide6"></label>
               </div>
-              
-              <div class="controls">
-                  <label for="slide1"></label>
-                  <label for="slide2"></label>
-                  <label for="slide3"></label>
-                  <label for="slide4"></label>
-                  <label for="slide5"></label>
-                  <label for="slide6"></label>
-              </div>
-       
-              
             </div>
           </div>
+
           
         
           <div class="container1">
@@ -214,7 +162,7 @@
 
         <footer class="footer text-center">
           <div class="text-center p-3 opacity-75">
-            © 2024 Bowen Slingluff
+            © 2025 Bowen Slingluff
           </div>
         </footer>
       </div>
