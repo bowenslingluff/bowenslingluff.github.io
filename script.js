@@ -2,15 +2,23 @@
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const modeToggle = document.querySelector('.theme');
-    const themeIcon = document.getElementById('theme-icon');
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        if (currentTheme === 'dark') {
+            modeToggle.innerHTML = '<input class="input" checked="checked" type="checkbox"><i class="bi bi-sun"></i>';
+        }
+    }
 
     modeToggle.addEventListener('click', function () {
         let theme = 'light';
         if (document.documentElement.getAttribute('data-theme') === 'light') {
             theme = 'dark';
-            themeIcon.className = 'bi bi-sun';
+            modeToggle.innerHTML = '<input class="input" checked="checked" type="checkbox"><i class="bi bi-sun"></i>';
         } else {
-            themeIcon.className = 'bi bi-moon-fill';
+            modeToggle.innerHTML = '<input class="input" checked="checked" type="checkbox"><i class="bi bi-moon-fill"></i>';
         }
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
