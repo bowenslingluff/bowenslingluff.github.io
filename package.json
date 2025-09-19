@@ -1,9 +1,9 @@
 {
-  "name": "personal-website-v2",
+  "name": "bowenslingluff.github.io",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://bowenslingluff.github.io",
   "type": "module",
+  "homepage": "https://bowenslingluff.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
