@@ -53,14 +53,14 @@ body {
 .home-link {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    position: fixed; /* Keep it in the same place on the screen */
-    top: 10px; /* Distance from the top of the viewport */
-    left: 15px; /* Distance from the left of the viewport */
+    position: fixed; 
+    top: 10px; 
+    left: 15px;
     padding: 8px;
-    text-decoration: none; /* Remove underline from the link */
+    text-decoration: none;
     color: var(--primary-color);
     font-size: 20px;
-    z-index: 1000; /* Ensure it's on top of other content */
+    z-index: 1000; 
 }
 
 .home-link:hover {
@@ -113,7 +113,7 @@ body {
   margin-bottom: 1.5rem;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 50%; /* Bootstrap's 'rounded' is slight, but circles are common for headshots */
+  border-radius: 5%;
   border: 4px solid var(--primary-color);
 }
 
@@ -288,6 +288,8 @@ body {
     margin: 5px 10px 5px 0;
     width: 220px;
     height: auto;
+    border-radius: 5%;
+    border: 4px solid var(--primary-color);
 }
 /* Projects Page */
 

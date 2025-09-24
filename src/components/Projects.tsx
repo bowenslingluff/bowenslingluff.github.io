@@ -1,11 +1,13 @@
 // src/components/Projects.tsx
 
 import React, { useState } from 'react';
+import { Element } from 'react-scroll';
 
 // Import your project images from the assets folder
 import hooYouGotImg from '../assets/betting_project.png';
 import techClaImg from '../assets/techCLA.png';
-// Add an import for your third project image when you have one
+
+
 
 // Define the type for a project
 interface Project {
@@ -49,7 +51,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="container1">
+    <Element name="projects" className="container1">
       <div id="projects" className="projects-container-new">
         <h1 className="projects-label">Projects</h1>
         <div className="slideshow-container">
@@ -73,7 +75,7 @@ const Projects: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Element>
   );
 };
 

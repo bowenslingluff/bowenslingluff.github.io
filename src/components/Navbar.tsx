@@ -1,13 +1,14 @@
 // src/components/Navbar.tsx
 
 import React from 'react';
+import { Link } from 'react-scroll';
 
 // An array of objects to hold our navigation links
 const navLinks = [
-  { href: '#about', text: 'About' },
-  { href: '#experience', text: 'Experience' },
-  { href: '#projects', text: 'Projects' },
-  { href: '#contact', text: 'Contact' },
+  { to: 'about', text: 'About' },
+  { to: 'experience', text: 'Experience' },
+  { to: 'projects', text: 'Projects' },
+  { to: 'contact', text: 'Contact' },
 ];
 
 const Navbar: React.FC = () => {
@@ -15,10 +16,17 @@ const Navbar: React.FC = () => {
     <div className="navbar-container">
       <ul className="navbar-list">
         {navLinks.map((link) => (
-          <li key={link.href}>
-            <a href={link.href} className="site-pages">
+          <li key={link.to}>
+            <Link
+              to={link.to}
+              smooth={true}
+              duration={500}
+              offset={-50}
+              className="site_pages"
+              style={{ cursor: 'pointer' }}
+            >
               {link.text}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

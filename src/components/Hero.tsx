@@ -1,6 +1,7 @@
 // src/components/Hero.tsx
 
 import React, { useState, useEffect } from 'react';
+import { Link, Element } from 'react-scroll';
 import Navbar from './Navbar'; // We will build this next
 import ThemeSwitcher from './ThemeSwitcher';
 import headshot from '../assets/headshot.jpeg'; // We'll add this image soon
@@ -21,10 +22,16 @@ const Hero: React.FC = () => {
 
   return (
     <div className="container1">
-      <a href="#home" id="homeLink" className="home-link" style={{ opacity: isHomeLinkVisible ? 1 : 0 }}>
+      <Link
+        to="home"
+        smooth={true}
+        duration={500}
+        className="home-link"
+        style={{ opacity: isHomeLinkVisible ? 1 : 0, cursor: 'pointer' }}
+      >
         Home
-      </a>
-      <div id="home" className="home">
+      </Link>
+      <Element name="home" id="home" className="home">
         <ThemeSwitcher />
 
         <header>
@@ -59,7 +66,7 @@ const Hero: React.FC = () => {
         <p className="scroll" style={{ opacity: isScrollArrowVisible ? 1 : 0 }}>
           &darr; &darr; &darr;
         </p>
-      </div>
+      </Element>
     </div>
   );
 };

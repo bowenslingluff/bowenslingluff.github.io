@@ -1,6 +1,7 @@
 // src/components/Contact.tsx
 
 import React from 'react';
+import { Element } from 'react-scroll';
 
 // Data for the contact details on the right
 const contactDetails = [
@@ -11,7 +12,7 @@ const contactDetails = [
 
 const Contact: React.FC = () => {
   return (
-    <div className="container1">
+    <Element name="contact" className="container1">
       <div id="contact" className="contact-container">
         <div className="contact-content">
           <form action="https://api.web3forms.com/submit" method="POST" className="contact-left">
@@ -38,7 +39,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Element>
   );
 };
 
