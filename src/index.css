@@ -772,3 +772,94 @@ footer {
   font-size: 1rem;
   line-height: 1.6;
 }
+
+/* src/index.css */
+
+/* Add these new styles for the Projects section */
+
+.projects-container-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 50px;
+  color: var(--primary-color);
+}
+
+.projects-label {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 450px; /* Adjust height as needed */
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.slide-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes the image cover the container */
+}
+
+.slide-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.slide-caption {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.slideshow-arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s ease;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.slideshow-arrow.left {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.slideshow-arrow.right {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.slideshow-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
