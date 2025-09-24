@@ -1,7 +1,7 @@
 // src/App.tsx
 
 // We will create these component files in the next steps
-// import Hero from './components/Hero';
+import Hero from './components/Hero';
 // import About from './components/About';
 // import Experience from './components/Experience';
 // import Projects from './components/Projects';
@@ -11,8 +11,8 @@
 function App() {
   return (
     <div className="gradient-background">
-      {/* <Hero />
-      <About />
+      <Hero />
+      {/* <About />
       <Experience />
       <Projects />
       <Contact />
