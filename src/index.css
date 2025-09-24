@@ -95,12 +95,6 @@ body {
     text-underline-offset: 0.5rem;
 }
 
-
-
-.border {
-    border-color: var(--primary-color) !important;
-}
-
 .hero-title {
   text-align: center;
 }
@@ -254,16 +248,6 @@ body {
     opacity: 0;
 }
 
-/* Experience Page */
-
-.experience-container {
-    display: flex;
-    flex-direction: column;  
-    align-items: center; 
-    height: 100vh;
-    color: var(--primary-color);
-}
-
 /* About Page */
 
 .about-container {
@@ -290,31 +274,6 @@ body {
     height: auto;
     border-radius: 5%;
     border: 4px solid var(--primary-color);
-}
-/* Projects Page */
-
-.projects-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
-}
-
-.projects-label {
-    margin-bottom: 30px;
-}
-
-.project-gallery {
-    display: flex;
-    flex-wrap: nowrap;  /* Prevent wrapping */
-    overflow: hidden; /* Hide overflow content */
-    scroll-behavior: smooth;
-    max-width: 88%;
-    min-width: 88%;
-    height: 80%;
-    border: 3px solid black;
-    position: relative;
 }
 
 /* Updated arrows for left/right navigation */
@@ -369,95 +328,6 @@ input[type="radio"] {
 #slide1:checked ~ .project-gallery { transform: translateX(0%); }
 #slide2:checked ~ .project-gallery { transform: translateX(-33.33%); }
 #slide3:checked ~ .project-gallery { transform: translateX(-66.66%); }
-
-/* 
-.project-gallery {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    background-color: var(--projects-bg);
-    max-width: 88%;
-    min-width: 88%;
-    height: 80%;
-    border: 3px solid black;
-}
-
-/* .project-card {
-    width: 30%; 
-    margin: 10px 0;
-    min-width: 320px;
-    background: linear-gradient(var(--bg-color), var(--secondary-bg-color));
-    border: 1px solid black;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-} 
-
-
-.project-card {
-    flex: 0 0 30%;  
-    max-width: 30%;
-    margin: 10px;
-    background: linear-gradient(var(--bg-color), var(--secondary-bg-color));
-    border: 1px solid black;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out;
-}
-
-
-.scroll-arrow {
-    font-size: 50px;
-    user-select: none;
-}
-
-
-.scroll-arrow:hover {
-    cursor: pointer;
-}
-
-.project-card:hover {
-    transform: scale(0.98);
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-} */
-
-.betting-project-image {
-    padding-top: 10px;
-    width: 95%; /* Make image fill card width */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.betting-project-image {
-    transition: transform .5s;
-}
-  
-.betting-project-image:hover {
-    transform: translate(200px) scale(2.2);
-}
-
-.fraud-project-image {
-    padding-top: 10px;
-    width: 95%; /* Make image fill card width */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.fraud-project-image {
-    transition: transform .5s;
-}
-  
-.fraud-project-image:hover {
-    transform: translateY(-100px) scale(1.6);
-}
 
 
 .project-title, .project-summary {
@@ -581,187 +451,6 @@ footer {
 .footer-text {
   margin-bottom: 20px;
 }
-
-/* Gallery */
-.container {
-    position: relative;
-    width: 800px;
-    height: 400px;
-    font-family: 'Rationale', sans-serif;
-  }
-  
-  .container input[type="radio"] {
-    display: none;
-  }
-  
-  .slider {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border: 8px solid #eee;
-    border-radius: 5px;
-    box-shadow: 0 7px 20px rgba(0, 0, 0, .5);
-  }
-  
-  .slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease;
-    z-index: 0;
-  }
-  
-  .slide img {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  
-  .caption {
-    position: absolute;
-    bottom: 7px;
-    right: 20px;
-    color: #2C3E50;
-    font-size: 2em;
-    z-index: 2;
-    background: #dfdfec;
-    border-radius: 8px;
-    transition: text-shadow 1s;
-    font-family: monospace;
-  }
-  
-  /* Show slides when radio checked */
-  #slide1:checked ~ .slider .slide1,
-  #slide2:checked ~ .slider .slide2,
-  #slide3:checked ~ .slider .slide3 {
-    opacity: 1;
-    z-index: 1;
-  }
-  
-  /* Navigation dots */
-  .controls {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-  }
-  
-  .controls label {
-    width: 30px;
-    height: 10px;
-    background: #000;
-    opacity: 0.3;
-    cursor: pointer;
-    transition: opacity 0.3s;
-  }
-  
-  .controls label:hover,
-  #slide1:checked ~ .controls label:nth-of-type(1),
-  #slide2:checked ~ .controls label:nth-of-type(2),
-  #slide3:checked ~ .controls label:nth-of-type(3) {
-    opacity: 0.8;
-  }
-
-  /* Experience Timeline */
-  .vertical-timeline {
-    position: relative;
-  }
-  
-  .timeline-vertical {
-    position: relative;
-    margin: 2rem auto;
-    padding: 2rem 0;
-    width: 100%;
-  }
-  
-  .timeline-vertical::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 100%;
-    background: repeating-linear-gradient(
-      to bottom,
-      #ffffff,
-      #ffffff 4px,
-      transparent 4px,
-      transparent 12px
-    );
-    z-index: 1;
-  }
-  
-  .timeline-item {
-    position: relative;
-    width: 100%;
-    padding: 1rem 2rem;
-  }
-  
-  .timeline-item .content {
-    position: relative;
-    background: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ddd;
-    z-index: 2;
-  }
-  
-  .timeline-item .inner-circle {
-    position: absolute;
-    top: 40%;
-    border-radius: 1.5rem;
-    height: 1rem;
-    width: 1rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #3b82f6
-}
-  
-
-  .timeline-item .inner-circle:before {
-    content: "";
-    background-color: #3b82f6;
-    display: inline-block;
-    height: 3rem;
-    width: 3rem;
-    min-width: 3rem;
-    border-radius: 6.25rem;
-    opacity: .5
-}
-  
-  .timeline-item.left {
-    right: 50%;
-    text-align: right;
-  }
-  
-  .timeline-item.left .content {
-    margin-right: auto;
-  }
-  
-  .timeline-item.left .inner-circle {
-    left: 107%
-  }
-  
-  .timeline-item.right {
-    left: 50%;
-    text-align: left;
-  }
-  
-  .timeline-item.right .content {
-    margin-left: auto;
-  }
-  
-  .timeline-item.right .inner-circle {
-    right: 107%;
-  }
-  
-  /* src/index.css */
 
 /* Add these new styles at the end of the file */
 

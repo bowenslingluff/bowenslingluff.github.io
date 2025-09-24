@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, Element } from 'react-scroll';
-import Navbar from './Navbar'; // We will build this next
+import Navbar from './Navbar'; 
 import ThemeSwitcher from './ThemeSwitcher';
-import headshot from '../assets/headshot.jpeg'; // We'll add this image soon
+import headshot from '../assets/headshot.jpeg';
 
 const Hero: React.FC = () => {
   const [isHomeLinkVisible, setIsHomeLinkVisible] = useState(false);

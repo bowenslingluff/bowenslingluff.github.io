@@ -15,7 +15,7 @@ const About: React.FC = () => {
           </p>
           <img src={sideshot} alt="Me" className="about-image" />
           <p className="about-text">
-            My hobbies include playing golf (6 H.I.) and basketball, lifting weights, cooking, ocean kayaking, and watching professional sports. I’m a member of the club golf team at UVA. In the past, I’ve enjoyed working as a guide for kayak tours and as a boat ramp attendant around Rockport, MA. In the coming years, I plan to spend time traveling and exploring new places. One of my goals is to visit one national park each year.
+            My hobbies include playing golf (6 H.I.) and basketball, lifting weights, cooking, ocean kayaking, and watching professional sports. I’m a member of the club golf team at UVA. I also enjoy reading (currently reading the Game of Thrones series). In the past, I’ve enjoyed working as a guide for kayak tours and as a boat ramp attendant around Rockport, MA. In the coming years, I plan to spend time traveling and exploring new places. One of my goals is to visit one national park each year.
           </p>
           <p className="about-text">
             I love picking up new skills and building cool projects. I'll occasionally add to this portfolio as a place to showcase my future projects and experiences. Look out for new stuff being added soon!
