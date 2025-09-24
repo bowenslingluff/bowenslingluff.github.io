@@ -28,13 +28,13 @@ const Hero: React.FC = () => {
         <ThemeSwitcher />
 
         <header>
-          <img id="headshot" src={headshot} alt="Bowen Slingluff" className="rounded border border-4 mx-auto d-block my-4" />
-          <h1 className="text-center">Bowen Slingluff</h1>
+          <img id="headshot" src={headshot} alt="Bowen Slingluff" className="headshot-image" />
+          <h1 className="hero-title">Bowen Slingluff</h1>
         </header>
 
         <Navbar />
 
-        <div className="mx-auto">
+        <div className="social-links-container">
           <a href="https://www.linkedin.com/in/bowen-slingluff" target="_blank" className="link">
             <i className="bi bi-linkedin"></i>
             <span className="linktext">linkedin.com/in/bowen-slingluff</span>
@@ -43,7 +43,18 @@ const Hero: React.FC = () => {
             <i className="bi bi-github"></i>
             <span className="linktext">github.com/bowenslingluff</span>
           </a>
-          {/* Add your other social links here following the same pattern */}
+          <a href="https://www.instagram.com/bslingluff14/" target="_blank" className="link">
+            <i className="bi bi-instagram"></i>
+            <span className="linktext">instagram.com/bslingluff14</span>
+          </a>
+          <a href="https://twitter.com/SlingluffBowen" target="_blank" className="link">
+            <i className="bi bi-twitter-x"></i>
+            <span className="linktext">twitter.com/SlingluffBowen</span>
+          </a>
+          <a href="https://music.apple.com/profile/bcslingluff" target="_blank" className="link">
+            <i className="bi bi-music-note-beamed"></i>
+            <span className="linktext">music.apple.com/profile/bcslingluff</span>
+          </a>
         </div>
         <p className="scroll" style={{ opacity: isScrollArrowVisible ? 1 : 0 }}>
           &darr; &darr; &darr;

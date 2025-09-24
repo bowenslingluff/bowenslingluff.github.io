@@ -6,8 +6,8 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer text-center">
-      <div className="text-center p-3 opacity-75">
+    <footer className="footer">
+      <div className="footer-text">
         © {currentYear} Bowen Slingluff
       </div>
     </footer>

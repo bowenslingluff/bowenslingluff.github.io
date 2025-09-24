@@ -14,8 +14,8 @@ function App() {
       <About />
       <Experience />
       <Projects />
-      <Contact /> {/* <-- Render Contact */}
-      <Footer />  {/* <-- Render Footer */}
+      <Contact /> 
+      <Footer /> 
     </div>
   );
 }
