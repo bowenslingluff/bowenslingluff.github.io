@@ -27,6 +27,10 @@ body {
     position: relative;
 }
 
+body {
+  overscroll-behavior: none;
+}
+
 * {
     box-sizing: border-box;
     }
@@ -69,8 +73,7 @@ body {
     text-underline-offset: 0.5rem;
 }
 
-
-/* Home View */
+/* Hero View */
 
 .home {
     display: flex;
@@ -82,24 +85,11 @@ body {
     color: var(--primary-color);
 }
 
-.site_pages {
-    color: var(--primary-color);
-    font-size: 20px;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-.site_pages:hover {
-    color: var(--hover-color);
-    text-decoration: underline;
-    text-underline-offset: 0.5rem;
-}
-
 .hero-title {
   text-align: center;
 }
 
-#headshot {
+.headshot-image {
   display: block;
   width: 220px;
   height: auto;
@@ -146,6 +136,12 @@ body {
   text-decoration: none;
 }
 
+.site-pages:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+}
+
 .link {
     font-size: 30px;
     margin-right: 10px;
@@ -157,7 +153,6 @@ body {
 
 .link:hover {
     color: var(--hover-color);
-    /* transform: scale(1.1); */
 }
 
 /* Tooltip text */
@@ -192,8 +187,6 @@ body {
     border-style: solid;
     border-color: transparent transparent black transparent; 
 }
-
-
 
 .scroll {
     text-align: center;
@@ -276,68 +269,6 @@ body {
     border: 4px solid var(--primary-color);
 }
 
-/* Updated arrows for left/right navigation */
-.scroll-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 50px;
-    cursor: pointer;
-    user-select: none;
-    transition: opacity 0.3s ease-in-out;
-    opacity: 0.6;
-    color: var(--primary-color);
-}
-
-.scroll-arrow:hover {
-    opacity: 1;
-}
-
-/* Left arrow */
-#left-arrow {
-    left: -50px;
-}
-
-/* Right arrow */
-#right-arrow {
-    right: -50px;
-}
-
-/* Radio Button Navigation */
-input[type="radio"] {
-    display: none;
-}
-
-.project-card {
-    flex: 0 0 30%;  /* Show 3 cards at a time */
-    min-width: 320px;
-    max-width: 320px;
-    margin: 10px;
-    background: linear-gradient(var(--bg-color), var(--secondary-bg-color));
-    border: 1px solid black;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Smooth scrolling effect for selected slide */
-#slide1:checked ~ .project-gallery { transform: translateX(0%); }
-#slide2:checked ~ .project-gallery { transform: translateX(-33.33%); }
-#slide3:checked ~ .project-gallery { transform: translateX(-66.66%); }
-
-
-.project-title, .project-summary {
-    text-align: center;    
-    padding-bottom: 30px; /* Padding inside the card */
-    font-family: monospace;
-}
-
-
-
 /* Contact Page */
 
 .contact-container {
@@ -368,7 +299,6 @@ input[type="radio"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px;
 }
 
 .contact-right-icon {
@@ -388,17 +318,19 @@ input[type="radio"] {
     padding-top: 20px;
 }
 
+.contact-left-title {
+    text-align: center;
+}
 
-.contact-left-title h3 {
+.contact-left-title h1 {
     color: var(--primary-color);
-    font-size: 40px;
     margin-bottom: 5px;
 }
 
 .contact-left hr {
     border: none;
-    width: 260px;
-    height: 5px;
+    width: 100%;
+    height: 2px;
     background-color: var(--primary-color);
     border-radius: 10px;
     margin-bottom: 20px;
@@ -438,9 +370,12 @@ input[type="radio"] {
     border-radius: 50px;
     outline: none;
     background: linear-gradient(270deg, #4CA1AF, #4c7faf);
+    cursor: pointer;
 }
+
 .contact-left button:hover {
-    transform: scale(0.95);
+    background: linear-gradient(270deg, #5ec4d1, #5a92c7);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 footer {
@@ -452,69 +387,7 @@ footer {
   margin-bottom: 20px;
 }
 
-/* Add these new styles at the end of the file */
-
-.experience-container-new {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding-top: 50px;
-  color: var(--primary-color);
-}
-
-.experience-label {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-
-.experience-cards-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 800px;
-}
-
-.experience-card {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--primary-color);
-  border-radius: 8px;
-  padding: 20px;
-  transition: all 0.3s ease-in-out;
-}
-
-.experience-card:hover {
-  transform: translateY(-5px);
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.experience-date {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-bottom: 10px;
-}
-
-.experience-company {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-}
-
-.experience-title {
-  font-size: 1.1rem;
-  font-style: italic;
-  opacity: 0.9;
-  margin-bottom: 15px;
-}
-
-.experience-description {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* src/index.css */
-
-/* Add these new styles for the Projects section */
+/* Projects */
 
 .projects-container-new {
   display: flex;
@@ -526,7 +399,6 @@ footer {
 }
 
 .projects-label {
-  font-size: 2.5rem;
   margin-bottom: 40px;
 }
 
@@ -534,14 +406,14 @@ footer {
   position: relative;
   width: 100%;
   max-width: 800px;
-  height: 450px; /* Adjust height as needed */
+  height: 410px;
+  background-color: lightgray;
   border: 2px solid var(--primary-color);
   border-radius: 8px;
   overflow: hidden;
 }
 
 .slide-link {
-  display: block;
   width: 100%;
   height: 100%;
   text-decoration: none;

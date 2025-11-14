@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
               smooth={true}
               duration={500}
               offset={-50}
-              className="site_pages"
+              className="site-pages"
               style={{ cursor: 'pointer' }}
             >
               {link.text}

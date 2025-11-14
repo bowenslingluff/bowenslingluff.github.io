@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
         <div className="contact-content">
           <form action="https://api.web3forms.com/submit" method="POST" className="contact-left">
             <div className="contact-left-title">
-              <h3>Contact me!</h3>
+              <h1>Contact me!</h1>
               <hr />
             </div>
             <input type="hidden" name="access_key" value="24bbdbe9-1f20-4efd-a8cb-ed97637afdbb" />
@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
           <div className="contact-right">
             <div className="contact-right-items">
               {contactDetails.map((detail, index) => (
-                <div key={index} style={{ textAlign: 'center', marginBottom: '25px' }}>
+                <div key={index} style={{ textAlign: 'center' }}>
                   <i className={`bi ${detail.icon} contact-right-icon`}></i>
                   <p>{detail.text}</p>
                 </div>

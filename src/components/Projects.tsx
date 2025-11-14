@@ -6,6 +6,7 @@ import { Element } from 'react-scroll';
 // Import your project images from the assets folder
 import hooYouGotImg from '../assets/betting_project.png';
 import techClaImg from '../assets/techCLA.png';
+import dailyBugleImg from '../assets/DailyBugle.png';
 
 
 
@@ -18,6 +19,11 @@ interface Project {
 
 // Store your project data here
 const projects: Project[] = [
+  {
+    title: "The Daily Bugle",
+    imageUrl: dailyBugleImg,
+    githubUrl: "https://github.com/bowenslingluff/apache-playground/tree/main/DailyBugle",
+  },
   {
     title: "Hoo You Got",
     imageUrl: hooYouGotImg,
@@ -32,7 +38,7 @@ const projects: Project[] = [
     title: "Hoo's Reviews",
     imageUrl: '', // Add path to your image once you have it
     githubUrl: "https://github.com/bowenslingluff/CourseReview",
-  },
+  }
 ];
 
 const Projects: React.FC = () => {
@@ -64,7 +70,7 @@ const Projects: React.FC = () => {
             {projects[currentIndex].imageUrl ? (
               <img src={projects[currentIndex].imageUrl} alt={projects[currentIndex].title} className="slide-image" />
             ) : (
-              <div className="slide-placeholder">Image Coming Soon</div>
+              <div className="slide-placeholder">Image Unavailable</div>
             )}
             <div className="slide-caption">{projects[currentIndex].title}</div>
           </a>
