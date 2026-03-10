@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; URL=/" />
+  <script>
+    // GitHub Pages serves this on unknown paths; redirect to root (React Router will handle the route)
+    var path = window.location.pathname;
+    if (path !== '/') {
+      window.location.replace('/#' + path); // fallback to hash route if BrowserRouter fails
+    }
+  </script>
+  <title>Redirecting...</title>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>

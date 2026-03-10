@@ -11,14 +11,14 @@ const About: React.FC = () => {
         <h1 className="about-label">About me</h1>
         <div className="about-content">
           <p className="about-text">
-            Hey, I’m Bowen. I'm a 4th year at the University of Virginia studying Computer Science and Data Science. I enjoy learning new technologies and building full-stack web applications. I'm also interested in the intersection between software and finance.
+            Hey, I’m Bowen. I'm a 4th year at the University of Virginia studying Computer Science and Data Science. I enjoy making websites and doing full-stack development. Currently, I'm building articleOne, a policy platform for congressional officials.
           </p>
           <img src={sideshot} alt="Me" className="about-image" />
           <p className="about-text">
-            My hobbies include playing golf (6 H.I.) and basketball, lifting weights, cooking, ocean kayaking, and watching professional sports. I’m a member of the club golf team at UVA. I also enjoy reading (currently reading the Game of Thrones series). In the past, I’ve enjoyed working as a guide for kayak tours and as a boat ramp attendant around Rockport, MA. In the coming years, I plan to spend time traveling and exploring new places. One of my goals is to visit one national park each year.
+            My hobbies include playing golf and basketball, lifting weights, cooking, ocean kayaking, and watching professional sports. I’m a member of the club golf team at UVA. I'm currently reading the Game of Thrones. In the past, I’ve enjoyed working as a guide for kayak tours and as a boat ramp attendant in Rockport, MA. In the coming years, I plan to spend free time traveling and exploring new places. One of my goals is to visit one national park each year.
           </p>
           <p className="about-text">
-            I love picking up new skills and building cool projects. I'll occasionally add to this portfolio as a place to showcase my future projects and experiences. Look out for new stuff being added soon!
+            I'll occasionally add to this portfolio as a place to showcase my future projects and experiences. Look out for new stuff being added soon!
           </p>
         </div>
       </div>

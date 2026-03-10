@@ -3,7 +3,7 @@
 <path d="M83 104H214V244H83V104Z" fill="url(#pattern0_1001_117)"/>
 </mask>
 <g mask="url(#mask0_1001_117)">
-<path d="M83 104H214V244H83V104Z" fill="#FCCA46"/>
+<path d="M83 104H214V244H83V104Z" fill="#5E46FC"/>
 </g>
 <mask id="mask1_1001_117" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="196" height="217">
 <rect y="26.2944" width="166.879" height="192.146" transform="rotate(-9.06561 0 26.2944)" fill="url(#pattern1_1001_117)"/>
@@ -11,7 +11,7 @@
 <g mask="url(#mask1_1001_117)">
 <rect x="43" y="30" width="125" height="165" fill="#FE7F2D"/>
 </g>
-<path d="M90.9999 141.5C87.3985 149.833 89.3325 156.534 97.5 163.5C103.726 168.595 107.185 169.816 114.5 172L125 160.5C115.534 156.17 112.869 151.467 116 141L90.9999 141.5Z" fill="#FCCA46"/>
+<path d="M90.9999 141.5C87.3985 149.833 89.3325 156.534 97.5 163.5C103.726 168.595 107.185 169.816 114.5 172L125 160.5C115.534 156.17 112.869 151.467 116 141L90.9999 141.5Z" fill="#5E46FC"/>
 <defs>
 <pattern id="pattern0_1001_117" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_1001_117" transform="matrix(0.000452776 0 0 0.000243591 -0.433518 0)"/>
