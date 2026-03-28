@@ -1,5 +1,7 @@
 // src/App.tsx
 
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -10,6 +12,16 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Rankings from './pages/Favorites';
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Handle GitHub Pages 404.html redirect
+    const redirect = sessionStorage.getItem('redirect');
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      navigate(redirect);
+    }
+  }, [navigate]);
   return (
     <div className="gradient-background">
       <Routes>
