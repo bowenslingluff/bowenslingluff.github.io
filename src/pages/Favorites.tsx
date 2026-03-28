@@ -1,6 +1,6 @@
 // src/pages/Favorites.tsx
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
@@ -69,6 +69,7 @@ const DEFAULT_RANKINGS: RankingsData = {
 
 const ADMIN_PASS = import.meta.env.VITE_RANKINGS_ADMIN_PASSWORD;
 const STORAGE_KEY = 'site_rankings_data_v1';
+const API_ENDPOINT = '/api/rankings';
 
 const loadInitialRankings = (): RankingsData => {
   const cached = localStorage.getItem(STORAGE_KEY);
@@ -85,6 +86,9 @@ const loadInitialRankings = (): RankingsData => {
 
 const Rankings: React.FC = () => {
   const [rankingsData, setRankingsData] = useState<RankingsData>(loadInitialRankings);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
+  const [isSaving, setIsSaving] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const [subTabIndex, setSubTabIndex] = useState(0);
   const [newItemText, setNewItemText] = useState('');
@@ -104,9 +108,66 @@ const Rankings: React.FC = () => {
   const currentGenre = genres[subTabIndex] ?? genres[0];
   const currentItems = rankingsData[currentCategory]?.genres[currentGenre] ?? [];
 
-  const persist = (next: RankingsData) => {
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadFromApi = async () => {
+      try {
+        const response = await fetch(API_ENDPOINT, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('Failed to load rankings from API');
+        }
+
+        const payload = (await response.json()) as { data?: RankingsData };
+        if (payload.data && isMounted) {
+          setRankingsData(payload.data);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(payload.data));
+          setLoadError('');
+        }
+      } catch {
+        if (isMounted) {
+          setLoadError('Using local rankings (cloud sync unavailable).');
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    void loadFromApi();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const persist = async (next: RankingsData, successMessage = '') => {
     setRankingsData(next);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+
+    try {
+      setIsSaving(true);
+      const response = await fetch(API_ENDPOINT, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data: next }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save rankings');
+      }
+
+      if (successMessage) {
+        setAdminMessage(successMessage);
+      }
+    } catch {
+      setAdminMessage('Saved locally, but cloud sync failed.');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const handleTabChange = (_: React.SyntheticEvent, value: number) => {
@@ -144,7 +205,7 @@ const Rankings: React.FC = () => {
 
     const next: RankingsData = structuredClone(rankingsData);
     next[currentCategory].genres[currentGenre].push(clean);
-    persist(next);
+    void persist(next);
     setNewItemText('');
   };
 
@@ -163,7 +224,7 @@ const Rankings: React.FC = () => {
     }
 
     categoryGenres[clean] = [];
-    persist(next);
+    void persist(next, 'Subgenre added.');
 
     const newGenres = Object.keys(categoryGenres);
     const insertedIndex = newGenres.indexOf(clean);
@@ -172,7 +233,6 @@ const Rankings: React.FC = () => {
     }
 
     setNewGenreText('');
-    setAdminMessage('Subgenre added.');
   };
 
   const removeCurrentGenre = () => {
@@ -191,16 +251,15 @@ const Rankings: React.FC = () => {
     const remainingGenres = Object.keys(next[currentCategory].genres);
     const nextIndex = Math.max(0, Math.min(subTabIndex, remainingGenres.length - 1));
 
-    persist(next);
+    void persist(next, `Removed ${currentGenre}.`);
     setSubTabIndex(nextIndex);
-    setAdminMessage(`Removed ${currentGenre}.`);
   };
 
   const swap = (indexA: number, indexB: number) => {
     const next: RankingsData = structuredClone(rankingsData);
     const list = next[currentCategory].genres[currentGenre];
     [list[indexA], list[indexB]] = [list[indexB], list[indexA]];
-    persist(next);
+    void persist(next);
   };
 
   const removeItem = (index: number) => {
@@ -208,7 +267,7 @@ const Rankings: React.FC = () => {
     next[currentCategory].genres[currentGenre] = next[currentCategory].genres[currentGenre].filter(
       (_, i) => i !== index
     );
-    persist(next);
+    void persist(next);
   };
 
   const exitEditMode = () => {
@@ -262,6 +321,24 @@ const Rankings: React.FC = () => {
             {currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1)}
           </Typography>
         </Box>
+
+        {isLoading && (
+          <Alert severity="info" sx={{ mt: 1.5 }}>
+            Loading rankings...
+          </Alert>
+        )}
+
+        {loadError && !isLoading && (
+          <Alert severity="warning" sx={{ mt: 1.5 }}>
+            {loadError}
+          </Alert>
+        )}
+
+        {isSaving && (
+          <Alert severity="info" sx={{ mt: 1.5 }}>
+            Syncing changes to cloud...
+          </Alert>
+        )}
 
         <Stack spacing={1.25} sx={{ mt: 2 }}>
           {currentItems.map((item, index) => (
