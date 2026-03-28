@@ -8,7 +8,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Favorites from './pages/Favorites';
+import Rankings from './pages/Favorites';
 
 function App() {
   return (
@@ -21,13 +21,13 @@ function App() {
               <Hero />
               <About />
               <Experience />
-              <Projects />
+              {/* <Projects /> */}
               <Contact />
               <Footer />
             </>
           }
         />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/rankings" element={<Rankings />} />
         {/* catch-all redirects to home; helps with GitHub Pages fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

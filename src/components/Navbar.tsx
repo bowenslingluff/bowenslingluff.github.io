@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Link } from 'react-scroll';
-import { NavLink } from 'react-router-dom';
 
 // An array of objects to hold our navigation links (in-page scroll)
 const navLinks = [
@@ -30,11 +29,6 @@ const Navbar: React.FC = () => {
             </Link>
           </li>
         ))}
-        <li>
-          <NavLink to="/favorites" className="site-pages" style={{ marginLeft: 16 }}>
-            Favorites
-          </NavLink>
-        </li>
       </ul>
     </div>
   );

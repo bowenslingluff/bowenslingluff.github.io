@@ -1,5 +1,4 @@
 /* Theme Colors */
-
 :root {
     --primary-color: rgb(0, 0, 0);
     --font-color: #bc5090;
@@ -18,6 +17,30 @@
     --projects-bg: rgb(218, 218, 218);
 }
 
+.rankings-home-link {
+    position: fixed;
+    top: 0.85rem;
+    left: 1rem;
+    z-index: 1200;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--primary-color);
+    border: 1px solid color-mix(in srgb, var(--primary-color) 28%, transparent);
+    background: color-mix(in srgb, var(--projects-bg) 84%, transparent);
+    backdrop-filter: blur(4px);
+    opacity: 0.82;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.rankings-home-link:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    color: var(--hover-color);
+}
+
 /* Body */
 
 body {
@@ -33,7 +56,7 @@ body {
 
 * {
     box-sizing: border-box;
-    }
+}
 
 .container1 {
     display: flex;
@@ -45,7 +68,7 @@ body {
 }
 
 .gradient-background {
-    background: linear-gradient(var(--bg-color), var(--secondary-bg-color), var(--bg-color));
+    background: linear-gradient(var(--bg-color));
     color: var(--primary-color);
     display: flex;
     flex-direction: column;
@@ -357,6 +380,185 @@ body {
 
 .contact-inputs::placeholder {
     color: #a9a9a9;
+}
+
+/* Rankings Page */
+
+.rankings-page {
+    width: min(1050px, 92vw);
+    justify-content: flex-start;
+    align-items: stretch;
+    padding-top: 1.5rem;
+    padding-bottom: 4rem;
+    color: var(--primary-color);
+    min-height: 100vh;
+    height: auto;
+}
+
+.rankings-hero {
+    border-radius: 1rem;
+    padding: 1.4rem;
+    margin-bottom: 1rem;
+    background: color-mix(in srgb, var(--projects-bg) 82%, transparent);
+    backdrop-filter: blur(6px);
+}
+
+.rankings-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.rankings-currently .MuiChip-root {
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 20%, transparent);
+    color: var(--primary-color);
+    background: color-mix(in srgb, var(--projects-bg) 88%, transparent);
+}
+
+.rankings-tabs-shell {
+    border-radius: 0.9rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: color-mix(in srgb, var(--projects-bg) 88%, transparent);
+}
+
+.rankings-main-tab,
+.rankings-sub-tab {
+    text-transform: none !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em !important;
+}
+
+.rankings-content {
+    border-radius: 1rem;
+    padding: 1rem;
+    background: color-mix(in srgb, var(--projects-bg) 90%, transparent);
+}
+
+.rankings-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.admin-unlock,
+.admin-editor {
+    border: 1px dashed color-mix(in srgb, var(--primary-color) 30%, transparent);
+    border-radius: 0.85rem;
+    padding: 0.9rem;
+    background: color-mix(in srgb, var(--projects-bg) 85%, transparent);
+}
+
+.rankings-admin-fab-wrap {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1300;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.55rem;
+}
+
+.rankings-admin-fab {
+    width: 38px;
+    height: 38px;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 25%, transparent) !important;
+    color: var(--primary-color) !important;
+    background: color-mix(in srgb, var(--projects-bg) 76%, transparent) !important;
+    opacity: 0.62;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.rankings-admin-fab:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
+.rankings-admin-panel {
+    border-radius: 0.9rem !important;
+    padding: 0.65rem;
+    background: color-mix(in srgb, var(--projects-bg) 92%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 22%, transparent);
+}
+
+.rankings-item-card {
+    border-radius: 0.85rem !important;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 16%, transparent);
+    background: color-mix(in srgb, var(--projects-bg) 95%, transparent) !important;
+}
+
+.rankings-item-content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 0.9rem !important;
+}
+
+.rankings-rank-badge {
+    min-width: 48px;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.24rem 0.58rem;
+    color: var(--primary-color);
+    background: color-mix(in srgb, var(--bg-color) 25%, white);
+}
+
+.rankings-item-text {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.rankings-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+@media (max-width: 700px) {
+    .rankings-page {
+        padding-top: 0;
+    }
+
+    .rankings-home-link {
+        top: 0.7rem;
+        left: 0.75rem;
+    }
+
+    .rankings-admin-fab-wrap {
+        right: 0.75rem;
+        bottom: 0.75rem;
+    }
+
+    .rankings-content-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rankings-item-content {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "rank text"
+            "controls controls";
+    }
+
+    .rankings-rank-badge {
+        grid-area: rank;
+    }
+
+    .rankings-item-text {
+        grid-area: text;
+    }
+
+    .rankings-item-controls {
+        grid-area: controls;
+        justify-content: flex-end;
+    }
 }
 
 .contact-left button {
