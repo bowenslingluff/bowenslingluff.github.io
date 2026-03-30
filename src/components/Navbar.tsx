@@ -5,9 +5,8 @@ import { Link } from 'react-scroll';
 
 // An array of objects to hold our navigation links (in-page scroll)
 const navLinks = [
-  { to: 'about', text: 'About' },
   { to: 'experience', text: 'Experience' },
-  { to: 'projects', text: 'Projects' },
+  { to: 'about', text: 'About' },
   { to: 'contact', text: 'Contact' },
 ];
 

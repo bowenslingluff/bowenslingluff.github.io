@@ -3,9 +3,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Hero from './components/Hero';
-import About from './components/About';
 import Experience from './components/Experience';
-import Contact from './components/Contact'; 
 import Footer from './components/Footer';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
@@ -30,10 +28,8 @@ function App() {
           element={
             <>
               <Hero />
-              <About />
               <Experience />
               {/* <Projects /> */}
-              <Contact />
               <Footer />
             </>
           }

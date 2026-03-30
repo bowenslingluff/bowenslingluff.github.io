@@ -3,28 +3,12 @@
 import React from "react";
 import { Element } from "react-scroll";
 
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
-import TimelineDot from "@mui/lab/TimelineDot";
-
 // import company logos (add these files in src/assets/)
 import manitouLogo from "../assets/manitou-research-logo.png";
 import ebscoLogo from "../assets/ebsco.png";
 import uvaLogo from "../assets/uva.png";
-
-import WorkIcon from "@mui/icons-material/Work";
-import SchoolIcon from "@mui/icons-material/School";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-import Typography from "@mui/material/Typography";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Box from '@mui/material/Box';
+import sideshot from "../assets/sideshot.jpg";
+import a1Logo from "../assets/a1-logo.svg";
 
 // Type for each experience entry
 interface ExperienceItem {
@@ -34,7 +18,17 @@ interface ExperienceItem {
   // optional URL to a logo image
   logoUrl?: string;
   // detailed description that will be shown when expanded
-  description?: string;
+  description?: React.ReactNode;
+}
+
+interface ContactDetail {
+  icon: string;
+  text: string;
+}
+
+interface StackItem {
+  name: string;
+  iconSrc?: string;
 }
 
 // Your data here (add logo files under src/assets if you want them to appear)
@@ -44,7 +38,22 @@ const experiences: ExperienceItem[] = [
     company: "Manitou Research",
     title: "Full Stack Developer",
     logoUrl: manitouLogo,
-    description: "Currently building articleOne"
+    description: (
+      <div className="hero-current-project">
+        <img src={a1Logo} alt="articleOne logo" className="hero-current-project-logo" />
+        <p className="hero-current-project-text">
+          Building{' '}
+          <a
+            href="https://www.articleone.ai"
+            target="_blank"
+            rel="noreferrer"
+            className="hero-current-project-link"
+          >
+            articleOne
+          </a>
+        </p>
+      </div>
+    )
   },
   {
     date: "Jun 2025 - Aug 2025",
@@ -67,88 +76,145 @@ const experiences: ExperienceItem[] = [
     logoUrl: uvaLogo,
     description: "GPA 3.8/4.0. Pursuing a Bachelor of Arts in CS with a Minor in Data Science."
   },
+  {
+    date: "2023 - 2024",
+    company: "Town of Rockport, MA",
+    title: "Ramp Attendant",
+    logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9gFSm3E3Go6GZCQIyxB5gw5dYBAQ_drH_Ig&s',
+    description: "Boat launch guy. Avid book reader and conversationalist."
+  },
+  {
+    date: "2021 - 2024",
+    company: "North Shore Adventures LLC",
+    title: "Kayak Tour Guide",
+    logoUrl: "https://images.squarespace-cdn.com/content/v1/61d9ce3e46d51b49b510bc83/0b5182d3-2548-40d9-b0d4-45ff9f097684/favicon.ico?format=100w",
+    description: "Led ocean kayak tours in coastal Rockport, MA. Destinations included Straightsmouth Island, Thatcher Island, The Dry Salvages. Performed multiple rescues."
+  },
+];
+
+const contactDetails: ContactDetail[] = [
+  { icon: 'bi-phone-vibrate', text: '978-325-2295' },
+  { icon: 'bi-envelope', text: 'bcslingluff@gmail.com' },
+  { icon: 'bi-bank2', text: 'jdx7es@virginia.edu' },
+];
+
+const stackItems: StackItem[] = [
+  { name: 'Python', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'HTML/CSS', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'Django', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg' },
+  { name: 'MongoDB', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg' },
+  { name: 'PostgreSQL', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg' }, 
+  { name: 'Java', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+  { name: 'Spring Boot', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
+  { name: 'Docker', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg' },
+  { name: 'JavaScript', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'React', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+];
+
+const toolItems: StackItem[] = [
+  { name: 'GitHub', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+  { name: 'VS Code', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+  { name: 'Postman', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
+  { name: 'Figma', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+  { name: 'Claude Code', iconSrc: 'https://img.icons8.com/fluent/512w/claude-ai.png'},
+  { name: 'Perplexity', iconSrc: 'https://img.icons8.com/fluent/512w/perplexity-ai.png' },
+  { name: 'Google Gemini', iconSrc: 'https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/gemini-color.png' },
 ];
 
 const Experience: React.FC = () => {
   return (
-    <Element name="experience">
-      <h1 style={{ textAlign: "center", color: "var(--primary-color)" }}>
-        Experience
-      </h1>
+    <section className="combined-profile-shell">
+      
 
-      <Timeline position="alternate" sx={{ minWidth: "800px" }}>
-        {experiences.map((exp, index) => (
-          <TimelineItem 
-            key={index}
-            sx={{
-              minHeight: "80px"
-            }}
-          >
-            <TimelineOppositeContent
-              sx={{ m: "auto 0" }}
-              variant="body2"
-              color="text.secondary"
-            >
-              {exp.date}
-            </TimelineOppositeContent>
+      <div className="combined-profile-right">
+        <Element name="about" className="combined-about-block">
+          <p className="section-kicker">About</p>
+          <div className="combined-about-content">
+            <img src={sideshot} alt="Bowen" className="combined-about-image" />
+            <p className="about-text combined-about-text">
+              Hey, I’m Bowen. I'm a 4th year at the University of Virginia studying Computer Science and Data Science. I enjoy making websites and doing full-stack development. Currently, I'm at Manitou Research building articleOne, a policy platform for congressional officials. My hobbies include golfing, hooping, lifting, cooking, and vibe coding. I am an outdoor adventure enthusiast.
+            </p>
+          </div>
+        </Element>
 
-            <TimelineSeparator>
-              <TimelineConnector />
-
-              <TimelineDot color="info">
-                {/* show logo if provided, otherwise fallback to icon */}
-                {exp.logoUrl ? (
-                  <img
-                    src={exp.logoUrl}
-                    alt={`${exp.company} logo`}
-                    style={{ width: 24, height: 24 }}
-                  />
-                ) : (
-                  exp.company.includes('University') ? <SchoolIcon /> : <WorkIcon />
-                )}
-              </TimelineDot>
-
-              <TimelineConnector />
-            </TimelineSeparator>
-
-            <TimelineContent sx={{ py: "12px", px: 2, maxWidth: 400, textAlign: 'left' }}>
-              {/* accordion for expandable details with rounded corners and left-aligned text */}
-              <Accordion sx={{ borderRadius: 2, boxShadow: 1, overflow: 'hidden', textAlign: 'left', '&:before': { display: 'none' } }}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls={`panel-content-${index}`}
-                  id={`panel-header-${index}`}
-                  sx={{ alignItems: 'center' }}
-                >
-                  <Box display="flex" alignItems="center" width="100%">
-                    {exp.logoUrl && (
-                      <img
-                        src={exp.logoUrl}
-                        alt={`${exp.company} logo`}
-                        style={{ width: 32, height: 32, marginRight: 8 }}
-                      />
-                    )}
-                    <Box>
-                      <Typography variant="h6" sx={{ color: "black", textAlign: 'left' }}>
-                        {exp.company}
-                      </Typography>
-                      <Typography sx={{ opacity: 0.8, textAlign: 'left' }}>{exp.title}</Typography>
-                    </Box>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  {exp.description && (
-                    <Typography variant="body2" sx={{ whiteSpace: 'pre-line', textAlign: 'left' }}>
-                      {exp.description}
-                    </Typography>
+        <section className="combined-stack-block">
+          <p className="section-kicker">Tech Stack</p>
+          <div className="combined-stack-list">
+            {stackItems.map((stack) => (
+              <div key={stack.name} className="combined-stack-item">
+                <div className="combined-stack-icon-slot" aria-hidden="true">
+                  {stack.iconSrc ? (
+                    <img src={stack.iconSrc} alt="" className="combined-stack-icon" />
+                  ) : (
+                    <span className="combined-stack-icon-placeholder"></span>
                   )}
-                </AccordionDetails>
-              </Accordion>
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
-    </Element>
+                </div>
+                <span className="combined-stack-label">{stack.name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="combined-tools-block">
+          <p className="section-kicker">Tools</p>
+          <div className="combined-stack-list">
+            {toolItems.map((tool) => (
+              <div key={tool.name} className="combined-stack-item">
+                <div className="combined-stack-icon-slot" aria-hidden="true">
+                  {tool.iconSrc ? (
+                    <img src={tool.iconSrc} alt="" className="combined-stack-icon" />
+                  ) : (
+                    <span className="combined-stack-icon-placeholder"></span>
+                  )}
+                </div>
+                <span className="combined-stack-label">{tool.name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <Element name="contact" className="combined-contact-block">
+          <p className="section-kicker">Contact</p>
+          <div className="combined-contact-list">
+            {contactDetails.map((detail, index) => (
+              <div key={index} className="combined-contact-item">
+                <i className={`bi ${detail.icon} contact-right-icon`}></i>
+                <p>{detail.text}</p>
+              </div>
+            ))}
+          </div>
+        </Element>
+      </div>
+
+      <Element name="experience" className="combined-profile-left">
+        <p className="section-kicker">Experience</p>
+        <div className="combined-experience-scroller">
+          <div className="experience-modern-list">
+            {experiences.map((exp, index) => (
+              <article key={index} className="experience-modern-item">
+                <p className="experience-modern-date">{exp.date}</p>
+
+                <div className="experience-modern-main">
+                  {exp.logoUrl && (
+                    <img
+                      src={exp.logoUrl}
+                      alt={`${exp.company} logo`}
+                      className="experience-modern-logo"
+                    />
+                  )}
+
+                  <div className="experience-modern-card">
+                    <h3 className="experience-modern-company">{exp.company}</h3>
+                    <p className="experience-modern-title">{exp.title}</p>
+                    {exp.description && <div className="experience-modern-description">{exp.description}</div>}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </Element>
+    </section>
   );
 };
 
