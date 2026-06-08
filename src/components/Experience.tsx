@@ -8,7 +8,6 @@ import manitouLogo from "../assets/manitou-research-logo.png";
 import ebscoLogo from "../assets/ebsco.png";
 import uvaLogo from "../assets/uva.png";
 import sideshot from "../assets/sideshot.jpg";
-import a1Logo from "../assets/a1-logo.svg";
 
 // Type for each experience entry
 interface ExperienceItem {
@@ -39,19 +38,15 @@ const experiences: ExperienceItem[] = [
     title: "Full Stack Developer",
     logoUrl: manitouLogo,
     description: (
-      <div className="hero-current-project">
-        <img src={a1Logo} alt="articleOne logo" className="hero-current-project-logo" />
-        <p className="hero-current-project-text">
-          Building{' '}
-          <a
-            href="https://www.articleone.ai"
-            target="_blank"
-            rel="noreferrer"
-            className="hero-current-project-link"
-          >
-            articleOne
-          </a>
-        </p>
+      <div>
+        Building{' '}
+        <a
+          href="https://www.articleone.ai"
+          target="_blank"
+          rel="noreferrer"
+        >
+          articleOne
+        </a>
       </div>
     )
   },
