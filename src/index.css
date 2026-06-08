@@ -173,7 +173,6 @@ html {
 
 .social-links-container {
   margin-right: auto;
-  margin-left: auto;
   text-align: left;
 }
 
@@ -1537,6 +1536,10 @@ footer {
 @media (max-width: 700px) {
     .combined-about-content {
         flex-direction: column;
+    }
+
+    .social-links-container {
+        margin: 0 auto;
     }
 
     .combined-about-image {
