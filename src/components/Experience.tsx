@@ -8,6 +8,8 @@ import manitouLogo from "../assets/manitou-research-logo.png";
 import ebscoLogo from "../assets/ebsco.png";
 import uvaLogo from "../assets/uva.png";
 import sideshot from "../assets/sideshot.jpg";
+import finnfunnLogo from "../assets/FinnFunn.jpg";
+import amplifiedLogo from "../assets/amplified_naturals.avif";
 
 // Type for each experience entry
 interface ExperienceItem {
@@ -49,6 +51,21 @@ const experiences: ExperienceItem[] = [
         </a>
       </div>
     )
+  },
+
+  {
+    date: "Jun 2026 - Present",
+    company: "FinnFunn New England",
+    title: "Website Designer",
+    logoUrl: finnfunnLogo,
+    description: "Website design for a local nonprofit"
+  },
+  {
+    date: "Oct 2025 - Feb 2026",
+    company: "Amplified Naturals",
+    title: "Web Developer",
+    logoUrl: amplifiedLogo,
+    description: "Shipped an E-commerce storefront with Shopify. Design, sales channel management, and custom liquid code"
   },
   {
     date: "Jun 2025 - Aug 2025",
@@ -127,7 +144,7 @@ const Experience: React.FC = () => {
           <div className="combined-about-content">
             <img src={sideshot} alt="Bowen" className="combined-about-image" />
             <p className="about-text combined-about-text">
-              Hey, I’m Bowen. I'm a 4th year at the University of Virginia studying Computer Science and Data Science. I enjoy making websites and doing full-stack development. Currently, I'm at Manitou Research building articleOne, a policy platform for congressional officials. My hobbies include golfing, hooping, lifting, cooking, and vibe coding. I am an outdoor adventure enthusiast.
+              Hey, I’m Bowen. I graduated from the University of Virginia in May 2026, where I studied Computer Science and Data Science. I enjoy making websites and doing full-stack development. Currently, I'm at Manitou Research building articleOne, a policy platform for congressional officials. My hobbies include golfing, hooping, lifting, cooking, and vibe coding. I am an outdoor adventure enthusiast.
             </p>
           </div>
         </Element>

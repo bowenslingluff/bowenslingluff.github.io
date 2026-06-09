@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
               <h1 className="hero-title">
                 <span className="hero-title-typing">Bowen Slingluff</span>
               </h1>
-              <p className="hero-kicker">Full Stack Developer</p>
+              <p className="hero-kicker">Full Stack Developer & Designer</p>
               
               <div className="social-links-container">
                 <a href="https://www.linkedin.com/in/bowen-slingluff" target="_blank" className="link" rel="noreferrer">
