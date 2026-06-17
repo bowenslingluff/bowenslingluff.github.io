@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Rankings from './pages/Favorites';
+import Portfolio from './pages/Portfolio';
+import ProjectGallery from './pages/ProjectGallery';
 
 function App() {
   const navigate = useNavigate();
@@ -35,6 +37,8 @@ function App() {
           }
         />
         <Route path="/rankings" element={<Rankings />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:slug" element={<ProjectGallery />} />
         {/* catch-all redirects to home; helps with GitHub Pages fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

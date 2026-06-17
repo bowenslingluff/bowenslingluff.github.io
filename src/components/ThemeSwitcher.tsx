@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 const ThemeSwitcher: React.FC = () => {
   // 'useState' to manage the theme. Defaults to 'light'.
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   // 'useEffect' runs once when the component mounts to check localStorage
   useEffect(() => {
@@ -27,12 +27,12 @@ const ThemeSwitcher: React.FC = () => {
   return (
     <div className="mode">
       <label className="theme" onClick={toggleTheme}>
-        {theme === 'light' ? (
-          <i className="bi bi-moon-fill"></i>
-        ) : (
+        {theme === 'dark' ? (
           <i className="bi bi-sun"></i>
+        ) : (
+          <i className="bi bi-moon-fill"></i>
         )}
-        <input className="input" type="checkbox" checked={theme === 'dark'} readOnly />
+        <input className="input" type="checkbox" checked={theme === 'light'} readOnly />
       </label>
     </div>
   );

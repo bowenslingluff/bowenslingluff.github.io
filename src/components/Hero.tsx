@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Element as ScrollElement } from 'react-scroll';
 import ThemeSwitcher from './ThemeSwitcher';
+import Navbar from './Navbar';
 
 const Hero: React.FC = () => {
   const splineViewerScript = 'https://unpkg.com/@splinetool/viewer@1.12.73/build/spline-viewer.js';
@@ -91,6 +92,7 @@ const Hero: React.FC = () => {
   return (
     <div className="container1">
       <ScrollElement name="home" id="home" className="home">
+        <Navbar />
         <ThemeSwitcher />
         <header className="hero-header">
           <div className="hero-visuals">
