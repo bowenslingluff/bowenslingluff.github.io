@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
         <ThemeSwitcher />
         <header className="hero-header">
           <div className="hero-visuals">
-            <div className="spline-wrapper" aria-label="Interactive 3D scene">
+            <div className="spline-wrapper" aria-label="Interactive 3D scene">1
               {React.createElement('spline-viewer', {
                 url: splineSceneUrl,
               })}
