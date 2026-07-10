@@ -91,7 +91,8 @@ const ProjectGallery: React.FC = () => {
     <div className="gradient-background portfolio-page">
       <ThemeSwitcher />
       <div className="portfolio-page-header">
-        <RouterLink to="/portfolio" className="portfolio-back-link">← Back to Portfolio</RouterLink>
+        <RouterLink to="/" className="portfolio-back-link">← Home</RouterLink>
+        <RouterLink to="/portfolio" className="portfolio-back-link">← Portfolio</RouterLink>
         <h1 className="portfolio-page-title">{project.title}</h1>
         <p className="portfolio-page-subtitle">{project.description}</p>
       </div>

@@ -3,9 +3,11 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import ThemeSwitcher from '../components/ThemeSwitcher';
 
-import websiteHighlight from '../assets/portfolio/articleOne_website_image_1.png';
+import websiteHighlight from '../assets/portfolio/articleOne_website_image_8.png';
 import platformHighlight from '../assets/portfolio/articleOne_platform_image_16.png';
 import naturalsHighlight from '../assets/portfolio/amplified_naturals_1.png';
+import finnfunnHighlight from '../assets/portfolio/finnfunn_1.png';
+
 
 const projects = [
   {
@@ -35,6 +37,15 @@ const projects = [
     externalUrl: 'https://amplifiednaturals.com',
     externalLabel: 'amplifiednaturals.com',
   },
+  {
+    title: 'FinnFunn',
+    description: 'Event website for FinnFunn Weekend 2026. Acted as website manager and designer, built with Wix.',
+    image: finnfunnHighlight,
+    slug: 'finnfunn',
+    side: 'left' as const,
+    externalUrl: 'https://finnfunn.org',
+    externalLabel: 'finnfunn.org',
+  }
 ];
 
 const Portfolio: React.FC = () => {
@@ -42,7 +53,7 @@ const Portfolio: React.FC = () => {
     <div className="gradient-background portfolio-page">
       <ThemeSwitcher />
       <div className="portfolio-page-header">
-        <RouterLink to="/" className="portfolio-link">← Back</RouterLink>
+        <RouterLink to="/" className="portfolio-link">← Home</RouterLink>
         <h1 className="portfolio-page-title">UI/UX Portfolio</h1>
         <p className="portfolio-page-subtitle">My UI/UX and web design work. Includes a B2B SaaS platform as well as e-commerce, marketing, and community event websites.</p>
         <nav className="portfolio-page-nav">

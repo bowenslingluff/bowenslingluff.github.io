@@ -2,21 +2,33 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, Element as ScrollElement } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
 import Navbar from './Navbar';
+import featuredProjectImage from '../assets/portfolio/articleOne_platform_image_9.png';
 
 const Hero: React.FC = () => {
   const splineViewerScript = 'https://unpkg.com/@splinetool/viewer@1.12.73/build/spline-viewer.js';
   const splineSceneUrl = 'https://prod.spline.design/B4Z7aUeeh429rfDo/scene.splinecode';
   const [isScrollArrowVisible, setIsScrollArrowVisible] = useState(true);
+  const [isFeaturedProjectVisible, setIsFeaturedProjectVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrollArrowVisible(window.scrollY <= 50);
+
+      const distanceFromBottom =
+        document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
+      setIsFeaturedProjectVisible(distanceFromBottom > 80);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll); // Cleanup
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -142,6 +154,18 @@ const Hero: React.FC = () => {
         >
           View Experience ↓
         </Link>
+
+        <RouterLink
+          to="/portfolio/articleone_platform"
+          className={`hero-featured-project${isFeaturedProjectVisible ? '' : ' hero-featured-project--hidden'}`}
+        >
+          <img
+            src={featuredProjectImage}
+            alt="ArticleOne Platform case study"
+            className="hero-featured-project-image"
+          />
+          <span className="hero-featured-project-text">Featured Project: <br></br> articleOne</span>
+        </RouterLink>
       </ScrollElement>
     </div>
   );
