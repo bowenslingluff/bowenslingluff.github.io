@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link as RouterLink, useParams, Navigate } from 'react-router-dom';
 
+import ThemeSwitcher from '../components/ThemeSwitcher';
+
 import w1 from '../assets/portfolio/articleOne_website_image_1.png';
 import w2 from '../assets/portfolio/articleOne_website_image_2.png';
 import w3 from '../assets/portfolio/articleOne_website_image_3.png';
@@ -87,6 +89,7 @@ const ProjectGallery: React.FC = () => {
 
   return (
     <div className="gradient-background portfolio-page">
+      <ThemeSwitcher />
       <div className="portfolio-page-header">
         <RouterLink to="/portfolio" className="portfolio-back-link">← Back to Portfolio</RouterLink>
         <h1 className="portfolio-page-title">{project.title}</h1>

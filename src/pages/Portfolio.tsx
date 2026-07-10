@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
+import ThemeSwitcher from '../components/ThemeSwitcher';
+
 import websiteHighlight from '../assets/portfolio/articleOne_website_image_1.png';
 import platformHighlight from '../assets/portfolio/articleOne_platform_image_16.png';
 import naturalsHighlight from '../assets/portfolio/amplified_naturals_1.png';
@@ -38,6 +40,7 @@ const projects = [
 const Portfolio: React.FC = () => {
   return (
     <div className="gradient-background portfolio-page">
+      <ThemeSwitcher />
       <div className="portfolio-page-header">
         <RouterLink to="/" className="portfolio-link">← Back</RouterLink>
         <h1 className="portfolio-page-title">UI/UX Portfolio</h1>
