@@ -17,10 +17,10 @@ const projects = [
   {
     title: 'articleOne Website',
     description: 'Marketing site and public-facing product pages for articleOne. JavaScript animations, clear messaging and sales conversions.',
-    images: [websiteHighlight, websiteSecondary],
+    images: [websiteHighlight],
     slug: 'articleone_website',
     years: 'Oct 2025 - Present',
-    role: 'Full Stack Developer',
+    role: 'UX/UI Designer & Front-End Developer',
     scope: 'Marketing Site, UI/UX Design, JS Animation',
     externalUrl: 'https://articleone.ai',
     externalLabel: 'articleone.ai',
@@ -28,7 +28,7 @@ const projects = [
   {
     title: 'articleOne Platform',
     description: 'Internal platform and dashboard UI for articleOne. Modern interfaces built for policy intelligence workflows.',
-    images: [platformHighlight, platformSecondary],
+    images: [platformSecondary],
     slug: 'articleone_platform',
     years: 'Oct 2025 - Present',
     role: 'Full Stack Developer',
@@ -39,7 +39,7 @@ const projects = [
   {
     title: 'Amplified Naturals',
     description: 'E-commerce site for Amplified Naturals. Customized checkout flows and connected third party marketplaces such as TikTok Shop.',
-    images: [naturalsHighlight, naturalsSecondary],
+    images: [naturalsHighlight],
     slug: 'amplified_naturals',
     years: 'Oct 2025 - Feb 2026',
     role: 'Web Developer',
@@ -50,7 +50,7 @@ const projects = [
   {
     title: 'FinnFunn',
     description: 'Event website for FinnFunn Weekend 2026. Acted as website manager and designer, built with Wix.',
-    images: [finnfunnHighlight, finnfunnSecondary],
+    images: [finnfunnHighlight],
     slug: 'finnfunn',
     years: 'Jun 2026 - Present',
     role: 'Website Designer',
@@ -101,7 +101,7 @@ const Portfolio: React.FC = () => {
             <div className="portfolio-section-info">
               <h2 className="portfolio-section-title">
                 {project.externalUrl ? (
-                  <a href={project.externalUrl} target="_blank" rel="noopener noreferrer" className="portfolio-section-external-link">
+                  <a href={`/portfolio/${project.slug}`} rel="noopener noreferrer" className="portfolio-section-external-link">
                     {project.title}
                   </a>
                 ) : project.title}
@@ -130,10 +130,6 @@ const Portfolio: React.FC = () => {
                   </dd>
                 </div>
               </dl>
-
-              <RouterLink to={`/portfolio/${project.slug}`} className="portfolio-section-link">
-                View gallery →
-              </RouterLink>
             </div>
 
             <div className="portfolio-section-gallery">

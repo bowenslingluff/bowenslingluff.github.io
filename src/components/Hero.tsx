@@ -150,7 +150,7 @@ const Hero: React.FC = () => {
           smooth={true}
           duration={500}
           className="scroll"
-          style={{ opacity: isScrollArrowVisible ? 1 : 0, cursor: 'pointer' }}
+          style={{ opacity: isScrollArrowVisible ? 1 : 0, cursor: 'pointer', fontWeight: 500, textTransform: 'uppercase' }}
         >
           View Experience ↓
         </Link>

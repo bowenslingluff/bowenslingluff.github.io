@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Element } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 // import company logos (add these files in src/assets/)
 import manitouLogo from "../assets/manitou-research-logo.png";
@@ -42,13 +43,9 @@ const experiences: ExperienceItem[] = [
     description: (
       <div>
         Building{' '}
-        <a
-          href="https://www.articleone.ai"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <RouterLink to="/portfolio/articleone_platform" className="a1-link">
           articleOne
-        </a>
+        </RouterLink>
       </div>
     )
   },
@@ -58,49 +55,64 @@ const experiences: ExperienceItem[] = [
     company: "FinnFunn New England",
     title: "Website Designer",
     logoUrl: finnfunnLogo,
-    description: "Website design for a local nonprofit"
+    description: (
+      <div>
+        Website manager and designer for{' '}
+        <RouterLink to="/portfolio/finnfunn" className="a1-link">
+          FinnFunn New England
+        </RouterLink>
+      </div>
+    )
   },
   {
     date: "Oct 2025 - Feb 2026",
     company: "Amplified Naturals",
     title: "Web Developer",
     logoUrl: amplifiedLogo,
-    description: "Shipped an E-commerce storefront with Shopify. Design, sales channel management, and custom liquid code"
+    description: (
+      <div>
+        Shipped {' '}
+        <RouterLink to="/portfolio/amplified_naturals" className="a1-link">
+          Amplified Naturals
+        </RouterLink>
+        , an E-commerce storefront with Shopify. Design, sales channel management, and liquid code
+      </div>
+    )
   },
   {
     date: "Jun 2025 - Aug 2025",
     company: "EBSCO Information Services",
     title: "Software Engineering Intern",
     logoUrl: ebscoLogo,
-    description: "Java Spring Boot microservices + REST APIs."
+    description: "Java Spring Boot microservices + REST APIs"
   },
   {
     date: "Jan 2025 - May 2025",
     company: "Manitou Research",
     title: "Software Engineering Intern",
     logoUrl: manitouLogo,
-    description: "Python data collection + processing, MongoDB, APIs, HTML + CSS."
+    description: "Python data collection + processing, MongoDB, APIs, HTML + CS"
   },
   {
     date: "2022 - 2026",
     company: "University of Virginia",
     title: "B.A. in Computer Science",
     logoUrl: uvaLogo,
-    description: "GPA 3.8/4.0. Pursuing a Bachelor of Arts in CS with a Minor in Data Science."
+    description: "GPA 3.8/4.0. Pursuing a Bachelor of Arts in CS with a Minor in Data Science"
   },
   {
     date: "2023 - 2024",
     company: "Town of Rockport, MA",
     title: "Ramp Attendant",
     logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9gFSm3E3Go6GZCQIyxB5gw5dYBAQ_drH_Ig&s',
-    description: "Boat launch guy. Avid book reader and conversationalist."
+    description: "Boat launch guy. Avid book reader and conversationalist"
   },
   {
     date: "2021 - 2024",
     company: "North Shore Adventures LLC",
     title: "Kayak Tour Guide",
     logoUrl: "https://images.squarespace-cdn.com/content/v1/61d9ce3e46d51b49b510bc83/0b5182d3-2548-40d9-b0d4-45ff9f097684/favicon.ico?format=100w",
-    description: "Led ocean kayak tours in coastal Rockport, MA. Destinations included Straightsmouth Island, Thatcher Island, The Dry Salvages. Performed multiple rescues."
+    description: "Led ocean kayak tours in coastal Rockport, MA. Destinations included Straightsmouth Island, Thatcher Island, The Dry Salvages. Performed multiple rescues"
   },
 ];
 
@@ -144,7 +156,7 @@ const Experience: React.FC = () => {
           <div className="combined-about-content">
             <img src={sideshot} alt="Bowen" className="combined-about-image" />
             <p className="about-text combined-about-text">
-              Hey, I’m Bowen. I graduated from the University of Virginia in May 2026, where I studied Computer Science and Data Science. I enjoy making websites and doing full-stack development. Currently, I'm at Manitou Research building articleOne, a policy platform for congressional officials. My hobbies include golfing, hooping, lifting, cooking, and vibe coding. I am an outdoor adventure enthusiast.
+              Hey, I’m Bowen. I graduated from the University of Virginia in May 2026, where I studied Computer Science and Data Science. I enjoy doing web development, designing beautiful interfaces and crafting AI solutions. Currently, I'm at Manitou Research building articleOne, an AI-native policy platform for congressional officials. My hobbies include golfing, hooping, lifting, cooking, and vibe coding. I am an outdoor adventure enthusiast.
             </p>
           </div>
         </Element>
