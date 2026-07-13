@@ -891,7 +891,7 @@ footer {
 
 .hero-kicker {
     margin: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 0.95rem;
@@ -952,6 +952,18 @@ footer {
     opacity: 1;
     transform: translate(0, 0);
     transition: transform 0.15s ease-in-out, opacity 0.25s ease-in-out;
+    animation: hero-featured-project-slide-in 0.6s ease-out;
+}
+
+@keyframes hero-featured-project-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .hero-featured-project--hidden {
