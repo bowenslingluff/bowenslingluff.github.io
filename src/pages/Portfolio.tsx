@@ -4,13 +4,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import ThemeSwitcher from '../components/ThemeSwitcher';
 
 import websiteHighlight from '../assets/portfolio/articleOne_website_image_8.png';
-import websiteSecondary from '../assets/portfolio/articleOne_website_image_3.png';
-import platformHighlight from '../assets/portfolio/articleOne_platform_image_16.png';
 import platformSecondary from '../assets/portfolio/articleOne_platform_image_9.png';
 import naturalsHighlight from '../assets/portfolio/amplified_naturals_1.png';
-import naturalsSecondary from '../assets/portfolio/amplified_naturals_2.png';
 import finnfunnHighlight from '../assets/portfolio/finnfunn_1.png';
-import finnfunnSecondary from '../assets/portfolio/finnfunn_2.png';
 
 
 const projects = [
