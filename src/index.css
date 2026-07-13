@@ -264,7 +264,7 @@ html {
     left: 50%;
     top: 45px;
     transform: translateX(-50%);
-    transition: visibility 0.2s, opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
 }
 
 .link:hover .linktext {

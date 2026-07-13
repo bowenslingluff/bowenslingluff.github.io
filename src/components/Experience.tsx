@@ -138,11 +138,14 @@ const stackItems: StackItem[] = [
 const toolItems: StackItem[] = [
   { name: 'GitHub', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
   { name: 'VS Code', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-  { name: 'Postman', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-  { name: 'Figma', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   { name: 'Claude Code', iconSrc: 'https://img.icons8.com/fluent/512w/claude-ai.png'},
+  { name: 'Figma', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   { name: 'Perplexity', iconSrc: 'https://img.icons8.com/fluent/512w/perplexity-ai.png' },
   { name: 'Google Gemini', iconSrc: 'https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/gemini-color.png' },
+  { name: 'Postman', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
+  { name: 'GCP', iconSrc: 'https://img.icons8.com/fluent/512w/google-cloud.png' },
+  { name: 'Shopify', iconSrc: 'https://cdn.simpleicons.org/shopify' },
+  { name: 'Wix', iconSrc: 'https://cdn.simpleicons.org/wix' },
 ];
 
 const Experience: React.FC = () => {

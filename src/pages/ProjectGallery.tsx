@@ -30,6 +30,13 @@ import n2 from '../assets/portfolio/amplified_naturals_2.png';
 import n3 from '../assets/portfolio/amplified_naturals_3.png';
 import n4 from '../assets/portfolio/amplified_naturals_4.png';
 
+import f1 from '../assets/portfolio/finnfunn_1.png';
+import f2 from '../assets/portfolio/finnfunn_2.png';
+import f3 from '../assets/portfolio/finnfunn_3.png';
+import f4 from '../assets/portfolio/finnfunn_4.png';
+import f5 from '../assets/portfolio/finnfunn_5.png';
+import f6 from '../assets/portfolio/finnfunn_6.png';
+
 const projectData: Record<string, { title: string; description: string; images: string[] }> = {
   articleone_website: {
     title: 'ArticleOne Website',
@@ -45,6 +52,11 @@ const projectData: Record<string, { title: string; description: string; images: 
     title: 'Amplified Naturals',
     description: 'E-commerce and brand presence for Amplified Naturals.',
     images: [n1, n2, n3, n4],
+  },
+  finnfunn: {
+    title: 'FinnFunn',
+    description: 'Event website for FinnFunn Weekend 2026, built with Wix.',
+    images: [f1, f2, f3, f4, f5, f6],
   },
 };
 
