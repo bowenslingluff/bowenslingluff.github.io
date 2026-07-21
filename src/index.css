@@ -726,10 +726,6 @@ footer {
         gap: 1rem;
     }
 
-    .spline-wrapper {
-        width: min(540px, 92vw);
-        height: 290px;
-    }
 }
 
 /* Refreshed Homepage UI */
@@ -761,7 +757,7 @@ footer {
 
 .hero-visuals {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto 1fr;
     align-items: center;
     gap: clamp(1.5rem, 4vw, 3.5rem);
     width: 100%;
@@ -769,15 +765,13 @@ footer {
 
 .spline-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 680px;
-    height: clamp(350px, 60vh, 640px);
+    width: 420px;
+    height: 420px;
+    flex-shrink: 0;
     border: none;
     border-radius: 0;
     background: transparent;
     overflow: visible;
-    min-width: 1px;
-    min-height: 1px;
 }
 
 .spline-wrapper spline-viewer {
@@ -1255,11 +1249,6 @@ footer {
 
     .hero-visuals {
         grid-template-columns: 1fr;
-    }
-
-    .spline-wrapper {
-        max-width: none;
-        height: 360px;
     }
 
     .social-links-container {

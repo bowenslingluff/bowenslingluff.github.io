@@ -5,11 +5,10 @@ import { Link, Element as ScrollElement } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
 import Navbar from './Navbar';
+import Logo3D from './Logo3D';
 import featuredProjectImage from '../assets/portfolio/articleOne_platform_image_9.png';
 
 const Hero: React.FC = () => {
-  const splineViewerScript = 'https://unpkg.com/@splinetool/viewer@1.12.73/build/spline-viewer.js';
-  const splineSceneUrl = 'https://prod.spline.design/B4Z7aUeeh429rfDo/scene.splinecode';
   const [isScrollArrowVisible, setIsScrollArrowVisible] = useState(true);
   const [isFeaturedProjectVisible, setIsFeaturedProjectVisible] = useState(true);
 
@@ -31,76 +30,6 @@ const Hero: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const existingScript = document.querySelector(`script[src="${splineViewerScript}"]`);
-
-    if (existingScript) {
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = splineViewerScript;
-    document.body.appendChild(script);
-  }, [splineViewerScript]);
-
-  useEffect(() => {
-    const hideSplineLogo = (viewer: Element): boolean => {
-      const host = viewer as HTMLElement;
-      let wasHidden = false;
-
-      const logoInLightDom = host.querySelector('#logo') as HTMLElement | null;
-      if (logoInLightDom) {
-        logoInLightDom.style.display = 'none';
-        wasHidden = true;
-      }
-
-      const logoInShadowDom = host.shadowRoot?.querySelector('#logo') as HTMLElement | null;
-      if (logoInShadowDom) {
-        logoInShadowDom.style.display = 'none';
-        wasHidden = true;
-      }
-
-      return wasHidden;
-    };
-
-    const hideAllSplineLogos = (): boolean => {
-      const viewers = document.querySelectorAll('spline-viewer');
-      let foundAndHiddenAny = false;
-
-      viewers.forEach((viewer) => {
-        if (hideSplineLogo(viewer)) {
-          foundAndHiddenAny = true;
-        }
-      });
-
-      return foundAndHiddenAny;
-    };
-
-    hideAllSplineLogos();
-
-    let attempts = 0;
-    const maxAttempts = 40;
-    const intervalId = window.setInterval(() => {
-      attempts += 1;
-      const done = hideAllSplineLogos();
-      if (done || attempts >= maxAttempts) {
-        window.clearInterval(intervalId);
-      }
-    }, 250);
-
-    const observer = new MutationObserver(() => {
-      hideAllSplineLogos();
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    return () => {
-      window.clearInterval(intervalId);
-      observer.disconnect();
-    };
-  }, []);
-
   return (
     <div className="container1">
       <ScrollElement name="home" id="home" className="home">
@@ -109,9 +38,7 @@ const Hero: React.FC = () => {
         <header className="hero-header">
           <div className="hero-visuals">
             <div className="spline-wrapper" aria-label="Interactive 3D scene">
-              {React.createElement('spline-viewer', {
-                url: splineSceneUrl,
-              })}
+              <Logo3D />
             </div>
             <div className="hero-copy">
               <h1 className="hero-title">

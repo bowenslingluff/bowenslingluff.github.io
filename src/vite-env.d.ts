@@ -1,10 +1,6 @@
 /// <reference types="vite/client" />
 
-declare namespace JSX {
-	interface IntrinsicElements {
-		'spline-viewer': {
-			url: string;
-			[key: string]: string | number | boolean | undefined;
-		};
-	}
+declare module '*.gltf?url' {
+	const src: string;
+	export default src;
 }
