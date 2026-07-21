@@ -66,7 +66,7 @@ function LogoModel({ scrollStateRef }: { scrollStateRef: React.RefObject<ScrollS
   useLayoutEffect(() => {
     const perspectiveCamera = camera as THREE.PerspectiveCamera;
     const fitDistance = model.radius / Math.sin((perspectiveCamera.fov * Math.PI) / 360);
-    camera.position.set(0, model.radius * 0.25, fitDistance * 0.75);
+    camera.position.set(0, model.radius * 0.25, fitDistance * 1);
     camera.near = model.radius * 0.01;
     camera.far = fitDistance * 10;
     camera.lookAt(0, 0, 0);

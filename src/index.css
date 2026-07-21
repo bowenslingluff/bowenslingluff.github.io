@@ -12,10 +12,15 @@
 [data-theme="light"] {
     --primary-color: rgb(0, 0, 0);
     --font-color: #bc5090;
-    --bg-color: #ffffff;
+    --bg-color: #e6ffe8;
     --secondary-bg-color: #b6fbff;
     --hover-color: rgb(0, 55, 255);
     --projects-bg: white;
+}
+
+:root,
+[data-theme="light"] {
+    --experience-bg-color: color-mix(in srgb, var(--bg-color) 78%, var(--secondary-bg-color) 22%);
 }
 
 #root {
@@ -728,16 +733,6 @@ footer {
 
 }
 
-/* Refreshed Homepage UI */
-
-.gradient-background {
-    background:
-        radial-gradient(circle at 15% 15%, color-mix(in srgb, #4CA1AF 10%, transparent), transparent 35%),
-        radial-gradient(circle at 85% 5%, color-mix(in srgb, #b6fbff 20%, transparent), transparent 40%),
-        linear-gradient(var(--bg-color), var(--bg-color));
-    min-height: 100vh;
-}
-
 .container1 {
     padding-bottom: 0;
 }
@@ -1085,13 +1080,14 @@ footer {
 .scroll {
     position: absolute;
     left: 50%;
-    bottom: 1.2rem;
+    bottom: 3rem;
     transform: translateX(-50%);
     margin: 0;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    z-index: 2;
 }
 
 .experience-shell,
@@ -1292,6 +1288,37 @@ footer {
 
 /* Combined Experience/About/Contact Layout */
 
+.section-scribble-divider {
+    position: absolute;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    bottom: clamp(-60px, -6vw, -20px);
+    height: clamp(90px, 13vw, 170px);
+    overflow: visible;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section-scribble-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.section-scribble-path {
+    fill: var(--experience-bg-color);
+}
+
+.section-scribble-stroke {
+    fill: none;
+    stroke: var(--experience-bg-color);
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 .combined-profile-shell {
     width: 100%;
     margin: 0;
@@ -1299,6 +1326,7 @@ footer {
     position: relative;
     display: grid;
     grid-template-columns: minmax(350px, 45%) 1fr;
+    background: var(--experience-bg-color);
     border: 1px solid color-mix(in srgb, var(--primary-color) 18%, transparent);
 }
 

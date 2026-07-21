@@ -6,6 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
 import Navbar from './Navbar';
 import Logo3D from './Logo3D';
+import SectionScribbleDivider from './SectionScribbleDivider';
 import featuredProjectImage from '../assets/portfolio/articleOne_platform_image_9.png';
 
 const Hero: React.FC = () => {
@@ -93,6 +94,8 @@ const Hero: React.FC = () => {
           />
           <span className="hero-featured-project-text">Featured Project: <br></br> articleOne</span>
         </RouterLink>
+
+        <SectionScribbleDivider />
       </ScrollElement>
     </div>
   );
