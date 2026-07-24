@@ -59,6 +59,8 @@ const projects = [
 const Portfolio: React.FC = () => {
   const [activeSlug, setActiveSlug] = useState(projects[0].slug);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const infoRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const imgRefs = useRef<(HTMLImageElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -77,6 +79,40 @@ const Portfolio: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const infoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            infoObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.15 }
+    );
+
+    infoRefs.current.forEach((el) => el && infoObserver.observe(el));
+    return () => infoObserver.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const imgObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            imgObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.15 }
+    );
+
+    imgRefs.current.forEach((el) => el && imgObserver.observe(el));
+    return () => imgObserver.disconnect();
+  }, []);
+
   return (
     <div className="gradient-background portfolio-page">
       <ThemeSwitcher />
@@ -87,14 +123,19 @@ const Portfolio: React.FC = () => {
       </div>
 
       <div className="portfolio-sections">
-        {projects.map((project, i) => (
+        {projects.map((project, i) => {
+          const imgOffset = projects.slice(0, i).reduce((acc, p) => acc + p.images.length, 0);
+          return (
           <div
             key={i}
             id={project.slug}
             ref={(el) => { sectionRefs.current[i] = el; }}
             className="portfolio-section"
           >
-            <div className="portfolio-section-info">
+            <div
+              className="portfolio-section-info"
+              ref={(el) => { infoRefs.current[i] = el; }}
+            >
               <h2 className="portfolio-section-title">
                 {project.externalUrl ? (
                   <a href={`/portfolio/${project.slug}`} rel="noopener noreferrer" className="portfolio-section-external-link">
@@ -131,12 +172,18 @@ const Portfolio: React.FC = () => {
             <div className="portfolio-section-gallery">
               {project.images.map((src, j) => (
                 <RouterLink key={j} to={`/portfolio/${project.slug}`} className="portfolio-section-img-link">
-                  <img src={src} alt={`${project.title} screenshot ${j + 1}`} className="portfolio-section-img" />
+                  <img
+                    src={src}
+                    alt={`${project.title} screenshot ${j + 1}`}
+                    className="portfolio-section-img"
+                    ref={(el) => { imgRefs.current[imgOffset + j] = el; }}
+                  />
                 </RouterLink>
               ))}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       <nav className="portfolio-page-dots" aria-label="Project navigation">

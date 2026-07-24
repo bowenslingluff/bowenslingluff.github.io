@@ -1849,6 +1849,22 @@ footer {
   display: flex;
   flex-direction: column;
   font-family: 'Courier New', Courier, monospace;
+  opacity: 0;
+}
+
+.portfolio-section-info.is-visible {
+  animation: portfolio-section-info-animation 0.5s ease-out forwards;
+}
+
+@keyframes portfolio-section-info-animation {
+    0% {
+        opacity: 0;
+        transform: translateX(-120%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .portfolio-section-title {
@@ -1955,6 +1971,22 @@ footer {
   border-radius: 1rem;
   border: 1px solid color-mix(in srgb, var(--primary-color) 12%, transparent);
   box-shadow: 0 8px 24px color-mix(in srgb, var(--primary-color) 7%, transparent);
+  opacity: 0;
+}
+
+.portfolio-section-img.is-visible {
+  animation: portfolio-page-image-animation 0.5s ease-out forwards;
+}
+
+@keyframes portfolio-page-image-animation {
+    0% {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .portfolio-page-dots {
