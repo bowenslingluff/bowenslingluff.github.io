@@ -2,19 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 
+// Read any saved preference synchronously so the very first render already
+// matches it - avoids a flash back to the default theme on every page mount.
+const getInitialTheme = (): string => {
+  if (typeof window === 'undefined') return 'dark';
+  return localStorage.getItem('theme') || 'dark';
+};
+
 const ThemeSwitcher: React.FC = () => {
-  // 'useState' to manage the theme. Defaults to 'light'.
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(getInitialTheme);
 
-  // 'useEffect' runs once when the component mounts to check localStorage
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setTheme(savedTheme);
-    }
-  }, []);
-
-  // This 'useEffect' runs whenever the 'theme' state changes
+  // Keep the document + localStorage in sync whenever the theme changes
+  // (including on mount, so switching pages/components stays consistent).
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);

@@ -7,15 +7,17 @@
     --secondary-bg-color: #4CA1AF;
     --hover-color: #bdbdbd;
     --projects-bg: rgb(218, 218, 218);
+    --ray-color: #f5d800;
 }
 
 [data-theme="light"] {
     --primary-color: rgb(0, 0, 0);
-    --font-color: #bc5090;
-    --bg-color: #e6ffe8;
-    --secondary-bg-color: #b6fbff;
+    --font-color: #3F84E5;
+    --bg-color: #fff7f0;
+    --secondary-bg-color: #6860ff;
     --hover-color: rgb(0, 55, 255);
     --projects-bg: white;
+    --ray-color: #130d95;
 }
 
 :root,
@@ -119,12 +121,6 @@ html {
 
 /* Hero View */
 
-.home {
-    display: flex;
-    flex-direction: column;
-    padding-top: 8%;
-}
-
 .home.header {
     color: var(--primary-color);
 }
@@ -176,7 +172,8 @@ html {
 }
 
 .social-links-container {
-  margin-right: auto;
+  margin: 0 0 8px 4px;
+
   text-align: left;
 }
 
@@ -217,7 +214,7 @@ html {
 }
 
 .portfolio-rays line {
-  stroke: #f5d800;
+  stroke: var(--ray-color);
   stroke-width: 3px;
   stroke-linecap: round;
 }
@@ -225,21 +222,6 @@ html {
 @keyframes ray-pulse {
   0%, 100% { opacity: 0.15; }
   50% { opacity: 1; }
-}
-
-.portfolio-link {
-  position: relative;
-  z-index: 1;
-  font-family: monospace;
-  text-transform: uppercase;
-  color: var(--primary-color);
-  text-decoration: none;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-}
-
-.portfolio-link:hover {
-  color: var(--hover-color);
 }
 
 .link {
@@ -740,7 +722,8 @@ footer {
 .home {
     min-height: 100vh;
     padding-top: 0;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     width: min(1200px, 94vw);
     margin: 0 auto;
     position: relative;
@@ -748,13 +731,13 @@ footer {
 
 .hero-header {
     width: 100%;
+    margin-top: 4rem;
 }
 
 .hero-visuals {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    gap: clamp(1.5rem, 4vw, 3.5rem);
     width: 100%;
 }
 
@@ -845,8 +828,7 @@ footer {
 }
 
 .hero-kicker {
-    margin: 0;
-    margin-bottom: 1rem;
+    margin: 0 0 8px 4px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-size: 0.95rem;
@@ -958,7 +940,6 @@ footer {
     background-color: rgba(0, 0, 0, 0.55);
     border-radius: 6px;
     font-size: 1.1rem;
-    font-weight: 500;
     letter-spacing: 0.04em;
     text-align: center;
     color: #ffffff;
@@ -1887,7 +1868,6 @@ footer {
   text-decoration: none;
   border-bottom: 2px solid var(--font-color);
   padding-bottom: 1px;
-  transition: color 0.15s ease, border-color 0.15s ease;
   font-family: monospace;
 
   letter-spacing: 0.05em;
@@ -2028,6 +2008,21 @@ footer {
   .portfolio-page-dots {
     display: none;
   }
+}
+
+/* Case study layout (ProjectGallery) */
+
+.case-study-hero-meta {
+  width: min(480px, 100%);
+  margin: 0.5rem 0 0;
+}
+
+.case-study-section--text-only {
+  grid-template-columns: 1fr;
+}
+
+.case-study-section--text-only .portfolio-section-info {
+  max-width: 640px;
 }
 
 /* Project gallery page */

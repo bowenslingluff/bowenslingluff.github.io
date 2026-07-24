@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link as RouterLink, useParams, Navigate } from 'react-router-dom';
 
 import ThemeSwitcher from '../components/ThemeSwitcher';
@@ -37,16 +37,12 @@ import f4 from '../assets/portfolio/finnfunn_4.png';
 import f5 from '../assets/portfolio/finnfunn_5.png';
 import f6 from '../assets/portfolio/finnfunn_6.png';
 
+// Simple image-only galleries (projects that haven't been converted to a case study yet)
 const projectData: Record<string, { title: string; description: string; images: string[] }> = {
   articleone_website: {
     title: 'ArticleOne Website',
     description: 'Marketing site and public-facing product pages for ArticleOne.',
     images: [w1, w2, w3, w4, w5, w6, w7],
-  },
-  articleone_platform: {
-    title: 'ArticleOne Platform',
-    description: 'Internal platform and dashboard UI for the ArticleOne product.',
-    images: [p8, p9, p10, p1, p11, p12, p13, p2, p14, p15, p16, p17, p18],
   },
   amplified_naturals: {
     title: 'Amplified Naturals',
@@ -60,15 +56,112 @@ const projectData: Record<string, { title: string; description: string; images: 
   },
 };
 
+// Case study layout: walks the reader through problem -> process -> solution -> outcomes
+type CaseStudySection = {
+  id: string;
+  kicker: string;
+  heading: string;
+  paragraphs: string[];
+  images?: string[];
+};
+
+type CaseStudy = {
+  title: string;
+  subtitle: string;
+  meta: { label: string; value: string; href?: string }[];
+  sections: CaseStudySection[];
+};
+
+const caseStudyData: Record<string, CaseStudy> = {
+  articleone_platform: {
+    title: 'ArticleOne Platform',
+    subtitle: 'Internal platform and dashboard UI for policy intelligence workflows.',
+    meta: [
+      { label: 'Role', value: 'Full Stack Developer' },
+      { label: 'Timeline', value: 'Oct 2025 - Present' },
+      { label: 'Scope', value: 'Product Strategy, UI/UX Design, Full Stack Development' },
+      { label: 'Link', value: 'articleone.ai ↗', href: 'https://articleone.ai' },
+    ],
+    sections: [
+      {
+        id: 'problem',
+        kicker: 'The Problem',
+        heading: 'Defining the problem',
+        paragraphs: [
+          'Placeholder — describe the business or user problem that existed before this project began.',
+          'Placeholder — outline the goals and constraints that shaped the work (timeline, stakeholders, technical limitations).',
+        ],
+        images: [p1, p2],
+      },
+      {
+        id: 'research',
+        kicker: 'The Process / 01',
+        heading: 'Research & insights',
+        paragraphs: [
+          'Placeholder — summarize the research methods used (interviews, analytics review, competitive audits) and the key insight that came out of it.',
+        ],
+        images: [p8, p9],
+      },
+      {
+        id: 'decisions',
+        kicker: 'The Process / 02',
+        heading: 'Key decisions',
+        paragraphs: [
+          'Placeholder — walk through the major UX decisions made and the reasoning behind them. Call out any tradeoffs or rejected directions.',
+        ],
+        images: [p10, p11, p12],
+      },
+      {
+        id: 'iterations',
+        kicker: 'The Process / 03',
+        heading: 'Iterations',
+        paragraphs: [
+          'Placeholder — show how the design evolved from early concepts to the final product, and what changed along the way.',
+        ],
+        images: [p13, p14],
+      },
+      {
+        id: 'solution',
+        kicker: 'The Solution',
+        heading: 'The final product',
+        paragraphs: [
+          'Placeholder — describe the solution that shipped and how it addresses the problem defined above.',
+        ],
+        images: [p15, p16, p17, p18],
+      },
+      {
+        id: 'outcomes',
+        kicker: 'Outcomes',
+        heading: 'Impact',
+        paragraphs: [
+          'Placeholder — share measurable outcomes (metrics, launch details) and any qualitative feedback from users or stakeholders.',
+        ],
+      },
+      {
+        id: 'reflection',
+        kicker: 'Reflection',
+        heading: 'What I learned',
+        paragraphs: [
+          "Placeholder — reflect on what worked, what you'd do differently, and what you took away from the project.",
+        ],
+      },
+    ],
+  },
+};
+
 const PAD = 48;
 
 const ProjectGallery: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? projectData[slug] : null;
+  const caseStudy = slug ? caseStudyData[slug] : null;
 
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [originRect, setOriginRect] = useState<DOMRect | null>(null);
   const [expanded, setExpanded] = useState(false);
+
+  const infoRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const imgRefs = useRef<(HTMLImageElement | null)[]>([]);
 
   const openLightbox = (src: string, e: React.MouseEvent) => {
     const img = (e.currentTarget as HTMLElement).querySelector('img')!;
@@ -90,7 +183,42 @@ const ProjectGallery: React.FC = () => {
     return () => window.removeEventListener('keydown', onKey);
   }, [closeLightbox]);
 
-  if (!project) return <Navigate to="/portfolio" replace />;
+  useEffect(() => {
+    if (!caseStudy) return;
+
+    const infoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            infoObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.15 }
+    );
+    infoRefs.current.forEach((el) => el && infoObserver.observe(el));
+
+    const imgObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            imgObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.15 }
+    );
+    imgRefs.current.forEach((el) => el && imgObserver.observe(el));
+
+    return () => {
+      infoObserver.disconnect();
+      imgObserver.disconnect();
+    };
+  }, [caseStudy]);
+
+  if (!project && !caseStudy) return <Navigate to="/portfolio" replace />;
 
   const expandedStyle = {
     top: PAD,
@@ -99,19 +227,110 @@ const ProjectGallery: React.FC = () => {
     height: window.innerHeight - PAD * 2,
   };
 
+  if (caseStudy) {
+    let imgCounter = -1;
+    return (
+      <div className="gradient-background portfolio-page">
+        <ThemeSwitcher />
+        <div className="portfolio-page-header">
+          <RouterLink to="/" className="portfolio-back-link">← Home</RouterLink>
+          <RouterLink to="/portfolio" className="portfolio-back-link">← Portfolio</RouterLink>
+          <h1 className="portfolio-page-title">{caseStudy.title}</h1>
+          <p className="portfolio-page-subtitle">{caseStudy.subtitle}</p>
+
+          <dl className="portfolio-section-meta case-study-hero-meta">
+            {caseStudy.meta.map((row) => (
+              <div className="portfolio-section-meta-row" key={row.label}>
+                <dt>{row.label}</dt>
+                <dd>
+                  {row.href ? (
+                    <a href={row.href} target="_blank" rel="noopener noreferrer" className="portfolio-section-meta-link">
+                      {row.value}
+                    </a>
+                  ) : row.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div className="portfolio-sections">
+          {caseStudy.sections.map((section, i) => (
+            <div
+              key={section.id}
+              id={section.id}
+              className={`portfolio-section${!section.images?.length ? ' case-study-section--text-only' : ''}`}
+            >
+              <div
+                className="portfolio-section-info"
+                ref={(el) => { infoRefs.current[i] = el; }}
+              >
+                <p className="section-kicker">{section.kicker}</p>
+                <h2 className="portfolio-section-title">{section.heading}</h2>
+                {section.paragraphs.map((para, pi) => (
+                  <p className="portfolio-section-desc" key={pi}>{para}</p>
+                ))}
+              </div>
+
+              {!!section.images?.length && (
+                <div className="portfolio-section-gallery">
+                  {section.images.map((src, j) => {
+                    imgCounter += 1;
+                    const imgIndex = imgCounter;
+                    return (
+                      <div key={j} className="portfolio-section-img-link" onClick={(e) => openLightbox(src, e)}>
+                        <img
+                          src={src}
+                          alt={`${caseStudy.title} ${section.heading} example ${j + 1}`}
+                          className="portfolio-section-img"
+                          ref={(el) => { imgRefs.current[imgIndex] = el; }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {lightboxSrc && originRect && (
+          <div
+            className={`lightbox-overlay${expanded ? ' lightbox-overlay--expanded' : ''}`}
+            onClick={closeLightbox}
+          >
+            <button className="lightbox-close" onClick={(e) => { e.stopPropagation(); closeLightbox(); }}>✕</button>
+            <img
+              src={lightboxSrc}
+              alt="Full screen view"
+              className="lightbox-img"
+              style={expanded ? expandedStyle : {
+                top: originRect.top,
+                left: originRect.left,
+                width: originRect.width,
+                height: originRect.height,
+              }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="gradient-background portfolio-page">
       <ThemeSwitcher />
       <div className="portfolio-page-header">
         <RouterLink to="/" className="portfolio-back-link">← Home</RouterLink>
         <RouterLink to="/portfolio" className="portfolio-back-link">← Portfolio</RouterLink>
-        <h1 className="portfolio-page-title">{project.title}</h1>
-        <p className="portfolio-page-subtitle">{project.description}</p>
+        <h1 className="portfolio-page-title">{project!.title}</h1>
+        <p className="portfolio-page-subtitle">{project!.description}</p>
       </div>
       <div className="project-gallery-grid">
-        {project.images.map((src, i) => (
+        {project!.images.map((src, i) => (
           <div key={i} className="project-gallery-item" onClick={(e) => openLightbox(src, e)}>
-            <img src={src} alt={`${project.title} screenshot ${i + 1}`} className="project-gallery-img" />
+            <img src={src} alt={`${project!.title} screenshot ${i + 1}`} className="project-gallery-img" />
           </div>
         ))}
       </div>

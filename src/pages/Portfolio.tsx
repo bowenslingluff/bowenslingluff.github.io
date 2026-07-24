@@ -11,17 +11,6 @@ import finnfunnHighlight from '../assets/portfolio/finnfunn_1.png';
 
 const projects = [
   {
-    title: 'articleOne Website',
-    description: 'Marketing site and public-facing product pages for articleOne. JavaScript animations, clear messaging and sales conversions.',
-    images: [websiteHighlight],
-    slug: 'articleone_website',
-    years: 'Oct 2025 - Present',
-    role: 'UX/UI Designer & Front-End Developer',
-    scope: 'Marketing Site, UI/UX Design, JS Animation',
-    externalUrl: 'https://articleone.ai',
-    externalLabel: 'articleone.ai',
-  },
-  {
     title: 'articleOne Platform',
     description: 'Internal platform and dashboard UI for articleOne. Modern interfaces built for policy intelligence workflows.',
     images: [platformSecondary],
@@ -29,6 +18,17 @@ const projects = [
     years: 'Oct 2025 - Present',
     role: 'Full Stack Developer',
     scope: 'Product Strategy, UI/UX Design, Full Stack Development',
+    externalUrl: 'https://articleone.ai',
+    externalLabel: 'articleone.ai',
+  },
+  {
+    title: 'articleOne Website',
+    description: 'Marketing site and public-facing product pages for articleOne. JavaScript animations, clear messaging and sales conversions.',
+    images: [websiteHighlight],
+    slug: 'articleone_website',
+    years: 'Oct 2025 - Present',
+    role: 'UX/UI Designer & Front-End Developer',
+    scope: 'Marketing Site, UI/UX Design, JS Animation',
     externalUrl: 'https://articleone.ai',
     externalLabel: 'articleone.ai',
   },
@@ -117,7 +117,7 @@ const Portfolio: React.FC = () => {
     <div className="gradient-background portfolio-page">
       <ThemeSwitcher />
       <div className="portfolio-page-header">
-        <RouterLink to="/" className="portfolio-link">← Home</RouterLink>
+        <RouterLink to="/" className="portfolio-back-link">← Home</RouterLink>
         <h1 className="portfolio-page-title">UI/UX Portfolio</h1>
         <p className="portfolio-page-subtitle">My UI/UX and web design work. Includes a B2B SaaS platform as well as e-commerce, marketing, and community event websites.</p>
       </div>
