@@ -224,6 +224,17 @@ html {
   50% { opacity: 1; }
 }
 
+.portfolio-link {
+  position: relative;
+  z-index: 1;
+  font-family: monospace;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
 .link {
     font-size: 30px;
     margin-right: 10px;
@@ -2011,6 +2022,34 @@ footer {
 }
 
 /* Case study layout (ProjectGallery) */
+
+.case-study-toc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.75rem;
+  width: min(760px, 100%);
+  margin: 1.5rem 0 0;
+  padding: 1rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--primary-color) 16%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--primary-color) 16%, transparent);
+}
+
+.case-study-toc-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.case-study-toc-link:hover {
+  opacity: 1;
+  color: var(--hover-color);
+}
 
 .case-study-meta {
   width: min(760px, 100%);
