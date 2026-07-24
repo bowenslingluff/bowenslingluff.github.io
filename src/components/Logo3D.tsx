@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import logoUrl from '../assets/3Dlogo.gltf?url';
 
 const LETTER_COLORS: Record<string, string> = {
-  B: '#5E46FC',
+  B: '#9191E9',
   S: '#FE7F2D',
 };
 
