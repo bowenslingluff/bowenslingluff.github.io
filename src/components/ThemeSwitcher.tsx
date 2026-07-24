@@ -25,6 +25,7 @@ const ThemeSwitcher: React.FC = () => {
 
   return (
     <div className="mode">
+      
       <label className="theme" onClick={toggleTheme}>
         {theme === 'dark' ? (
           <i className="bi bi-sun"></i>
