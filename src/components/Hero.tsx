@@ -34,41 +34,41 @@ const Hero: React.FC = () => {
   return (
     <div className="container1">
       <ScrollElement name="home" id="home" className="home">
-        <Navbar />
-        <ThemeSwitcher />
+        <div className="hero-navbar">
+          <div className="hero-navbar-logo" aria-label="Interactive 3D scene">
+            <Logo3D />
+          </div>
+          <Navbar />
+          <ThemeSwitcher />
+        </div>
         <header className="hero-header">
-          <div className="hero-visuals">
-            <div className="spline-wrapper" aria-label="Interactive 3D scene">
-              <Logo3D />
-            </div>
-            <div className="hero-copy">
-              <h1 className="hero-title">
-                <span className="hero-title-typing">Bowen Slingluff</span>
-              </h1>
-              <p className="hero-kicker">Full Stack Developer & Designer</p>
-              
-              <div className="social-links-container">
-                <a href="https://www.linkedin.com/in/bowen-slingluff" target="_blank" className="link" rel="noreferrer">
-                  <i className="bi bi-linkedin"></i>
-                  <span className="linktext">linkedin.com/in/bowen-slingluff</span>
-                </a>
-                <a href="https://www.github.com/bowenslingluff" target="_blank" className="link" rel="noreferrer">
-                  <i className="bi bi-github"></i>
-                  <span className="linktext">github.com/bowenslingluff</span>
-                </a>
-                <a href="https://www.instagram.com/bslingluff14/" target="_blank" className="link" rel="noreferrer">
-                  <i className="bi bi-instagram"></i>
-                  <span className="linktext">instagram.com/bslingluff14</span>
-                </a>
-                <a href="https://twitter.com/SlingluffBowen" target="_blank" className="link" rel="noreferrer">
-                  <i className="bi bi-twitter-x"></i>
-                  <span className="linktext">twitter.com/SlingluffBowen</span>
-                </a>
-                <a href="https://music.apple.com/profile/bcslingluff" target="_blank" className="link" rel="noreferrer">
-                  <i className="bi bi-music-note-beamed"></i>
-                  <span className="linktext">music.apple.com/profile/bcslingluff</span>
-                </a>
-              </div>
+          <div className="hero-copy">
+            <h1 className="hero-title">
+              <span className="hero-title-typing">Bowen Slingluff</span>
+            </h1>
+            <p className="hero-kicker">Full Stack Developer & Designer</p>
+
+            <div className="social-links-container">
+              <a href="https://www.linkedin.com/in/bowen-slingluff" target="_blank" className="link" rel="noreferrer">
+                <i className="bi bi-linkedin"></i>
+                <span className="linktext">linkedin.com/in/bowen-slingluff</span>
+              </a>
+              <a href="https://www.github.com/bowenslingluff" target="_blank" className="link" rel="noreferrer">
+                <i className="bi bi-github"></i>
+                <span className="linktext">github.com/bowenslingluff</span>
+              </a>
+              <a href="https://www.instagram.com/bslingluff14/" target="_blank" className="link" rel="noreferrer">
+                <i className="bi bi-instagram"></i>
+                <span className="linktext">instagram.com/bslingluff14</span>
+              </a>
+              <a href="https://twitter.com/SlingluffBowen" target="_blank" className="link" rel="noreferrer">
+                <i className="bi bi-twitter-x"></i>
+                <span className="linktext">twitter.com/SlingluffBowen</span>
+              </a>
+              <a href="https://music.apple.com/profile/bcslingluff" target="_blank" className="link" rel="noreferrer">
+                <i className="bi bi-music-note-beamed"></i>
+                <span className="linktext">music.apple.com/profile/bcslingluff</span>
+              </a>
             </div>
           </div>
         </header>

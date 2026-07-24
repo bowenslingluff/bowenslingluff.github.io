@@ -16,6 +16,7 @@ const SCROLL_BOOST_MAX = 6; // rad/sec cap so a fast fling doesn't spin wildly
 const SCROLL_BOOST_DECAY = 2.5; // per-second decay rate back toward 0 while still scrolling
 const SCROLL_IDLE_DELAY = 150; // ms with no scroll events before considered "stopped"
 const RETURN_SPEED = 1; // per-second exponential rate easing back to the start orientation
+const CAMERA_FILL = 0.9; // <1 pulls the camera closer than a tight fit, so the model reads larger in the same canvas
 
 interface ScrollSpinState {
   boost: number;
@@ -66,7 +67,7 @@ function LogoModel({ scrollStateRef }: { scrollStateRef: React.RefObject<ScrollS
   useLayoutEffect(() => {
     const perspectiveCamera = camera as THREE.PerspectiveCamera;
     const fitDistance = model.radius / Math.sin((perspectiveCamera.fov * Math.PI) / 360);
-    camera.position.set(0, model.radius * 0.25, fitDistance * 1);
+    camera.position.set(0, model.radius * 0.25, fitDistance * CAMERA_FILL);
     camera.near = model.radius * 0.01;
     camera.far = fitDistance * 10;
     camera.lookAt(0, 0, 0);
