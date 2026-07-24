@@ -7,20 +7,27 @@ import ThemeSwitcher from './ThemeSwitcher';
 import Navbar from './Navbar';
 import Logo3D from './Logo3D';
 import SectionScribbleDivider from './SectionScribbleDivider';
-import featuredProjectImage from '../assets/portfolio/articleOne_platform_image_9.png';
+
+interface SocialLink {
+  name: string;
+  href: string;
+  label: string;
+  iconSrc: string;
+}
+
+const socialLinks: SocialLink[] = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/bowen-slingluff', label: 'linkedin.com/in/bowen-slingluff', iconSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png' },
+  { name: 'GitHub', href: 'https://www.github.com/bowenslingluff', label: 'github.com/bowenslingluff', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+  { name: 'Instagram', href: 'https://www.instagram.com/bslingluff14/', label: 'instagram.com/bslingluff14', iconSrc: 'https://cdn-icons-png.flaticon.com/512/1384/1384063.png' },
+  { name: 'X', href: 'https://twitter.com/SlingluffBowen', label: 'twitter.com/SlingluffBowen', iconSrc: 'https://cdn.simpleicons.org/x' },
+  { name: 'Apple Music', href: 'https://music.apple.com/profile/bcslingluff', label: 'music.apple.com/profile/bcslingluff', iconSrc: 'https://cdn.simpleicons.org/applemusic' },
+];
 
 const Hero: React.FC = () => {
   const [isScrollArrowVisible, setIsScrollArrowVisible] = useState(true);
-  const [isFeaturedProjectVisible, setIsFeaturedProjectVisible] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrollArrowVisible(window.scrollY <= 50);
-
-      const distanceFromBottom =
-        document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
-      setIsFeaturedProjectVisible(distanceFromBottom > 80);
-    };
+    const handleScroll = () => setIsScrollArrowVisible(window.scrollY <= 50);
 
     handleScroll();
     window.addEventListener('scroll', handleScroll);
@@ -46,30 +53,27 @@ const Hero: React.FC = () => {
             <h1 className="hero-title">
               <span className="hero-title-typing">Bowen Slingluff</span>
             </h1>
-            <p className="hero-kicker">Full Stack Developer & Designer</p>
+            <p className="hero-kicker"><span className="hero-kicker-developer">Full Stack Software Engineer</span> | <span className="hero-kicker-designer">UX/UI Designer</span> | <span className="hero-kicker-ai">AI-Native Developer</span></p>
 
             <div className="social-links-container">
-              <a href="https://www.linkedin.com/in/bowen-slingluff" target="_blank" className="link" rel="noreferrer">
-                <i className="bi bi-linkedin"></i>
-                <span className="linktext">linkedin.com/in/bowen-slingluff</span>
-              </a>
-              <a href="https://www.github.com/bowenslingluff" target="_blank" className="link" rel="noreferrer">
-                <i className="bi bi-github"></i>
-                <span className="linktext">github.com/bowenslingluff</span>
-              </a>
-              <a href="https://www.instagram.com/bslingluff14/" target="_blank" className="link" rel="noreferrer">
-                <i className="bi bi-instagram"></i>
-                <span className="linktext">instagram.com/bslingluff14</span>
-              </a>
-              <a href="https://twitter.com/SlingluffBowen" target="_blank" className="link" rel="noreferrer">
-                <i className="bi bi-twitter-x"></i>
-                <span className="linktext">twitter.com/SlingluffBowen</span>
-              </a>
-              <a href="https://music.apple.com/profile/bcslingluff" target="_blank" className="link" rel="noreferrer">
-                <i className="bi bi-music-note-beamed"></i>
-                <span className="linktext">music.apple.com/profile/bcslingluff</span>
-              </a>
+              {socialLinks.map((social) => (
+                <a key={social.name} href={social.href} target="_blank" className="link" rel="noreferrer">
+                  <img src={social.iconSrc} alt={social.name} className="social-link-icon" />
+                  <span className="linktext">{social.label}</span>
+                </a>
+              ))}
             </div>
+
+            <p className="hero-statement">
+              I build clean, thoughtful web products from idea to launch, blending solid engineering with an eye for design.
+            </p>
+
+            <p className="hero-featured-project">
+              Check out my latest work:{' '}
+              <RouterLink to="/portfolio/articleone_platform" className="featured-project-link">
+                articleOne
+              </RouterLink>
+            </p>
           </div>
         </header>
 
@@ -82,18 +86,6 @@ const Hero: React.FC = () => {
         >
           View Experience ↓
         </Link>
-
-        <RouterLink
-          to="/portfolio/articleone_platform"
-          className={`hero-featured-project${isFeaturedProjectVisible ? '' : ' hero-featured-project--hidden'}`}
-        >
-          <img
-            src={featuredProjectImage}
-            alt="ArticleOne Platform case study"
-            className="hero-featured-project-image"
-          />
-          <span className="hero-featured-project-text">Featured Project: <br></br> articleOne</span>
-        </RouterLink>
 
         <SectionScribbleDivider />
       </ScrollElement>
