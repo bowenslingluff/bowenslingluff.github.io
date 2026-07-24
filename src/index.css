@@ -2012,9 +2012,54 @@ footer {
 
 /* Case study layout (ProjectGallery) */
 
-.case-study-hero-meta {
-  width: min(480px, 100%);
+.case-study-meta {
+  width: min(760px, 100%);
   margin: 0.5rem 0 0;
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+  text-align: left;
+}
+
+.case-study-meta-info {
+  margin: 0;
+}
+
+.case-study-meta-info .portfolio-section-meta-row {
+  border-top: none;
+}
+
+.case-study-meta-info .portfolio-section-meta-row:last-child {
+  border-bottom: none;
+}
+
+.case-study-meta-tools {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.8rem 0;
+}
+
+.case-study-meta-tools-label {
+  flex: 0 0 auto;
+  padding-top: 0.2rem;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--primary-color) 55%, transparent);
+}
+
+.case-study-meta-tools .combined-stack-list {
+  flex: 1;
+}
+
+@media (max-width: 700px) {
+  .case-study-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-meta-tools {
+    flex-direction: column;
+  }
 }
 
 .case-study-section--text-only {

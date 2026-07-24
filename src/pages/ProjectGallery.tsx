@@ -65,10 +65,16 @@ type CaseStudySection = {
   images?: string[];
 };
 
+type StackItem = {
+  name: string;
+  iconSrc?: string;
+};
+
 type CaseStudy = {
   title: string;
   subtitle: string;
   meta: { label: string; value: string; href?: string }[];
+  tools: StackItem[];
   sections: CaseStudySection[];
 };
 
@@ -79,8 +85,16 @@ const caseStudyData: Record<string, CaseStudy> = {
     meta: [
       { label: 'Role', value: 'Full Stack Developer' },
       { label: 'Timeline', value: 'Oct 2025 - Present' },
-      { label: 'Scope', value: 'Product Strategy, UI/UX Design, Full Stack Development' },
       { label: 'Link', value: 'articleone.ai ↗', href: 'https://articleone.ai' },
+    ],
+    tools: [
+      { name: 'Figma', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+      { name: 'React', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+      { name: 'TypeScript', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+      { name: 'Python', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+      { name: 'Django', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg' },
+      { name: 'PostgreSQL', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg' },
+      { name: 'Docker', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg' },
     ],
     sections: [
       {
@@ -238,20 +252,40 @@ const ProjectGallery: React.FC = () => {
           <h1 className="portfolio-page-title">{caseStudy.title}</h1>
           <p className="portfolio-page-subtitle">{caseStudy.subtitle}</p>
 
-          <dl className="portfolio-section-meta case-study-hero-meta">
-            {caseStudy.meta.map((row) => (
-              <div className="portfolio-section-meta-row" key={row.label}>
-                <dt>{row.label}</dt>
-                <dd>
-                  {row.href ? (
-                    <a href={row.href} target="_blank" rel="noopener noreferrer" className="portfolio-section-meta-link">
-                      {row.value}
-                    </a>
-                  ) : row.value}
-                </dd>
+          <div className="case-study-meta">
+            <dl className="portfolio-section-meta case-study-meta-info">
+              {caseStudy.meta.map((row) => (
+                <div className="portfolio-section-meta-row" key={row.label}>
+                  <dt>{row.label}</dt>
+                  <dd>
+                    {row.href ? (
+                      <a href={row.href} target="_blank" rel="noopener noreferrer" className="portfolio-section-meta-link">
+                        {row.value}
+                      </a>
+                    ) : row.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="case-study-meta-tools">
+              <span className="case-study-meta-tools-label">Tools</span>
+              <div className="combined-stack-list">
+                {caseStudy.tools.map((tool) => (
+                  <div key={tool.name} className="combined-stack-item">
+                    <div className="combined-stack-icon-slot" aria-hidden="true">
+                      {tool.iconSrc ? (
+                        <img src={tool.iconSrc} alt="" className="combined-stack-icon" />
+                      ) : (
+                        <span className="combined-stack-icon-placeholder"></span>
+                      )}
+                    </div>
+                    <span className="combined-stack-label">{tool.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </dl>
+            </div>
+          </div>
         </div>
 
         <div className="portfolio-sections">
