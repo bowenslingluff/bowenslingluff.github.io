@@ -56,7 +56,13 @@ const Hero: React.FC = () => {
         <header className="hero-header">
           <h1 className="hero-title">
             <span className="hero-title-typing">
-              <span className="hero-title-typing-text">Bowen<br></br>Slingluff</span>
+              <span className="hero-title-typing-line hero-title-typing-line--1">
+                <span className="hero-title-typing-text">Bowen</span>
+              </span>
+              <br />
+              <span className="hero-title-typing-line hero-title-typing-line--2">
+                <span className="hero-title-typing-text">Slingluff</span>
+              </span>
             </span>
           </h1>
           <p className="hero-kicker"><span className="hero-kicker-developer">Full Stack Software Engineer</span> | <span className="hero-kicker-designer">UX/UI Designer</span> | <span className="hero-kicker-ai">AI-Native Developer</span></p>

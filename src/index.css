@@ -932,14 +932,26 @@ footer {
 .hero-title-typing {
     display: inline-block;
     position: relative;
+    vertical-align: bottom;
+}
+
+.hero-title-typing-line {
+    display: inline-block;
+    position: relative;
     width: 0;
     overflow: hidden;
     white-space: nowrap;
     vertical-align: bottom;
-    animation: hero-type 1.9s steps(15, end) 0.25s forwards;
 }
 
-.hero-title-typing::after {
+/* "Bowen" types first, then the caret hands off to "Slingluff" on the
+   second line - each line's duration/steps are proportioned to its own
+   character count so the combined effect still finishes at 2.15s. */
+.hero-title-typing-line--1 {
+    animation: hero-type-line1 0.68s steps(5, end) 0.25s forwards;
+}
+
+.hero-title-typing-line--1::after {
     content: "";
     position: absolute;
     right: -0.06em;
@@ -947,15 +959,40 @@ footer {
     width: 0.11em;
     height: 0.9em;
     background: currentColor;
-    animation: hero-caret 0.8s step-end 0.25s 5, hero-caret-off 0s linear 2.15s forwards;
+    animation: hero-caret 0.8s step-end 0.25s 5, hero-caret-off 0s linear 0.93s forwards;
 }
 
-@keyframes hero-type {
+.hero-title-typing-line--2 {
+    animation: hero-type-line2 1.22s steps(9, end) 0.93s forwards;
+}
+
+.hero-title-typing-line--2::after {
+    content: "";
+    position: absolute;
+    right: -0.06em;
+    top: 0.06em;
+    width: 0.11em;
+    height: 0.9em;
+    background: currentColor;
+    opacity: 0;
+    animation: hero-caret 0.8s step-end 0.93s 5, hero-caret-off 0s linear 2.15s forwards;
+}
+
+@keyframes hero-type-line1 {
     from {
         width: 0;
     }
     to {
-        width: 15ch;
+        width: 5ch;
+    }
+}
+
+@keyframes hero-type-line2 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 9ch;
     }
 }
 
@@ -1265,14 +1302,15 @@ footer {
         line-height: 1.05;
     }
 
-    .hero-title-typing {
+    .hero-title-typing-line {
         width: auto;
         overflow: visible;
         white-space: normal;
         animation: none;
     }
 
-    .hero-title-typing::after {
+    .hero-title-typing-line--1::after,
+    .hero-title-typing-line--2::after {
         animation: none;
         opacity: 0;
     }
@@ -1720,12 +1758,13 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-title-typing {
+    .hero-title-typing-line {
         width: auto;
         animation: none;
     }
 
-    .hero-title-typing::after {
+    .hero-title-typing-line--1::after,
+    .hero-title-typing-line--2::after {
         animation: none;
         opacity: 0;
     }
