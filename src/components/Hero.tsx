@@ -40,6 +40,7 @@ const Hero: React.FC = () => {
 
   return (
     <div className="container1">
+
       <ScrollElement name="home" id="home" className="home">
         <div className="hero-navbar">
           <div className="hero-navbar-logo" aria-label="Interactive 3D scene">
@@ -47,25 +48,20 @@ const Hero: React.FC = () => {
           </div>
           <Navbar />
           <div className="navbar-right">
-            <div className="social-links-container">
-              {socialLinks.map((social) => (
-                <a key={social.name} href={social.href} target="_blank" className="link" rel="noreferrer">
-                  <img src={social.iconSrc} alt={social.name} className="social-link-icon" />
-                  <span className="linktext">{social.label}</span>
-                </a>
-              ))}
-            </div>
             <ThemeSwitcher />
           </div>
         </div>
+
+
         <header className="hero-header">
+          <h1 className="hero-title">
+            <span className="hero-title-typing">
+              <span className="hero-title-typing-text">Bowen Slingluff</span>
+            </span>
+          </h1>
+          <p className="hero-kicker"><span className="hero-kicker-developer">Full Stack Software Engineer</span> | <span className="hero-kicker-designer">UX/UI Designer</span> | <span className="hero-kicker-ai">AI-Native Developer</span></p>
+
           <div className="hero-copy">
-            <h1 className="hero-title">
-              <span className="hero-title-typing">Bowen Slingluff</span>
-            </h1>
-
-              <p className="hero-kicker"><span className="hero-kicker-developer">Full Stack Software Engineer</span> | <span className="hero-kicker-designer">UX/UI Designer</span> | <span className="hero-kicker-ai">AI-Native Developer</span></p>
-
             <p className="hero-statement">
               I bridge software, AI, and design to build intuitive, modern user experiences for the web.
             </p>
@@ -77,6 +73,22 @@ const Hero: React.FC = () => {
               </RouterLink>
             </p>
           </div>
+
+        <div className="social-links-container">
+          {socialLinks.map((social, index) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              className="link"
+              rel="noreferrer"
+              style={{ '--social-link-index': index } as React.CSSProperties}
+            >
+              <img src={social.iconSrc} alt={social.name} className="social-link-icon" />
+              <span className="linktext">{social.label}</span>
+            </a>
+          ))}
+        </div>
         </header>
 
         <Link
