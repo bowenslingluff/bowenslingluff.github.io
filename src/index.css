@@ -750,7 +750,7 @@ footer {
 }
 
 .social-links-container {
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-left: auto;
   display: flex;
   flex-direction: row;
@@ -802,7 +802,6 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    padding-bottom: 1.5rem;
 }
 
 .navbar-right {
@@ -850,7 +849,7 @@ footer {
 }
 
 .hero-statement {
-    margin: 5rem auto 0;
+    margin: 3rem auto 0;
     max-width: 100%;
     font-size: 1.05rem;
     line-height: 1.5;
@@ -910,7 +909,7 @@ footer {
 }
 
 .hero-featured-project {
-    margin: 5rem 5rem 0;
+    margin: 3rem 5rem 0;
     font-size: 1rem;
     color: var(--primary-color);
     opacity: 0;
@@ -1242,9 +1241,13 @@ footer {
         height: 44px;
     }
 
+    .hero-header {
+        align-items: center;
+        margin-top: 0;
+    }
+
     .social-links-container {
-        top: 4rem;
-        left: 0.85rem;
+        margin-left: 0;
     }
 
     .hero-copy {
@@ -1255,6 +1258,23 @@ footer {
     .hero-title,
     .hero-subtitle {
         text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(2.25rem, 11vw, 10rem);
+        line-height: 1.05;
+    }
+
+    .hero-title-typing {
+        width: auto;
+        overflow: visible;
+        white-space: normal;
+        animation: none;
+    }
+
+    .hero-title-typing::after {
+        animation: none;
+        opacity: 0;
     }
 
     .hero-current-project {
