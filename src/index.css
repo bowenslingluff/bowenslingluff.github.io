@@ -819,7 +819,7 @@ footer {
     color: var(--primary-color);
     font-family: monospace;
     opacity: 0;
-    animation: hero-item-in 0.8s ease-out 2.3s forwards;
+    animation: hero-item-in 0.8s ease-out 2.4s forwards;
 }
 
 .hero-kicker-developer {
@@ -913,7 +913,7 @@ footer {
     font-size: 1rem;
     color: var(--primary-color);
     opacity: 0;
-    animation: hero-item-in 0.6s ease-out 2.9s forwards;
+    animation: hero-item-in 0.6s ease-out 2.8s forwards;
     margin-left: auto;
 }
 
@@ -1125,10 +1125,6 @@ footer {
 
 .section-kicker {
     margin: 0.3rem 0 0.5rem 0;
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 700;
     opacity: 0.65;
 }
 
@@ -1431,7 +1427,9 @@ footer {
 
 .combined-stack-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(72px, max-content);
     gap: 0.6rem;
 }
 
@@ -1856,7 +1854,7 @@ footer {
   width: min(1280px, 94vw);
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -1878,17 +1876,23 @@ footer {
   color: var(--hover-color);
 }
 
+.project-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.project-page-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .portfolio-page-title {
   font-family: 'Courier New', Courier, monospace;
   font-size: clamp(2rem, 6vw, 3.5rem);
   font-weight: 400;
-  margin: 0 0 0.5rem;
-}
-
-.portfolio-page-subtitle {
-  color: var(--primary-color);
-  font-size: 1rem;
-  margin: 0;
+  margin: 0 0 0.2rem;
 }
 
 /* Portfolio sections (case study format) */
@@ -1898,7 +1902,7 @@ footer {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 2rem;
   padding-bottom: 3rem;
 }
 
@@ -1946,6 +1950,7 @@ footer {
   font-size: 0.92rem;
   line-height: 1.6;
   color: var(--primary-color);
+  text-indent: 40px;
 }
 
 .portfolio-section-external-link {
@@ -1966,6 +1971,7 @@ footer {
 
 .portfolio-section-meta {
   margin: 0 0 1.5rem;
+  width: 300px;
 }
 
 .portfolio-section-meta-row {
@@ -2103,7 +2109,6 @@ footer {
   align-items: center;
   gap: 0.5rem 1.75rem;
   width: min(760px, 100%);
-  margin: 1.5rem 0 0;
   padding: 1rem 0;
   border-top: 1px solid color-mix(in srgb, var(--primary-color) 16%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--primary-color) 16%, transparent);
@@ -2126,10 +2131,8 @@ footer {
 }
 
 .case-study-meta {
-  width: min(760px, 100%);
-  margin: 0.5rem 0 0;
-  display: grid;
-  grid-template-columns: minmax(220px, 320px) 1fr;
+  width: 100%;
+  display: flex;
   gap: clamp(2rem, 4vw, 3.5rem);
   align-items: start;
   text-align: left;
@@ -2152,6 +2155,7 @@ footer {
   align-items: flex-start;
   gap: 1rem;
   padding: 0.8rem 0;
+  width: 420px;
 }
 
 .case-study-meta-tools-label {
@@ -2180,7 +2184,117 @@ footer {
 }
 
 .case-study-section--text-only .portfolio-section-info {
-  max-width: 640px;
+  max-width: 890px;
+}
+
+/* Case study "process" mini case study (e.g. UX/UI Design section) */
+
+.case-study-process-section {
+  gap: 2.5rem;
+}
+
+.case-study-process-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  margin: 1.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid color-mix(in srgb, var(--primary-color) 16%, transparent);
+}
+
+.case-study-process-highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.case-study-process-highlight-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--primary-color) 55%, transparent);
+}
+
+.case-study-process-highlight-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.case-study-process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.case-study-process-step {
+  display: grid;
+  grid-template-columns: minmax(240px, 380px) 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.case-study-process-step:nth-child(even) {
+  grid-template-columns: 1fr minmax(240px, 380px);
+}
+
+.case-study-process-step:nth-child(even) .case-study-process-step-text {
+  order: 2;
+}
+
+.case-study-process-step:nth-child(even) .case-study-process-step-image {
+  order: 1;
+}
+
+.case-study-process-step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.case-study-process-step-number {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+.case-study-process-step-label {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--primary-color) 55%, transparent);
+}
+
+.case-study-process-step-heading {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.case-study-process-step-desc {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.case-study-process-step-image {
+  flex: none;
+}
+
+@media (max-width: 760px) {
+  .case-study-process-step,
+  .case-study-process-step:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-process-step:nth-child(even) .case-study-process-step-text,
+  .case-study-process-step:nth-child(even) .case-study-process-step-image {
+    order: initial;
+  }
 }
 
 /* Project gallery page */

@@ -44,6 +44,19 @@ type CaseStudySection = {
   heading: string;
   paragraphs: string[];
   images?: string[];
+  // Optional richer layout for a single section that deserves its own mini
+  // case study (e.g. a deep-dive on design process) instead of the standard
+  // text + image-grid format used by every other section.
+  process?: {
+    highlights: { label: string; value: string }[];
+    steps: {
+      id: string;
+      label: string;
+      heading: string;
+      description: string;
+      image?: string;
+    }[];
+  };
 };
 
 type StackItem = {
@@ -53,7 +66,6 @@ type StackItem = {
 
 type CaseStudy = {
   title: string;
-  subtitle: string;
   meta: { label: string; value: string; href?: string }[];
   tools: StackItem[];
   // Optional table-of-contents linking to a subset of sections below (used for
@@ -137,7 +149,6 @@ const makeSections = (imgs: {
 const caseStudyData: Record<string, CaseStudy> = {
   articleone_website: {
     title: 'ArticleOne Website',
-    subtitle: 'Marketing site and public-facing product pages for ArticleOne.',
     meta: [
       { label: 'Role', value: 'UX/UI Designer & Front-End Developer' },
       { label: 'Timeline', value: 'Oct 2025 - Present' },
@@ -160,20 +171,23 @@ const caseStudyData: Record<string, CaseStudy> = {
   },
   articleone_platform: {
     title: 'ArticleOne Platform',
-    subtitle: 'Internal platform and dashboard UI for policy intelligence workflows.',
     meta: [
       { label: 'Role', value: 'Full Stack Developer' },
       { label: 'Timeline', value: 'Oct 2025 - Present' },
       { label: 'Link', value: 'articleone.ai ↗', href: 'https://articleone.ai' },
     ],
     tools: [
-      { name: 'Figma', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-      { name: 'React', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-      { name: 'TypeScript', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
       { name: 'Python', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
       { name: 'Django', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg' },
+      { name: 'HTML5', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+      { name: 'CSS3', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+      { name: 'JavaScript', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+      { name: 'Figma', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+      { name: 'MongoDB', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },      
       { name: 'PostgreSQL', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg' },
       { name: 'Docker', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg' },
+      { name: 'GCP', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg' },
+      { name: 'Postman', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
     ],
     // Bigger project made up of several concepts, all shown on one page with a jump-nav.
     nav: [
@@ -186,23 +200,52 @@ const caseStudyData: Record<string, CaseStudy> = {
       {
         id: 'overview',
         kicker: 'Overview',
-        heading: 'Project overview',
+        heading: 'Project Overview',
         paragraphs: [
-          'Placeholder — this project spans multiple areas of the platform: UI components, user workflows, agentic AI workflows, and backend tools/data integrations. Use the links above to jump to each area.',
+          'I worked on the Django application and UX/UI for articleOne, an AI-native policy research platform. The platform is designed to streamline workflows for policy analysts, policy researchers, and congressional staff. I built, improved, and maintained core modules of the product, handling everything from UI component designs to data integrations to cloud deployments.',
         ],
       },
       {
         id: 'ui-components',
-        kicker: 'Concept / 01',
-        heading: 'UI Components',
+        kicker: '01',
+        heading: 'UX/UI Design',
         paragraphs: [
-          'Placeholder — walk through the core UI components and design system built for the platform (navigation, data tables, forms, etc.) and the principles behind them.',
+          'Placeholder — a closer look at how I approached the UX/UI design for the platform: understanding how analysts and researchers actually worked, building a consistent component system around that, and refining it against real usage.',
         ],
-        images: [p1, p2, p8],
+        process: {
+          highlights: [
+            { label: 'Approach', value: 'Component-driven design system' },
+            { label: 'Focus', value: 'Clarity for dense policy data' },
+            { label: 'Outcome', value: 'Reusable UI kit across the platform' },
+          ],
+          steps: [
+            {
+              id: 'discover',
+              label: '01 — Discover',
+              heading: 'Understanding the workflows',
+              description: 'Placeholder — describe the research into how policy analysts, researchers, and congressional staff actually worked, and the pain points that shaped the design direction.',
+              image: p1,
+            },
+            {
+              id: 'design',
+              label: '02 — Design',
+              heading: 'Building the component system',
+              description: 'Placeholder — walk through the core UI components and design system built for the platform (navigation, data tables, forms, etc.) and the principles behind them.',
+              image: p2,
+            },
+            {
+              id: 'refine',
+              label: '03 — Refine',
+              heading: 'Iterating against real use',
+              description: 'Placeholder — describe how the components were tested and refined against real policy data and user feedback, and what changed as a result.',
+              image: p8,
+            },
+          ],
+        },
       },
       {
         id: 'user-workflows',
-        kicker: 'Concept / 02',
+        kicker: '02',
         heading: 'User Workflows',
         paragraphs: [
           'Placeholder — map out the key user workflows and journeys the platform supports, and the UX decisions that shaped how users move through them.',
@@ -211,8 +254,8 @@ const caseStudyData: Record<string, CaseStudy> = {
       },
       {
         id: 'agentic-workflows',
-        kicker: 'Concept / 03',
-        heading: 'Agentic AI Workflows',
+        kicker: '03',
+        heading: 'Agentic AI',
         paragraphs: [
           'Placeholder — describe the agentic AI workflows designed for the platform: how users interact with AI agents, review and verify outputs, and stay in control.',
         ],
@@ -220,8 +263,8 @@ const caseStudyData: Record<string, CaseStudy> = {
       },
       {
         id: 'backend-integrations',
-        kicker: 'Concept / 04',
-        heading: 'Backend Tools & Data Integrations',
+        kicker: '04',
+        heading: 'Backend Tools & Data',
         paragraphs: [
           'Placeholder — describe the internal tools and data integrations built to support the platform (data pipelines, admin tooling, third-party integrations).',
         ],
@@ -247,7 +290,6 @@ const caseStudyData: Record<string, CaseStudy> = {
   },
   amplified_naturals: {
     title: 'Amplified Naturals',
-    subtitle: 'E-commerce and brand presence for Amplified Naturals.',
     meta: [
       { label: 'Role', value: 'Web Developer' },
       { label: 'Timeline', value: 'Oct 2025 - Feb 2026' },
@@ -268,7 +310,6 @@ const caseStudyData: Record<string, CaseStudy> = {
   },
   finnfunn: {
     title: 'FinnFunn',
-    subtitle: 'Event website for FinnFunn Weekend 2026, built with Wix.',
     meta: [
       { label: 'Role', value: 'Website Designer' },
       { label: 'Timeline', value: 'Jun 2026 - Present' },
@@ -373,15 +414,6 @@ const ProjectGallery: React.FC = () => {
         <RouterLink to="/" className="portfolio-back-link">← Home</RouterLink>
         <RouterLink to="/portfolio" className="portfolio-back-link">← Portfolio</RouterLink>
         <h1 className="portfolio-page-title">{caseStudy.title}</h1>
-        <p className="portfolio-page-subtitle">{caseStudy.subtitle}</p>
-
-        {!!caseStudy.nav?.length && (
-          <nav className="case-study-toc" aria-label="Project sections">
-            {caseStudy.nav.map((item) => (
-              <a key={item.id} href={`#${item.id}`} className="case-study-toc-link">{item.label}</a>
-            ))}
-          </nav>
-        )}
 
         <div className="case-study-meta">
           <dl className="portfolio-section-meta case-study-meta-info">
@@ -400,7 +432,7 @@ const ProjectGallery: React.FC = () => {
           </dl>
 
           <div className="case-study-meta-tools">
-            <span className="case-study-meta-tools-label">Tools</span>
+            <span className="case-study-meta-tools-label">Tool Stack</span>
             <div className="combined-stack-list">
               {caseStudy.tools.map((tool) => (
                 <div key={tool.name} className="combined-stack-item">
@@ -420,43 +452,107 @@ const ProjectGallery: React.FC = () => {
       </div>
 
       <div className="portfolio-sections">
-        {caseStudy.sections.map((section, i) => (
-          <div
-            key={section.id}
-            id={section.id}
-            className={`portfolio-section${!section.images?.length ? ' case-study-section--text-only' : ''}`}
-          >
-            <div
-              className="portfolio-section-info"
-              ref={(el) => { infoRefs.current[i] = el; }}
-            >
-              <p className="section-kicker">{section.kicker}</p>
-              <h2 className="portfolio-section-title">{section.heading}</h2>
-              {section.paragraphs.map((para, pi) => (
-                <p className="portfolio-section-desc" key={pi}>{para}</p>
-              ))}
-            </div>
+        {caseStudy.sections.map((section, i) => {
+          if (section.process) {
+            return (
+              <div
+                key={section.id}
+                id={section.id}
+                className="portfolio-section case-study-section--text-only case-study-process-section"
+              >
+                <div
+                  className="portfolio-section-info"
+                  ref={(el) => { infoRefs.current[i] = el; }}
+                >
+                  <p className="section-kicker">{section.kicker}</p>
+                  <h2 className="portfolio-section-title">{section.heading}</h2>
+                  {section.paragraphs.map((para, pi) => (
+                    <p className="portfolio-section-desc" key={pi}>{para}</p>
+                  ))}
 
-            {!!section.images?.length && (
-              <div className="portfolio-section-gallery">
-                {section.images.map((src, j) => {
-                  imgCounter += 1;
-                  const imgIndex = imgCounter;
-                  return (
-                    <div key={j} className="portfolio-section-img-link" onClick={(e) => openLightbox(src, e)}>
-                      <img
-                        src={src}
-                        alt={`${caseStudy.title} ${section.heading} example ${j + 1}`}
-                        className="portfolio-section-img"
-                        ref={(el) => { imgRefs.current[imgIndex] = el; }}
-                      />
+                  {!!section.process.highlights.length && (
+                    <div className="case-study-process-highlights">
+                      {section.process.highlights.map((h) => (
+                        <div className="case-study-process-highlight" key={h.label}>
+                          <span className="case-study-process-highlight-label">{h.label}</span>
+                          <span className="case-study-process-highlight-value">{h.value}</span>
+                        </div>
+                      ))}
                     </div>
-                  );
-                })}
+                  )}
+                </div>
+
+                <div className="case-study-process-steps">
+                  {section.process.steps.map((step, si) => {
+                    if (step.image) imgCounter += 1;
+                    const imgIndex = imgCounter;
+                    return (
+                      <div className="case-study-process-step" key={step.id}>
+                        <div className="case-study-process-step-text">
+                          <span className="case-study-process-step-number">{String(si + 1).padStart(2, '0')}</span>
+                          <p className="case-study-process-step-label">{step.label}</p>
+                          <h3 className="case-study-process-step-heading">{step.heading}</h3>
+                          <p className="case-study-process-step-desc">{step.description}</p>
+                        </div>
+                        {step.image && (
+                          <div
+                            className="case-study-process-step-image portfolio-section-img-link"
+                            onClick={(e) => openLightbox(step.image!, e)}
+                          >
+                            <img
+                              src={step.image}
+                              alt={`${caseStudy.title} ${step.heading} example`}
+                              className="portfolio-section-img"
+                              ref={(el) => { imgRefs.current[imgIndex] = el; }}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            )}
-          </div>
-        ))}
+            );
+          }
+
+          return (
+            <div
+              key={section.id}
+              id={section.id}
+              className={`portfolio-section${!section.images?.length ? ' case-study-section--text-only' : ''}`}
+            >
+              <div
+                className="portfolio-section-info"
+                ref={(el) => { infoRefs.current[i] = el; }}
+              >
+                <p className="section-kicker">{section.kicker}</p>
+                <h2 className="portfolio-section-title">{section.heading}</h2>
+                {section.paragraphs.map((para, pi) => (
+                  <p className="portfolio-section-desc" key={pi}>{para}</p>
+                ))}
+              </div>
+
+              {!!section.images?.length && (
+                <div className="portfolio-section-gallery">
+                  {section.images.map((src, j) => {
+                    imgCounter += 1;
+                    const imgIndex = imgCounter;
+                    return (
+                      <div key={j} className="portfolio-section-img-link" onClick={(e) => openLightbox(src, e)}>
+                        <img
+                          src={src}
+                          alt={`${caseStudy.title} ${section.heading} example ${j + 1}`}
+                          className="portfolio-section-img"
+                          ref={(el) => { imgRefs.current[imgIndex] = el; }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {lightboxSrc && originRect && (
