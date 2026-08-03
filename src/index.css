@@ -944,38 +944,15 @@ footer {
     vertical-align: bottom;
 }
 
-/* "Bowen" types first, then the caret hands off to "Slingluff" on the
-   second line - each line's duration/steps are proportioned to its own
-   character count so the combined effect still finishes at 2.15s. */
+/* "Bowen" types first, then "Slingluff" follows on the second line -
+   each line's duration/steps are proportioned to its own character
+   count so the combined effect still finishes at 2.15s. */
 .hero-title-typing-line--1 {
     animation: hero-type-line1 0.68s steps(5, end) 0.25s forwards;
 }
 
-.hero-title-typing-line--1::after {
-    content: "";
-    position: absolute;
-    right: -0.06em;
-    top: 0.06em;
-    width: 0.11em;
-    height: 0.9em;
-    background: currentColor;
-    animation: hero-caret 0.8s step-end 0.25s 5, hero-caret-off 0s linear 0.93s forwards;
-}
-
 .hero-title-typing-line--2 {
     animation: hero-type-line2 1.22s steps(9, end) 0.93s forwards;
-}
-
-.hero-title-typing-line--2::after {
-    content: "";
-    position: absolute;
-    right: -0.06em;
-    top: 0.06em;
-    width: 0.11em;
-    height: 0.9em;
-    background: currentColor;
-    opacity: 0;
-    animation: hero-caret 0.8s step-end 0.93s 5, hero-caret-off 0s linear 2.15s forwards;
 }
 
 @keyframes hero-type-line1 {
@@ -993,22 +970,6 @@ footer {
     }
     to {
         width: 9ch;
-    }
-}
-
-@keyframes hero-caret {
-    0%,
-    100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes hero-caret-off {
-    to {
-        opacity: 0;
     }
 }
 
@@ -1303,12 +1264,6 @@ footer {
         overflow: visible;
         white-space: normal;
         animation: none;
-    }
-
-    .hero-title-typing-line--1::after,
-    .hero-title-typing-line--2::after {
-        animation: none;
-        opacity: 0;
     }
 
     .hero-current-project {
@@ -1761,12 +1716,6 @@ footer {
         animation: none;
     }
 
-    .hero-title-typing-line--1::after,
-    .hero-title-typing-line--2::after {
-        animation: none;
-        opacity: 0;
-    }
-
     .social-links-container .link {
         opacity: 1;
         animation: none;
@@ -2187,93 +2136,57 @@ footer {
   max-width: 890px;
 }
 
-/* Case study "process" mini case study (e.g. UX/UI Design section) */
+/* Case study "deep dive" mini case study (UX/UI Design Case Studies) */
 
-.case-study-process-section {
-  gap: 2.5rem;
+.case-study-deepdive-section {
+  gap: 2rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--primary-color) 14%, transparent);
 }
 
-.case-study-process-highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem 2.5rem;
-  margin: 1.5rem 0 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid color-mix(in srgb, var(--primary-color) 16%, transparent);
-}
-
-.case-study-process-highlight {
+.case-study-deepdive-body {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+  max-width: 890px;
 }
 
-.case-study-process-highlight-label {
-  font-size: 0.72rem;
+.case-study-deepdive-chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.case-study-deepdive-chapter-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: color-mix(in srgb, var(--primary-color) 55%, transparent);
+  letter-spacing: 0.05em;
+  opacity: 0.85;
 }
 
-.case-study-process-highlight-value {
-  font-size: 0.9rem;
-  font-weight: 600;
+.case-study-deepdive-chapter-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(220px, 320px);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
 }
 
-.case-study-process-steps {
+.case-study-deepdive-fields {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.5rem, 5vw, 4rem);
+  gap: 1.25rem;
 }
 
-.case-study-process-step {
-  display: grid;
-  grid-template-columns: minmax(240px, 380px) 1fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: center;
-}
-
-.case-study-process-step:nth-child(even) {
-  grid-template-columns: 1fr minmax(240px, 380px);
-}
-
-.case-study-process-step:nth-child(even) .case-study-process-step-text {
-  order: 2;
-}
-
-.case-study-process-step:nth-child(even) .case-study-process-step-image {
-  order: 1;
-}
-
-.case-study-process-step-text {
+.case-study-deepdive-field {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
 
-.case-study-process-step-number {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  opacity: 0.5;
-}
-
-.case-study-process-step-label {
-  margin: 0;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: color-mix(in srgb, var(--primary-color) 55%, transparent);
-}
-
-.case-study-process-step-heading {
-  margin: 0.2rem 0 0.4rem;
-  font-size: 1.15rem;
-  font-weight: 700;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.case-study-process-step-desc {
+.case-study-deepdive-field p {
   margin: 0;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.9rem;
@@ -2281,19 +2194,61 @@ footer {
   opacity: 0.9;
 }
 
-.case-study-process-step-image {
-  flex: none;
+.case-study-deepdive-field-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--primary-color) 55%, transparent);
 }
 
-@media (max-width: 760px) {
-  .case-study-process-step,
-  .case-study-process-step:nth-child(even) {
-    grid-template-columns: 1fr;
-  }
+.case-study-deepdive-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
 
-  .case-study-process-step:nth-child(even) .case-study-process-step-text,
-  .case-study-process-step:nth-child(even) .case-study-process-step-image {
-    order: initial;
+.case-study-deepdive-image-slot {
+  width: 100%;
+}
+
+.case-study-deepdive-image-slot--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  border: 1px dashed color-mix(in srgb, var(--primary-color) 30%, transparent);
+  background: color-mix(in srgb, var(--projects-bg) 6%, transparent);
+}
+
+.case-study-deepdive-image-slot-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: color-mix(in srgb, var(--primary-color) 55%, transparent);
+}
+
+.case-study-deepdive-final-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.case-study-deepdive-final-gallery .case-study-deepdive-image-slot {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .case-study-deepdive-chapter-grid {
+    grid-template-columns: 1fr;
   }
 }
 

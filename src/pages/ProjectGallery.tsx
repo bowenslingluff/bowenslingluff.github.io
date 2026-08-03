@@ -44,19 +44,45 @@ type CaseStudySection = {
   heading: string;
   paragraphs: string[];
   images?: string[];
-  // Optional richer layout for a single section that deserves its own mini
-  // case study (e.g. a deep-dive on design process) instead of the standard
-  // text + image-grid format used by every other section.
-  process?: {
-    highlights: { label: string; value: string }[];
-    steps: {
-      id: string;
-      label: string;
-      heading: string;
-      description: string;
-      image?: string;
-    }[];
-  };
+  // Optional full design-process case study (Problem & Goal -> Research ->
+  // Planning -> Decisions -> Component System -> Final Product -> Conclusion)
+  // used in place of the standard text + image-grid format for a section.
+  deepDive?: DeepDiveCaseStudy;
+};
+
+type DeepDiveDecision = {
+  title: string;
+  description: string;
+};
+
+type DeepDiveCaseStudy = {
+  kicker: string;
+  title: string;
+  // 2. The Problem & The Goal
+  problem: string;
+  goal: string;
+  // 3. Research & Discovery
+  insights: string[];
+  targetUser: string;
+  discoveryImage?: string;
+  // 4. Planning & User Flow
+  informationArchitecture: string;
+  coreFlow: string;
+  flowImage?: string;
+  // 5. Design Decisions & Tradeoffs
+  decisions: DeepDiveDecision[];
+  tradeoff: string;
+  decisionsImage?: string;
+  // 6. Component System & Visual Identity
+  designSystem: string;
+  componentsFocus: string;
+  componentsImage?: string;
+  // 7. The Final Product
+  walkthrough: string[];
+  finalImages?: string[];
+  // 8. Conclusion & Takeaways
+  impact: string;
+  takeaway: string;
 };
 
 type StackItem = {
@@ -199,92 +225,171 @@ const caseStudyData: Record<string, CaseStudy> = {
     sections: [
       {
         id: 'overview',
-        kicker: 'Overview',
+        kicker: '',
         heading: 'Project Overview',
         paragraphs: [
           'I worked on the Django application and UX/UI for articleOne, an AI-native policy research platform. The platform is designed to streamline workflows for policy analysts, policy researchers, and congressional staff. I built, improved, and maintained core modules of the product, handling everything from UI component designs to data integrations to cloud deployments.',
         ],
       },
       {
-        id: 'ui-components',
-        kicker: '01',
-        heading: 'UX/UI Design',
+        id: 'design-case-studies',
+        kicker: '',
+        heading: 'UX/UI Design Case Studies',
         paragraphs: [
-          'Placeholder — a closer look at how I approached the UX/UI design for the platform: understanding how analysts and researchers actually worked, building a consistent component system around that, and refining it against real usage.',
+          'Placeholder — a closer look at four pieces of the platform: the UX/UI thinking behind each one, from the problem it solved to the interface that shipped.',
         ],
-        process: {
-          highlights: [
-            { label: 'Approach', value: 'Component-driven design system' },
-            { label: 'Focus', value: 'Clarity for dense policy data' },
-            { label: 'Outcome', value: 'Reusable UI kit across the platform' },
+      },
+      {
+        id: 'ui-components',
+        kicker: '',
+        heading: '',
+        paragraphs: [],
+        deepDive: {
+          kicker: 'Case Study / 01',
+          title: 'UI Components & Design System',
+          problem: 'Placeholder — describe the user pain point or business challenge that made a dedicated component system necessary (e.g. inconsistent UI, slow feature development, users getting lost in dense data).',
+          goal: 'Placeholder — describe what success looked like (e.g. a consistent, reusable component library that speeds up development and gives the platform a coherent visual language).',
+          insights: [
+            'Placeholder — top insight #1 from research, analytics, or existing product feedback.',
+            'Placeholder — top insight #2 from research, analytics, or existing product feedback.',
+            'Placeholder — top insight #3 from research, analytics, or existing product feedback.',
           ],
-          steps: [
-            {
-              id: 'discover',
-              label: '01 — Discover',
-              heading: 'Understanding the workflows',
-              description: 'Placeholder — describe the research into how policy analysts, researchers, and congressional staff actually worked, and the pain points that shaped the design direction.',
-              image: p1,
-            },
-            {
-              id: 'design',
-              label: '02 — Design',
-              heading: 'Building the component system',
-              description: 'Placeholder — walk through the core UI components and design system built for the platform (navigation, data tables, forms, etc.) and the principles behind them.',
-              image: p2,
-            },
-            {
-              id: 'refine',
-              label: '03 — Refine',
-              heading: 'Iterating against real use',
-              description: 'Placeholder — describe how the components were tested and refined against real policy data and user feedback, and what changed as a result.',
-              image: p8,
-            },
+          targetUser: 'Placeholder — one-sentence summary of the target user (e.g. policy analysts and researchers working across dense, data-heavy screens).',
+          discoveryImage: p1,
+          informationArchitecture: 'Placeholder — briefly explain how the component library and platform UI were organized.',
+          coreFlow: 'Placeholder — walk through the main path a user takes to accomplish their goal using these components.',
+          flowImage: p2,
+          decisions: [
+            { title: 'Placeholder decision title', description: 'Placeholder — describe a specific feature or screen and why it was designed this way.' },
+            { title: 'Placeholder decision title', description: 'Placeholder — highlight another major choice, e.g. navigation, data visualization, or accessibility.' },
           ],
+          tradeoff: 'Placeholder — discuss a moment where you had to compromise, and why the tradeoff was worth it.',
+          decisionsImage: undefined,
+          designSystem: 'Placeholder — briefly mention typography, color palette, and spacing rules.',
+          componentsFocus: 'Placeholder — explain how specific interactive elements (buttons, cards, modals, loading states) were designed to be reusable and intuitive.',
+          componentsImage: p8,
+          walkthrough: [
+            'Placeholder — paragraph 1 guiding the reader through the component system as if they were a user seeing it for the first time.',
+            'Placeholder — paragraph 2 highlighting the polish and consistency across the platform.',
+          ],
+          finalImages: [],
+          impact: 'Placeholder — share measurable outcomes if available, or results from internal/user testing.',
+          takeaway: 'Placeholder — one or two sentences on a personal takeaway from building this system.',
         },
       },
       {
         id: 'user-workflows',
-        kicker: '02',
-        heading: 'User Workflows',
-        paragraphs: [
-          'Placeholder — map out the key user workflows and journeys the platform supports, and the UX decisions that shaped how users move through them.',
-        ],
-        images: [p9, p10, p11],
+        kicker: '',
+        heading: '',
+        paragraphs: [],
+        deepDive: {
+          kicker: 'Case Study / 02',
+          title: 'User Workflows',
+          problem: 'Placeholder — describe the user pain point or business challenge around how users moved through the platform (e.g. a confusing multi-step research process).',
+          goal: 'Placeholder — describe what success looked like (e.g. a streamlined workflow with a clear sense of progress and fewer dead ends).',
+          insights: [
+            'Placeholder — top insight #1 from research, analytics, or existing product feedback.',
+            'Placeholder — top insight #2 from research, analytics, or existing product feedback.',
+            'Placeholder — top insight #3 from research, analytics, or existing product feedback.',
+          ],
+          targetUser: 'Placeholder — one-sentence summary of the target user (e.g. researchers moving from a broad search down to a specific finding).',
+          discoveryImage: p9,
+          informationArchitecture: 'Placeholder — briefly explain how the workflow was organized into steps or stages.',
+          coreFlow: 'Placeholder — walk through the main path a user takes to complete a workflow end to end.',
+          flowImage: p10,
+          decisions: [
+            { title: 'Placeholder decision title', description: 'Placeholder — describe a specific step or screen and why it was designed this way.' },
+            { title: 'Placeholder decision title', description: 'Placeholder — highlight another major choice, e.g. how progress or state was surfaced to the user.' },
+          ],
+          tradeoff: 'Placeholder — discuss a moment where you had to compromise on the flow, and why the tradeoff was worth it.',
+          decisionsImage: undefined,
+          designSystem: 'Placeholder — briefly mention any workflow-specific patterns (steppers, status indicators, etc.) and how they extended the base design system.',
+          componentsFocus: 'Placeholder — explain how workflow-specific components (e.g. step indicators, review panels) were designed to be reusable and intuitive.',
+          componentsImage: p11,
+          walkthrough: [
+            'Placeholder — paragraph 1 guiding the reader through a full workflow as if they were a user experiencing it for the first time.',
+            'Placeholder — paragraph 2 highlighting the polish and seamlessness of the finished flow.',
+          ],
+          finalImages: [],
+          impact: 'Placeholder — share measurable outcomes if available, or results from internal/user testing.',
+          takeaway: 'Placeholder — one or two sentences on a personal takeaway from designing this workflow.',
+        },
       },
       {
         id: 'agentic-workflows',
-        kicker: '03',
-        heading: 'Agentic AI',
-        paragraphs: [
-          'Placeholder — describe the agentic AI workflows designed for the platform: how users interact with AI agents, review and verify outputs, and stay in control.',
-        ],
-        images: [p12, p13, p14],
+        kicker: '',
+        heading: '',
+        paragraphs: [],
+        deepDive: {
+          kicker: 'Case Study / 03',
+          title: 'Agentic AI Workflows',
+          problem: 'Placeholder — describe the user pain point or business challenge around trusting and controlling AI-generated output.',
+          goal: 'Placeholder — describe what success looked like (e.g. users can direct an AI agent and verify its output with confidence).',
+          insights: [
+            'Placeholder — top insight #1 from research, analytics, or existing product feedback.',
+            'Placeholder — top insight #2 from research, analytics, or existing product feedback.',
+            'Placeholder — top insight #3 from research, analytics, or existing product feedback.',
+          ],
+          targetUser: 'Placeholder — one-sentence summary of the target user (e.g. staff who need AI assistance but must be able to verify every claim).',
+          discoveryImage: p12,
+          informationArchitecture: 'Placeholder — briefly explain how agent interactions were organized in the UI (e.g. chat, review queue, source citations).',
+          coreFlow: 'Placeholder — walk through the main path a user takes to task an agent, review its output, and confirm or correct it.',
+          flowImage: p13,
+          decisions: [
+            { title: 'Placeholder decision title', description: 'Placeholder — describe a specific feature or screen (e.g. citation highlighting) and why it was designed this way.' },
+            { title: 'Placeholder decision title', description: 'Placeholder — highlight another major choice, e.g. how agent confidence or uncertainty was communicated.' },
+          ],
+          tradeoff: 'Placeholder — discuss a moment where you had to compromise between automation and user control, and why the tradeoff was worth it.',
+          decisionsImage: undefined,
+          designSystem: 'Placeholder — briefly mention any AI-specific visual patterns (loading/thinking states, confidence indicators) and how they extended the base design system.',
+          componentsFocus: 'Placeholder — explain how AI-specific components (e.g. agent messages, source cards, review actions) were designed to be reusable and intuitive.',
+          componentsImage: p14,
+          walkthrough: [
+            'Placeholder — paragraph 1 guiding the reader through an agentic workflow as if they were a user experiencing it for the first time.',
+            'Placeholder — paragraph 2 highlighting how the design kept the user in control while still feeling fast.',
+          ],
+          finalImages: [],
+          impact: 'Placeholder — share measurable outcomes if available, or results from internal/user testing.',
+          takeaway: 'Placeholder — one or two sentences on a personal takeaway from designing this experience.',
+        },
       },
       {
         id: 'backend-integrations',
-        kicker: '04',
-        heading: 'Backend Tools & Data',
-        paragraphs: [
-          'Placeholder — describe the internal tools and data integrations built to support the platform (data pipelines, admin tooling, third-party integrations).',
-        ],
-        images: [p15, p16, p17, p18],
-      },
-      {
-        id: 'outcomes',
-        kicker: 'Outcomes',
-        heading: 'Impact',
-        paragraphs: [
-          'Placeholder — share measurable outcomes (metrics, launch details) and any qualitative feedback from users or stakeholders.',
-        ],
-      },
-      {
-        id: 'reflection',
-        kicker: 'Reflection',
-        heading: 'What I learned',
-        paragraphs: [
-          "Placeholder — reflect on what worked, what you'd do differently, and what you took away from the project.",
-        ],
+        kicker: '',
+        heading: '',
+        paragraphs: [],
+        deepDive: {
+          kicker: 'Case Study / 04',
+          title: 'Backend Tools & Data',
+          problem: 'Placeholder — describe the internal pain point or business challenge these backend tools and integrations needed to solve (e.g. manual data entry, disconnected data sources).',
+          goal: 'Placeholder — describe what success looked like (e.g. reliable data pipelines and admin tooling that internal teams could trust and use without hand-holding).',
+          insights: [
+            'Placeholder — top insight #1 from research, analytics, or existing internal feedback.',
+            'Placeholder — top insight #2 from research, analytics, or existing internal feedback.',
+            'Placeholder — top insight #3 from research, analytics, or existing internal feedback.',
+          ],
+          targetUser: 'Placeholder — one-sentence summary of the target user (e.g. internal admins and engineers managing platform data).',
+          discoveryImage: p15,
+          informationArchitecture: 'Placeholder — briefly explain how the admin tooling and data integrations were organized.',
+          coreFlow: 'Placeholder — walk through the main path an internal user takes to manage or troubleshoot data through these tools.',
+          flowImage: p16,
+          decisions: [
+            { title: 'Placeholder decision title', description: 'Placeholder — describe a specific tool or screen and why it was designed this way.' },
+            { title: 'Placeholder decision title', description: 'Placeholder — highlight another major choice, e.g. around data validation, error handling, or observability.' },
+          ],
+          tradeoff: 'Placeholder — discuss a moment where you had to compromise on scope or polish for these internal tools, and why the tradeoff was worth it.',
+          decisionsImage: p17,
+          designSystem: 'Placeholder — briefly mention how the internal tooling reused or diverged from the platform’s core design system.',
+          componentsFocus: 'Placeholder — explain how internal-tooling components (e.g. data tables, status badges, pipeline monitors) were designed to be reusable and intuitive.',
+          componentsImage: p18,
+          walkthrough: [
+            'Placeholder — paragraph 1 guiding the reader through the backend tooling as if they were an internal user experiencing it for the first time.',
+            'Placeholder — paragraph 2 highlighting how the tooling made data integrations easier to manage.',
+          ],
+          finalImages: [],
+          impact: 'Placeholder — share measurable outcomes if available, or results from internal usage.',
+          takeaway: 'Placeholder — one or two sentences on a personal takeaway from building these tools.',
+        },
       },
     ],
   },
@@ -298,8 +403,8 @@ const caseStudyData: Record<string, CaseStudy> = {
     tools: [
       { name: 'Shopify', iconSrc: 'https://cdn.simpleicons.org/shopify' },
       { name: 'HTML5', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+      { name: 'Liquid', iconSrc: 'https://repository-images.githubusercontent.com/504051433/dbab2f42-150c-4eaf-8e30-4bce79758e16' },
       { name: 'CSS3', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-      { name: 'JavaScript', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
     ],
     sections: makeSections({
       problem: [n1],
@@ -328,6 +433,195 @@ const caseStudyData: Record<string, CaseStudy> = {
     }),
   },
 };
+
+type RegisterImage = (src: string) => {
+  ref: (el: HTMLImageElement | null) => void;
+  onClick: (e: React.MouseEvent) => void;
+};
+
+const DeepDiveImage: React.FC<{
+  src?: string;
+  alt: string;
+  caption: string;
+  registerImage: RegisterImage;
+}> = ({ src, alt, caption, registerImage }) => {
+  if (!src) {
+    return (
+      <div className="case-study-deepdive-image-slot case-study-deepdive-image-slot--empty">
+        <span className="case-study-deepdive-image-slot-label">{caption}</span>
+      </div>
+    );
+  }
+
+  const { ref, onClick } = registerImage(src);
+  return (
+    <div className="case-study-deepdive-image-slot portfolio-section-img-link" onClick={onClick}>
+      <img src={src} alt={alt} className="portfolio-section-img" ref={ref} />
+    </div>
+  );
+};
+
+const DeepDiveSection: React.FC<{
+  dd: DeepDiveCaseStudy;
+  caseStudyTitle: string;
+  infoRef: (el: HTMLDivElement | null) => void;
+  registerImage: RegisterImage;
+}> = ({ dd, caseStudyTitle, infoRef, registerImage }) => (
+  <>
+    <div className="portfolio-section-info" ref={infoRef}>
+      <p className="section-kicker">{dd.kicker}</p>
+      <h2 className="portfolio-section-title">{dd.title}</h2>
+    </div>
+
+    <div className="case-study-deepdive-body">
+      <section className="case-study-deepdive-chapter">
+        <h3 className="case-study-deepdive-chapter-title">The Problem &amp; The Goal</h3>
+        <div className="case-study-deepdive-fields">
+          <div className="case-study-deepdive-field">
+            <span className="case-study-deepdive-field-label">The Problem</span>
+            <p>{dd.problem}</p>
+          </div>
+          <div className="case-study-deepdive-field">
+            <span className="case-study-deepdive-field-label">The Goal</span>
+            <p>{dd.goal}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="case-study-deepdive-chapter">
+        <h3 className="case-study-deepdive-chapter-title">Research &amp; Discovery</h3>
+        <div className="case-study-deepdive-chapter-grid">
+          <div className="case-study-deepdive-fields">
+            <div className="case-study-deepdive-field">
+              <span className="case-study-deepdive-field-label">Key Insights</span>
+              <ul className="case-study-deepdive-list">
+                {dd.insights.map((insight, idx) => <li key={idx}>{insight}</li>)}
+              </ul>
+            </div>
+            <div className="case-study-deepdive-field">
+              <span className="case-study-deepdive-field-label">Who is this for?</span>
+              <p>{dd.targetUser}</p>
+            </div>
+          </div>
+          <DeepDiveImage
+            src={dd.discoveryImage}
+            alt={`${caseStudyTitle} ${dd.title} discovery artifact`}
+            caption="Discovery artifact"
+            registerImage={registerImage}
+          />
+        </div>
+      </section>
+
+      <section className="case-study-deepdive-chapter">
+        <h3 className="case-study-deepdive-chapter-title">Planning &amp; User Flow</h3>
+        <div className="case-study-deepdive-chapter-grid">
+          <div className="case-study-deepdive-fields">
+            <div className="case-study-deepdive-field">
+              <span className="case-study-deepdive-field-label">Information Architecture</span>
+              <p>{dd.informationArchitecture}</p>
+            </div>
+            <div className="case-study-deepdive-field">
+              <span className="case-study-deepdive-field-label">The Core Flow</span>
+              <p>{dd.coreFlow}</p>
+            </div>
+          </div>
+          <DeepDiveImage
+            src={dd.flowImage}
+            alt={`${caseStudyTitle} ${dd.title} user flow`}
+            caption="User flow / wireframes"
+            registerImage={registerImage}
+          />
+        </div>
+      </section>
+
+      <section className="case-study-deepdive-chapter">
+        <h3 className="case-study-deepdive-chapter-title">Design Decisions &amp; Tradeoffs</h3>
+        <div className="case-study-deepdive-chapter-grid">
+          <div className="case-study-deepdive-fields">
+            {dd.decisions.map((decision, idx) => (
+              <div className="case-study-deepdive-field" key={idx}>
+                <span className="case-study-deepdive-field-label">{`Key UX/UI Decision ${idx + 1}: ${decision.title}`}</span>
+                <p>{decision.description}</p>
+              </div>
+            ))}
+            <div className="case-study-deepdive-field">
+              <span className="case-study-deepdive-field-label">The Tradeoff</span>
+              <p>{dd.tradeoff}</p>
+            </div>
+          </div>
+          <DeepDiveImage
+            src={dd.decisionsImage}
+            alt={`${caseStudyTitle} ${dd.title} before and after comparison`}
+            caption="Before / after comparison"
+            registerImage={registerImage}
+          />
+        </div>
+      </section>
+
+      <section className="case-study-deepdive-chapter">
+        <h3 className="case-study-deepdive-chapter-title">Component System &amp; Visual Identity</h3>
+        <div className="case-study-deepdive-chapter-grid">
+          <div className="case-study-deepdive-fields">
+            <div className="case-study-deepdive-field">
+              <span className="case-study-deepdive-field-label">Design System / UI Kit</span>
+              <p>{dd.designSystem}</p>
+            </div>
+            <div className="case-study-deepdive-field">
+              <span className="case-study-deepdive-field-label">Focus on Components</span>
+              <p>{dd.componentsFocus}</p>
+            </div>
+          </div>
+          <DeepDiveImage
+            src={dd.componentsImage}
+            alt={`${caseStudyTitle} ${dd.title} component states`}
+            caption="Component states (default / hover / active)"
+            registerImage={registerImage}
+          />
+        </div>
+      </section>
+
+      <section className="case-study-deepdive-chapter">
+        <h3 className="case-study-deepdive-chapter-title">The Final Product</h3>
+        {dd.walkthrough.map((para, idx) => (
+          <p className="portfolio-section-desc" key={idx}>{para}</p>
+        ))}
+        <div className="case-study-deepdive-final-gallery">
+          {dd.finalImages?.length ? (
+            dd.finalImages.map((src, idx) => (
+              <DeepDiveImage
+                key={idx}
+                src={src}
+                alt={`${caseStudyTitle} ${dd.title} final screen ${idx + 1}`}
+                caption="High-fidelity screenshot"
+                registerImage={registerImage}
+              />
+            ))
+          ) : (
+            <DeepDiveImage
+              alt={`${caseStudyTitle} ${dd.title} final screens`}
+              caption="High-fidelity platform screenshots"
+              registerImage={registerImage}
+            />
+          )}
+        </div>
+      </section>
+
+      <section className="case-study-deepdive-chapter">
+        <h3 className="case-study-deepdive-chapter-title">Conclusion &amp; Takeaways</h3>
+        <div className="case-study-deepdive-fields">
+          <div className="case-study-deepdive-field">
+            <span className="case-study-deepdive-field-label">Impact / Results</span>
+            <p>{dd.impact}</p>
+          </div>
+          <div className="case-study-deepdive-field">
+            <span className="case-study-deepdive-field-label">What I Learned</span>
+            <p>{dd.takeaway}</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </>
+);
 
 const PAD = 48;
 
@@ -407,6 +701,15 @@ const ProjectGallery: React.FC = () => {
   };
 
   let imgCounter = -1;
+  const registerImage: RegisterImage = (src) => {
+    imgCounter += 1;
+    const imgIndex = imgCounter;
+    return {
+      ref: (el) => { imgRefs.current[imgIndex] = el; },
+      onClick: (e) => openLightbox(src, e),
+    };
+  };
+
   return (
     <div className="gradient-background portfolio-page">
       <ThemeSwitcher />
@@ -453,64 +756,19 @@ const ProjectGallery: React.FC = () => {
 
       <div className="portfolio-sections">
         {caseStudy.sections.map((section, i) => {
-          if (section.process) {
+          if (section.deepDive) {
             return (
               <div
                 key={section.id}
                 id={section.id}
-                className="portfolio-section case-study-section--text-only case-study-process-section"
+                className="portfolio-section case-study-section--text-only case-study-deepdive-section"
               >
-                <div
-                  className="portfolio-section-info"
-                  ref={(el) => { infoRefs.current[i] = el; }}
-                >
-                  <p className="section-kicker">{section.kicker}</p>
-                  <h2 className="portfolio-section-title">{section.heading}</h2>
-                  {section.paragraphs.map((para, pi) => (
-                    <p className="portfolio-section-desc" key={pi}>{para}</p>
-                  ))}
-
-                  {!!section.process.highlights.length && (
-                    <div className="case-study-process-highlights">
-                      {section.process.highlights.map((h) => (
-                        <div className="case-study-process-highlight" key={h.label}>
-                          <span className="case-study-process-highlight-label">{h.label}</span>
-                          <span className="case-study-process-highlight-value">{h.value}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div className="case-study-process-steps">
-                  {section.process.steps.map((step, si) => {
-                    if (step.image) imgCounter += 1;
-                    const imgIndex = imgCounter;
-                    return (
-                      <div className="case-study-process-step" key={step.id}>
-                        <div className="case-study-process-step-text">
-                          <span className="case-study-process-step-number">{String(si + 1).padStart(2, '0')}</span>
-                          <p className="case-study-process-step-label">{step.label}</p>
-                          <h3 className="case-study-process-step-heading">{step.heading}</h3>
-                          <p className="case-study-process-step-desc">{step.description}</p>
-                        </div>
-                        {step.image && (
-                          <div
-                            className="case-study-process-step-image portfolio-section-img-link"
-                            onClick={(e) => openLightbox(step.image!, e)}
-                          >
-                            <img
-                              src={step.image}
-                              alt={`${caseStudy.title} ${step.heading} example`}
-                              className="portfolio-section-img"
-                              ref={(el) => { imgRefs.current[imgIndex] = el; }}
-                            />
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+                <DeepDiveSection
+                  dd={section.deepDive}
+                  caseStudyTitle={caseStudy.title}
+                  infoRef={(el) => { infoRefs.current[i] = el; }}
+                  registerImage={registerImage}
+                />
               </div>
             );
           }
