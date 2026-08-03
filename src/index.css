@@ -811,7 +811,7 @@ footer {
 }
 
 .hero-kicker {
-    margin: 0 0 0 4px;
+    margin: 0 0 0 2.7rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-size: 1.3rem;
@@ -820,6 +820,10 @@ footer {
     font-family: monospace;
     opacity: 0;
     animation: hero-item-in 0.8s ease-out 2.4s forwards;
+}
+
+.hero-title-typing-line--2 {
+    margin-left: 2rem;
 }
 
 .hero-kicker-developer {
