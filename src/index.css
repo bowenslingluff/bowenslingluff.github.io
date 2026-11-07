@@ -1794,6 +1794,133 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .home {
+        width: min(92vw, 100%);
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .hero-kicker {
+        margin: 0;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        letter-spacing: 0.04em;
+        text-align: center;
+        word-break: break-word;
+    }
+
+    .hero-kicker-developer,
+    .hero-kicker-designer,
+    .hero-kicker-ai {
+        display: block;
+        margin: 0.1rem auto;
+        width: fit-content;
+        max-width: 100%;
+    }
+
+    .hero-copy {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-statement,
+    .hero-featured-project {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-title {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .hero-title-typing-line--2 {
+        margin-left: 0;
+    }
+
+    .social-links-container {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .social-links-container .link {
+        margin: 0;
+    }
+
+    .link {
+        margin: 0;
+    }
+
+    .combined-about-block,
+    .combined-stack-block,
+    .combined-tools-block,
+    .combined-contact-block {
+        padding: 1rem 0.8rem;
+    }
+
+    .combined-about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .combined-about-image {
+        width: min(220px, 72vw);
+        height: auto;
+        aspect-ratio: 3 / 4;
+        margin: 0 auto 0.25rem;
+    }
+
+    .combined-about-text {
+        width: 100%;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: normal;
+    }
+
+    .combined-stack-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-flow: row;
+        grid-auto-columns: unset;
+        width: 100%;
+    }
+
+    .combined-stack-item {
+        min-width: 0;
+    }
+
+    .combined-stack-label {
+        font-size: 0.58rem;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+
+    .combined-contact-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .combined-contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+}
 /* Portfolio page */
 .portfolio-page {
   min-height: 100vh;

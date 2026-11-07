@@ -11,6 +11,8 @@ import uvaLogo from "../assets/uva.png";
 import sideshot from "../assets/sideshot.jpg";
 import finnfunnLogo from "../assets/FinnFunn.jpg";
 import amplifiedLogo from "../assets/amplified_naturals.avif";
+import crdLogo from "../assets/crd_logo.jpeg";
+
 
 // Type for each experience entry
 interface ExperienceItem {
@@ -36,7 +38,14 @@ interface StackItem {
 // Your data here (add logo files under src/assets if you want them to appear)
 const experiences: ExperienceItem[] = [
   {
-    date: "Oct 2025 - Present",
+    date: "Aug 2026 - Present",
+    company: "Charles River Development, a State Street Company",
+    title: "Software Engineer I",
+    logoUrl: crdLogo,
+    description: "Front office financial software used by investment firms to manage over $59 Trillion USD."
+  },
+  {
+    date: "Oct 2025 - Aug 2026",
     company: "Manitou Research",
     title: "Full Stack Developer",
     logoUrl: manitouLogo,
@@ -123,27 +132,33 @@ const contactDetails: ContactDetail[] = [
 ];
 
 const stackItems: StackItem[] = [
+  { name: 'Java', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+  { name: 'React', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'SQL Server', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg' },
   { name: 'Python', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
   { name: 'HTML/CSS', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'Django', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg' },
   { name: 'MongoDB', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg' },
   { name: 'PostgreSQL', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg' }, 
-  { name: 'Java', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
   { name: 'Spring Boot', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
   { name: 'Docker', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg' },
   { name: 'JavaScript', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'React', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Git', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+  
 ];
 
 const toolItems: StackItem[] = [
-  { name: 'GitHub', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
   { name: 'VS Code', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+  { name: 'IntelliJ IDEA', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg' },
+  { name: 'GitHub', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
   { name: 'Claude Code', iconSrc: 'https://img.icons8.com/fluent/512w/claude-ai.png'},
-  { name: 'Figma', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   { name: 'Perplexity', iconSrc: 'https://img.icons8.com/fluent/512w/perplexity-ai.png' },
   { name: 'Google Gemini', iconSrc: 'https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/gemini-color.png' },
+  { name: 'ChatGPT', iconSrc: 'https://img.icons8.com/?size=100&id=FBO05Dys9QCg&format=png&color=000000' },
   { name: 'Postman', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
   { name: 'GCP', iconSrc: 'https://img.icons8.com/fluent/512w/google-cloud.png' },
+  { name: 'Azure', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg' },
+  { name: 'Figma', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   { name: 'Shopify', iconSrc: 'https://cdn.simpleicons.org/shopify' },
   { name: 'Wix', iconSrc: 'https://cdn.simpleicons.org/wix' },
 ];
@@ -159,7 +174,7 @@ const Experience: React.FC = () => {
           <div className="combined-about-content">
             <img src={sideshot} alt="Bowen" className="combined-about-image" />
             <p className="about-text combined-about-text">
-              Hey, I’m Bowen. I graduated from the University of Virginia in May 2026, where I studied Computer Science and Data Science. I enjoy doing web development, designing beautiful interfaces and crafting AI solutions. Currently, I'm at Manitou Research building articleOne, an AI-native policy platform for congressional officials. My hobbies include golfing, hooping, lifting, cooking, and vibe coding. I am an outdoor adventure enthusiast.
+              Hey, I’m Bowen. I graduated from the University of Virginia in May 2026, where I studied Computer Science and Data Science. Now I'm at Charles River Development working on Charles River Everywhere, web software for financial advisors and portfolio managers. I'm interested in the financial services industry and the technologies that support financial professionals. Outside of the office, my hobbies include golfing, running, lifting, cooking, and reading. I love a good outdoor adventure.
             </p>
           </div>
         </Element>
